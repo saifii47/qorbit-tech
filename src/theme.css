@@ -1,0 +1,11 @@
+/**
+ * Optional theme overrides.
+ * For an exact match to pinnacledesignagency.com, leave this file empty
+ * or keep the original gold values below.
+ */
+:root {
+  --theme-primary: #ffb400;
+  --theme-gradient-start: #f4a21a;
+  --theme-gradient-end: #ffde00;
+  --theme-cta-bg: #f2b519;
+}

@@ -1,0 +1,43 @@
+/* Fix broken relative image paths — point to live CDN assets */
+.navbar-light .navbar-toggler-icon {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/navmobile.svg) !important;
+}
+.bannermain {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/banner-mm.jpg) !important;
+}
+.bannermain:before {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/banner_rightimg.jpg) !important;
+}
+.ctamm {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/cta-bg.jpg) !important;
+}
+.mainpackage {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/package_bg.jpg) !important;
+}
+.bxpack:before {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/theme_ico.png) !important;
+}
+.sec_02 {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/h6-bg-section-01.jpg) !important;
+}
+.footerform {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/footerform-bg.jpg) !important;
+}
+.footercta {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/footercta.jpg) !important;
+}
+.trustpiloticon {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/trustpilot_ico.png) !important;
+}
+.bg_popup {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/popup_bgset.webp) !important;
+}
+.requestbtn::before {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/requestbtn.png) !important;
+}
+.theme_icon {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/themeico.png) !important;
+}
+.portfolio-sec02 {
+  background-image: url(https://www.pinnacledesignagency.com/assets/images/package_bg.jpg) !important;
+}

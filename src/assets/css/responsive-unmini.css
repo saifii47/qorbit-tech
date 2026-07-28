@@ -1,0 +1,123 @@
+@media (max-width:1600px) {
+    
+}
+
+@media (max-width:1440px) {
+    
+    .bannermain img{  max-width: 720px; }
+
+}
+
+@media (max-width:1380px) {
+    
+    .bannermain{ min-height: 100vh; }
+    .bannermain img{  max-width: 650px; }
+
+}
+
+@media (max-width:1280px) {
+    
+}
+
+@media (max-width:1199px) {
+
+    .main-header nav{ margin-right: 10px; }
+    .pricing_dv h3{font-size: 70px;  }
+    .main-header nav li a{ padding: 0 0 0 10px; }
+    .main-header nav ul li{ margin: 0 10px; }
+    .sec_02 h2{ font-size: 40px; }
+    .sec_02 p{ font-size: 16px; line-height: initial; }
+    .itemscount .ct-counter-number span{ font-size: 45px; }
+    .itemscount .ct-counter-title{ font-size: 16px; }
+    .container{ max-width: 95%; }
+    .ct-contact-form{ padding: 30px 25px 30px; }
+    .ct-carousel-inner .item--category a{ font-size: 20px; letter-spacing: 1px; }
+    .portfolio_main{ overflow: hidden; }
+    .bannermain h1{ font-size: 50px; }
+    .bannermain p br{ display: none; }
+    .bannermain img{ max-width: 600px; }
+    .bannermain:after{ font-size: 160px; }
+    .portfolio_main{ overflow: hidden; }
+    .ctamm h2{ font-size: 45px; }
+    .ct-carousel-inner .item--title a{ font-size: 14px; }
+    
+}
+
+@media (max-width:991px) {
+    .mobilehide{ display: none; }
+    .pkg-tab-nav li a{  padding: 10px 28px; font-size: 16px; }
+    .entry-box{ width: 96% !important; }
+    .requestbtn{ padding: 75px 30px 0; }
+    .itemscount .ct-counter-title{ font-size: 15px; }
+    .bannermain:before{ display: none; }
+    .bannermain img{ display: none; }
+    .bannermain{ text-align: center; }
+    .main-header .navbar-toggler { position: absolute; top: 20px; right: 20px; }
+    header .container{ max-width: 100%; }
+    .main-header nav{ margin-right: 0; }
+    .main-header .row [class^="col-"]{ position: initial; }
+    .navbar-light .navbar-toggler{  color: rgb(255 255 255); border-color: rgb(255 255 255); }
+    .calltopdv{ display: none; }
+    header{ z-index: 22; background: #000; }
+    .main-header nav ul li{ display: block; }
+    .mainnavs{ display: block;     padding-top: 20px; }
+    .main-header nav{ display: block; }
+    .main-header nav ul{ display: block; }
+    .main-header nav li a{ display: block; min-height: initial; padding: 16px 0; }
+    .dropdown-menu { position: static; float: none;     }
+    .main-header nav .mainnavs a:hover:before{ display: none; }
+    
+}
+
+@media (max-width:768px) {
+    .filterport ul{ display: flex; flex-flow: wrap; }
+    .filterport ul li{ width: 50%; }
+    .portfolio_main .filterport ul li.active a:before{ width: 70px; right: initial; left: 115%;}
+    .sec_02 h6{ padding-top: 0; }
+    .texture1:before, .bannermain:after{ right: 50%; }
+    .popup_top .text{ display: none; }
+    .ct-image-single.img-hover-added{ margin-top: 50px; }
+    .sec_02{ text-align: center; }
+    .liststeps_li h4{ justify-content: center; }
+    .requestbtn{ max-width: 300px; margin: auto; }
+    .ctamm h2{ font-size: 30px;  line-height: normal; }
+    .btnctas{ display: block; max-width: 100%; padding-top: 10px; }
+    .btnctas .callcta{ justify-content: center; }
+    .btnctas .callcta .call-holder { order: 2; text-align: left !important; margin: 10px 0; }
+    .headingmain h2{ font-size: 35px; }
+    .awards_dv h3{ text-align: center; font-size: 30px; margin-bottom: 15px; }
+    .counterlist{ display: block; }
+    .inner_bann:before{ font-size: 90px; }
+    .bg_popup{ display: none; }
+    .entry-box{ padding: 20px 20px;}
+    .entry-right{ padding: 20px 20px; }
+    
+    
+}
+
+@media (max-width:575px) {
+    .bannermain h1{ font-size: 35px; padding-top: 40px; }
+    .btnstyle-bann a{ display: inline-block; margin: 20px 10px 0px 0; }
+    .btn.btn-slider1{ padding: 0 20px; }
+    .portfolio_main .filterport ul li{ width: 100%; }
+    .portfolio_main .porfolio-dv{ column-count: 1; }
+    .ct-image-single .img-hover{ max-width: 100%; }
+    .ct-image-single img{ width: 100%; height: initial; }
+    .listing_info .icondv{ margin-right: 10px; }
+    .footercta h2{ text-align: center; font-size: 28px; margin-bottom: 15px; }
+    .footercta .text-right{ text-align: center !important; }
+    .copyright p{ text-align: center; }
+    .serv_det{ padding-top: 20px; text-align: center; }
+    .serv_det p{ padding-right: 0;; }
+    .gridexpert{ padding-top: 20px; }
+    .portfolio_main .filterport ul li a{ font-size: 35px; }
+    .porfolio-dv{ margin-top: 10px; }
+    .services_sec02{ overflow: hidden; }
+    .videoplay{ width: 100%; }
+    
+    
+}
+
+@media (max-width:414px) {
+   
+}

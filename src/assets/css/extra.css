@@ -1,0 +1,662 @@
+/* React & UI Customization Fixes */
+
+/* 1. Custom Cursor Styles - Clean Crisp Ring (NO BLUR) */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea,
+  body.custom-cursor-active select,
+  body.custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
+}
+
+.ct-cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ct-cursor-container.is-visible {
+  opacity: 1;
+}
+
+.ct-cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #f2b519;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.05s ease-out, background-color 0.2s ease;
+  box-shadow: 0 0 6px rgba(242, 181, 25, 0.8);
+}
+
+.ct-cursor-follower {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border: 2px solid #f2b519;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.2s ease,
+              height 0.2s ease,
+              border-color 0.2s ease,
+              border-width 0.2s ease;
+  box-shadow: none !important;
+}
+
+/* Hover States for Cursor - Crisp Ring, NO BLUR */
+.ct-cursor-container.is-hovered .ct-cursor-follower {
+  width: 52px;
+  height: 52px;
+  border-color: #f2b519;
+  border-width: 2px;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.ct-cursor-container.is-hovered .ct-cursor-dot {
+  transform: scale(1.4);
+  background-color: #ffffff;
+}
+
+.ct-cursor-container.has-label .ct-cursor-follower {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  border-color: #f2b519;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
+}
+
+.ct-cursor-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f2b519;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.ct-cursor-container.has-label .ct-cursor-label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 2. Base Body & Layout Reset */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: #080808;
+  color: #ffffff;
+}
+
+/* 3. Portfolio Section Styling */
+.portfolio_main {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  padding: 80px 0 !important;
+}
+.portfolio_main .headingmain h6 {
+  color: #555555 !important;
+}
+.portfolio_main .headingmain h2 {
+  color: #000000 !important;
+}
+.portfolio_main .filterport ul li a {
+  color: #000000 !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  text-transform: uppercase !important;
+  position: relative !important;
+  display: inline-block !important;
+}
+.portfolio_main .filterport ul li.active a,
+.portfolio_main .filterport ul li:hover a {
+  color: #f3b618 !important;
+}
+.portfolio_main .filterport ul li a:before {
+  content: '';
+  position: absolute;
+  background: #f3b917;
+  width: 0;
+  height: 2px;
+  top: 50%;
+  left: 110%;
+  transform: translateY(-50%);
+  transition: width 0.3s ease-out;
+}
+.portfolio_main .filterport ul li.active a:before {
+  width: 100px;
+}
+
+/* 4. Stat Counter PC & Mobile Styling */
+.componycounter {
+  background-color: #ffffff !important;
+  padding: 0 0 60px !important;
+}
+.counterlist {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+.itemscount {
+  width: 100% !important;
+  padding: 45px 20px !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  background-color: #141414 !important;
+  transition: all 0.3s ease !important;
+}
+.itemscount.darkblack {
+  background-color: #000000 !important;
+}
+.stat-icon-holder i {
+  color: #f2b519 !important;
+  font-size: 48px !important;
+  margin-bottom: 15px !important;
+  display: inline-block !important;
+}
+.itemscount .ct-counter-number {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 5px !important;
+}
+.itemscount .ct-counter-number span {
+  font-size: 64px !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+.itemscount .ct-counter-title {
+  color: #e0e0e0 !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  font-family: 'Poppins', sans-serif !important;
+  white-space: nowrap !important;
+}
+
+.counter-slider-wrapper .slick-dots {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 30px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.counter-slider-wrapper .slick-dots li {
+  margin: 0 6px !important;
+}
+.counter-slider-wrapper .slick-dots li button {
+  width: 14px !important;
+  height: 8px !important;
+  border-radius: 6px !important;
+  background: #e0e0e0 !important;
+  border: none !important;
+  font-size: 0 !important;
+  padding: 0 !important;
+  transition: all 0.3s ease !important;
+}
+.counter-slider-wrapper .slick-dots li.slick-active button {
+  background: #f2b519 !important;
+  width: 32px !important;
+}
+
+/* 5. Testimonials Section Styling */
+.testimonials-sec {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  padding: 80px 0 90px !important;
+  position: relative !important;
+}
+.testimonials-sec .headingmain h6 {
+  color: #555555 !important;
+}
+.testimonials-sec .headingmain h2 {
+  color: #000000 !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+.ct-testimonial {
+  margin-top: 20px !important;
+  padding-top: 40px !important;
+  position: relative !important;
+}
+.ct-testimonial .slick-slider {
+  display: block !important;
+  width: 100% !important;
+  position: relative !important;
+}
+.ct-testimonial .slick-list {
+  overflow: hidden !important;
+  display: block !important;
+  margin: 0 -10px;
+  padding-top: 55px !important;
+  margin-top: -55px !important;
+  padding-bottom: 25px !important;
+}
+.ct-testimonial .slick-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.ct-testimonial .slick-slide {
+  height: auto !important;
+  float: none !important;
+  display: block !important;
+  outline: none !important;
+}
+.ct-testimonial .testimonial-slide-wrapper {
+  padding: 0 10px;
+  height: 100%;
+}
+
+.ct-testimonial .item--inner {
+  height: calc(100% - 50px) !important;
+  float: none !important;
+  margin-top: 50px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  border-radius: 12px !important;
+  background-color: #000000 !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 40px 30px 30px !important;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.ct-testimonial .item--inner:before {
+  display: none !important;
+}
+
+.ct-testimonial .item--inner:hover {
+  transform: translateY(-6px) !important;
+  border-color: #f2b519 !important;
+  box-shadow: 0 20px 45px rgba(242, 181, 25, 0.25) !important;
+}
+.ct-testimonial .item--description {
+  color: #ffffff !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  margin-top: 20px !important;
+}
+.ct-testimonial .item--title {
+  color: #ffffff !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 26px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  margin-top: 15px !important;
+}
+.ct-testimonial .item--star {
+  position: absolute !important;
+  top: 30px !important;
+  right: 30px !important;
+}
+.ct-testimonial .item--star i {
+  color: #f2b519 !important;
+  font-size: 14px !important;
+  margin-left: 3px !important;
+}
+
+.ct-testimonial .item--image {
+  max-width: 96px !important;
+  position: absolute !important;
+  left: 30px !important;
+  top: -42px !important;
+  z-index: 10 !important;
+}
+.ct-testimonial .item--image img {
+  border-radius: 50% !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+  filter: grayscale(0) !important;
+}
+.ct-testimonial .item--icon {
+  position: absolute !important;
+  top: 0 !important;
+  left: -10px !important;
+  background: #f2b519 !important;
+  color: #000000 !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Testimonials Carousel Controls (Arrows & Dots) */
+.ct-testimonial .slick-arrow {
+  position: absolute !important;
+  top: 45% !important;
+  transform: translateY(-50%) !important;
+  z-index: 100 !important;
+  width: 48px !important;
+  height: 48px !important;
+  background-color: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+.ct-testimonial .slick-arrow:hover {
+  background-color: #f2b519 !important;
+  border-color: #f2b519 !important;
+  box-shadow: 0 8px 25px rgba(242, 181, 25, 0.4) !important;
+}
+.ct-testimonial .slick-prev {
+  left: -22px !important;
+}
+.ct-testimonial .slick-next {
+  right: -22px !important;
+}
+.ct-testimonial .slick-prev:before,
+.ct-testimonial .slick-next:before {
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 900 !important;
+  color: #111111 !important;
+  font-size: 16px !important;
+  opacity: 1 !important;
+}
+.ct-testimonial .slick-prev:before {
+  content: '\f053' !important;
+}
+.ct-testimonial .slick-next:before {
+  content: '\f054' !important;
+}
+
+.ct-testimonial .slick-dots {
+  position: relative !important;
+  bottom: 0 !important;
+  margin-top: 35px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  list-style: none !important;
+  padding: 0 !important;
+}
+.ct-testimonial .slick-dots li {
+  margin: 0 6px !important;
+}
+.ct-testimonial .slick-dots li button {
+  width: 14px !important;
+  height: 8px !important;
+  border-radius: 6px !important;
+  background: #e0e0e0 !important;
+  border: none !important;
+  font-size: 0 !important;
+  padding: 0 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+.ct-testimonial .slick-dots li.slick-active button {
+  background: #f2b519 !important;
+  width: 32px !important;
+}
+
+/* 6. Pricing Cards Grid Fit Fix */
+.mainpackage .bxpack {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  box-sizing: border-box !important;
+}
+.mainpackage .bxpack:before {
+  display: none !important;
+}
+
+/* 7. Reliability Section Styling */
+.reliability-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(242, 181, 25, 0.5) !important;
+  box-shadow: 0 15px 35px rgba(242, 181, 25, 0.15) !important;
+}
+.reliability-card:hover .card-img-zoom {
+  transform: scale(1.08);
+  filter: brightness(1) !important;
+}
+
+/* 8. Light Background Services Dropdown with Wipe Fill Effect */
+header.fixed {
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+}
+header.fixed.sticky {
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.dropdown-menu {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18) !important;
+  padding: 8px 0 !important;
+  border-radius: 10px !important;
+  min-width: 260px !important;
+  overflow: hidden !important;
+}
+
+.dropdown-item {
+  position: relative !important;
+  z-index: 1 !important;
+  color: #222222 !important;
+  padding: 12px 22px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: color 0.3s ease, padding-left 0.3s ease !important;
+  background: transparent !important;
+  display: block !important;
+  text-decoration: none !important;
+}
+
+.dropdown-item::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 100% !important;
+  background: linear-gradient(135deg, #f2b519 0%, #e5a400 100%) !important;
+  z-index: -1 !important;
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  border-radius: 0 20px 20px 0 !important;
+}
+
+.dropdown-item:hover::before,
+.dropdown-item.active::before {
+  width: 100% !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  padding-left: 28px !important;
+  background: transparent !important;
+}
+
+/* Modal Overlay Styling */
+.modal.show {
+  backdrop-filter: blur(5px);
+}
+.modal-dialog {
+  z-index: 1050;
+}
+
+/* 9. Mobile Responsive Exact Specs */
+@media (max-width: 767px) {
+  /* Mobile Services / Portfolio Category Vertical List */
+  .portfolio_main .filterport ul {
+    display: block !important;
+    padding: 0 !important;
+    margin-bottom: 30px !important;
+  }
+  .portfolio_main .filterport ul li {
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 12px !important;
+    text-align: left !important;
+  }
+  .portfolio_main .filterport ul li a {
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+  }
+  .portfolio_main .filterport ul li.active a {
+    color: #f3b618 !important;
+  }
+  .portfolio_main .filterport ul li.active a:before {
+    width: 80px !important;
+    left: 105% !important;
+    background: #f3b618 !important;
+  }
+  .portfolio_main .porfolio-dv {
+    column-count: 1 !important;
+    margin-top: 15px !important;
+  }
+
+  /* Mobile Carousel for "WE DO ACCORDING TO OUR BEST" */
+  .reliability-section {
+    padding: 50px 0 !important;
+  }
+  .reliability-section .headingmain h2 {
+    font-size: 26px !important;
+    line-height: 1.3 !important;
+  }
+  .grid-item-inner .item--meta {
+    opacity: 1 !important;
+    top: 50% !important;
+    padding: 20px !important;
+  }
+  .grid-item-inner .item--featured:before {
+    opacity: 1 !important;
+  }
+  .grid-item-inner .item--featured img {
+    filter: grayscale(0) !important;
+  }
+  .grid-item-inner .item--shape.item--shape3,
+  .grid-item-inner .item--shape.item--shape4 {
+    transform: translateX(0) !important;
+  }
+
+  /* Mobile Stat Counter Card & Slider Dots */
+  .componycounter {
+    padding: 20px 0 40px !important;
+  }
+  .stat-slide-item {
+    padding: 0 10px !important;
+  }
+  .itemscount {
+    width: 100% !important;
+    background-color: #000000 !important;
+    padding: 35px 20px !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  }
+  .itemscount .ct-counter-number span {
+    font-size: 52px !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+  }
+  .itemscount .ct-counter-title {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    margin-top: 8px !important;
+    white-space: normal !important;
+  }
+  .stat-icon-holder i {
+    color: #f2b519 !important;
+    font-size: 48px !important;
+    margin-bottom: 15px !important;
+    display: inline-block !important;
+  }
+
+  /* Mobile Testimonials Card */
+  .ct-testimonial .item--inner {
+    background-color: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    padding: 40px 25px 30px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+  }
+  .ct-testimonial .item--description {
+    color: #ffffff !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+  .ct-testimonial .item--title {
+    color: #ffffff !important;
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 26px !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+  }
+  .ct-testimonial .item--star i {
+    color: #f2b519 !important;
+  }
+  .ct-testimonial .item--icon {
+    color: #000000 !important;
+    background: #f2b519 !important;
+  }
+
+  .ct-testimonial .slick-prev {
+    left: 5px !important;
+  }
+  .ct-testimonial .slick-next {
+    right: 5px !important;
+  }
+}
