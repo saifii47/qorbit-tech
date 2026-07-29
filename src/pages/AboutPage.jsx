@@ -18,22 +18,30 @@ const AboutPage = () => {
 
       {/* Inner Banner */}
       <section
-        className="inner-banner"
+        className="inner-banner inner_bann"
         style={{
-          background: 'linear-gradient(135deg, rgba(8,8,8,0.95) 0%, rgba(20,20,20,0.85) 100%), url(https://www.pinnacledesignagency.com/assets/images/inner-banner/about-bann.jpg) center/cover no-repeat',
+          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
           padding: '160px 0 100px',
-          color: '#fff',
+          color: '#ffffff',
+          borderBottom: '1px solid rgba(37,99,235,0.15)',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>
-            About <span className="themecolor">Qorbit Tech</span>
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.1) 0%, transparent 60%)',
+          pointerEvents: 'none',
+        }} />
+        <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
+          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
+            About <span className="themecolor" style={{ background: 'linear-gradient(135deg,#3b82f6,#7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Qorbit Tech</span>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#b0b0b0', maxWidth: '750px', margin: '0 auto 25px' }}>
+          <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.6)', maxWidth: '700px', margin: '0 auto 25px', lineHeight: 1.7 }}>
             We are a full-service creative digital agency engineering iconic brand identities, bespoke web systems, and high-performance digital marketing campaigns worldwide.
           </p>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#f2b519' }}>
-            Home &nbsp;/&nbsp; <span style={{ color: '#fff' }}>About Us</span>
+          <div style={{ fontSize: '0.9rem', letterSpacing: '1px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', fontWeight: 600 }}>
+            Home &nbsp;/&nbsp; <span style={{ color: '#3b82f6' }}>About Us</span>
           </div>
         </div>
       </section>
@@ -42,13 +50,17 @@ const AboutPage = () => {
       <About onOpenModal={() => setModalOpen(true)} />
 
       {/* Process Workflow Section */}
-      <section style={{ padding: '90px 0', background: '#0e0e0e' }}>
-        <div className="container">
+      <section style={{ padding: '90px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)', position: 'relative' }}>
+        <div style={{
+          position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+          width: '600px', height: '400px',
+          background: 'radial-gradient(ellipse, rgba(124,58,237,0.07) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="text-center headingmain" style={{ marginBottom: '60px' }}>
-            <h6 style={{ color: '#f2b519', textTransform: 'uppercase', letterSpacing: '2px' }}>How We Work</h6>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800 }}>
-              Our Simple <span className="themecolor">4-Step Process</span>
-            </h2>
+            <h6>How We Work</h6>
+            <h2>Our Simple <span className="themecolor">4-Step Process</span></h2>
           </div>
 
           <div className="row">
@@ -61,20 +73,26 @@ const AboutPage = () => {
               <div key={idx} className="col-lg-3 col-md-6 mb-4">
                 <div
                   style={{
-                    background: '#161616',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '12px',
+                    background: 'rgba(13,20,50,0.6)',
+                    border: '1px solid rgba(37,99,235,0.12)',
+                    borderRadius: '16px',
                     padding: '35px 25px',
                     height: '100%',
+                    backdropFilter: 'blur(16px)',
                     transition: 'all 0.3s ease',
                   }}
-                  className="step-card"
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(37,99,235,0.45)'; e.currentTarget.style.transform = 'translateY(-6px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(37,99,235,0.12)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
-                  <div style={{ fontSize: '2.5rem', fontWeight: 900, color: '#f2b519', marginBottom: '15px' }}>
+                  <div style={{
+                    fontSize: '2.5rem', fontWeight: 900, marginBottom: '15px',
+                    background: 'linear-gradient(135deg,#3b82f6,#7c3aed)',
+                    WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                  }}>
                     {step.num}
                   </div>
-                  <h4 style={{ fontSize: '1.25rem', color: '#fff', marginBottom: '12px' }}>{step.title}</h4>
-                  <p style={{ color: '#999', fontSize: '0.95rem', lineHeight: '1.6' }}>{step.desc}</p>
+                  <h4 style={{ fontSize: '1.2rem', color: '#ffffff', marginBottom: '12px', fontFamily: 'Poppins,sans-serif', fontWeight: 600 }}>{step.title}</h4>
+                  <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.95rem', lineHeight: '1.7' }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -82,15 +100,9 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Counter Statistics */}
       <Counter />
-
-      {/* Testimonials */}
       <Testimonials />
-
-      {/* CTA Banner */}
       <CtaBanner onOpenModal={() => setModalOpen(true)} />
-
       <Footer onOpenModal={() => setModalOpen(true)} />
       <PopupForm isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>

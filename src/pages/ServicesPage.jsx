@@ -86,36 +86,40 @@ const ServicesPage = () => {
       <section
         className="inner-banner"
         style={{
-          background: 'linear-gradient(135deg, rgba(8,8,8,0.95) 0%, rgba(20,20,20,0.85) 100%), url(https://www.pinnacledesignagency.com/assets/images/inner-banner/services-bann.jpg) center/cover no-repeat',
+          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
           padding: '160px 0 100px',
-          color: '#fff',
+          color: '#ffffff',
+          borderBottom: '1px solid rgba(37,99,235,0.15)',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>
-            Our Digital <span className="themecolor">Services</span>
+          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
+            Our Digital <span className="themecolor" style={{ color: '#2563eb' }}>Services</span>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#b0b0b0', maxWidth: '750px', margin: '0 auto 25px' }}>
+          <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '750px', margin: '0 auto 25px' }}>
             End-to-end creative digital solutions engineered to scale your revenue, brand reputation, and user engagement.
           </p>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#f2b519' }}>
-            Home &nbsp;/&nbsp; <span style={{ color: '#fff' }}>Services</span>
+          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#2563eb', fontWeight: 600 }}>
+            Home &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>Services</span>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section style={{ padding: '90px 0', background: '#0a0a0a' }}>
+      <section style={{ padding: '90px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)' }}>
         <div className="container">
           <div className="row">
             {servicesData.map((svc) => (
               <div key={svc.slug} className="col-lg-4 col-md-6 mb-4">
                 <div
                   style={{
-                    background: '#141414',
+                    background: 'rgba(13,20,50,0.6)',
                     borderRadius: '16px',
                     padding: '35px 30px',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(37,99,235,0.12)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
@@ -128,21 +132,21 @@ const ServicesPage = () => {
                       width: 60,
                       height: 60,
                       borderRadius: 12,
-                      background: 'rgba(242, 181, 25, 0.15)',
+                      background: 'rgba(80, 11, 40, 0.08)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '20px',
                     }}
                   >
-                    <i className={svc.icon} style={{ fontSize: '1.8rem', color: '#f2b519' }}></i>
+                    <i className={svc.icon} style={{ fontSize: '1.8rem', color: '#2563eb' }}></i>
                   </div>
-                  <h3 style={{ fontSize: '1.4rem', color: '#fff', marginBottom: '12px' }}>{svc.title}</h3>
-                  <p style={{ color: '#aaa', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>{svc.desc}</p>
+                  <h3 style={{ fontSize: '1.4rem', color: '#ffffff', marginBottom: '12px' }}>{svc.title}</h3>
+                  <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>{svc.desc}</p>
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 25px 0', flexGrow: 1 }}>
                     {svc.features.map((feat, idx) => (
-                      <li key={idx} style={{ color: '#d0d0d0', fontSize: '0.9rem', marginBottom: '8px', display: 'flex', alignItems: 'center' }}>
-                        <i className="fas fa-check-circle" style={{ color: '#f2b519', marginRight: '10px', fontSize: '0.85rem' }}></i>
+                      <li key={idx} style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', marginBottom: '8px', display: 'flex', alignItems: 'center' }}>
+                        <i className="fas fa-check-circle" style={{ color: '#2563eb', marginRight: '10px', fontSize: '0.85rem' }}></i>
                         {feat}
                       </li>
                     ))}

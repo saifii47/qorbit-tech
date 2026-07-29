@@ -1,1 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import './theme.css';
+
+body {
+  background-color: #050510;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #2563eb;
+  color: #ffffff;
+}

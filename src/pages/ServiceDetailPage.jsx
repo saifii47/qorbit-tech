@@ -132,47 +132,50 @@ const ServiceDetailPage = ({ serviceKey }) => {
       <CustomCursor />
       <Navbar onOpenModal={() => setModalOpen(true)} />
 
-      {/* Inner Hero Banner */}
+      {/* Inner Banner */}
       <section
         className="inner-banner"
         style={{
-          background: `linear-gradient(135deg, rgba(8,8,8,0.95) 0%, rgba(20,20,20,0.85) 100%), url(${config.bannerImg}) center/cover no-repeat`,
+          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
           padding: '160px 0 100px',
-          color: '#fff',
+          color: '#ffffff',
+          borderBottom: '1px solid rgba(37,99,235,0.15)',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>
+          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
             {config.title}
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#b0b0b0', maxWidth: '750px', margin: '0 auto 25px' }}>
+          <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '750px', margin: '0 auto 25px' }}>
             {config.subtitle}
           </p>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#f2b519' }}>
-            Home &nbsp;/&nbsp; Services &nbsp;/&nbsp; <span style={{ color: '#fff' }}>{config.title}</span>
+          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#2563eb', fontWeight: 600 }}>
+            Home &nbsp;/&nbsp; Services &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>{config.title}</span>
           </div>
         </div>
       </section>
 
       {/* Overview & Key Highlights */}
-      <section style={{ padding: '90px 0', background: '#0a0a0a' }}>
+      <section style={{ padding: '90px 0', background: 'rgba(13,20,50,0.6)' }}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 mb-4 mb-lg-0">
-              <h6 style={{ color: '#f2b519', textTransform: 'uppercase', letterSpacing: '2px' }}>Why Choose Qorbit Tech</h6>
-              <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '20px', color: '#fff' }}>
-                Excellence in <span className="themecolor">{config.title}</span>
+              <h6 style={{ color: '#2563eb', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 600 }}>Why Choose Qorbit Tech</h6>
+              <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '20px', color: '#ffffff' }}>
+                Excellence in <span className="themecolor" style={{ color: '#2563eb' }}>{config.title}</span>
               </h2>
-              <p style={{ color: '#aaa', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '25px' }}>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '25px' }}>
                 {config.whyUs}
               </p>
 
-              <div style={{ background: '#141414', borderRadius: '12px', padding: '25px', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <h4 style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '15px' }}>Key Service Features:</h4>
+              <div style={{ background: 'linear-gradient(180deg, #080820 0%, #050510 100%)', borderRadius: '12px', padding: '25px', border: '1px solid rgba(37,99,235,0.12)' }}>
+                <h4 style={{ color: '#ffffff', fontSize: '1.1rem', marginBottom: '15px' }}>Key Service Features:</h4>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {config.features.map((feat, idx) => (
-                    <li key={idx} style={{ color: '#d0d0d0', marginBottom: '10px', fontSize: '0.95rem', display: 'flex', alignItems: 'center' }}>
-                      <i className="fas fa-check-circle" style={{ color: '#f2b519', marginRight: '12px', fontSize: '1rem' }}></i>
+                    <li key={idx} style={{ color: 'rgba(255,255,255,0.65)', marginBottom: '10px', fontSize: '0.95rem', display: 'flex', alignItems: 'center' }}>
+                      <i className="fas fa-check-circle" style={{ color: '#2563eb', marginRight: '12px', fontSize: '1rem' }}></i>
                       {feat}
                     </li>
                   ))}
@@ -191,7 +194,7 @@ const ServiceDetailPage = ({ serviceKey }) => {
             </div>
 
             <div className="col-lg-6">
-              <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(242, 181, 25, 0.3)', boxShadow: '0 20px 40px rgba(0,0,0,0.8)' }}>
+              <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(37,99,235,0.12)', boxShadow: '0 10px 30px rgba(0,0,0,0.06)' }}>
                 <img
                   src={config.bannerImg}
                   alt={config.title}
@@ -204,12 +207,12 @@ const ServiceDetailPage = ({ serviceKey }) => {
       </section>
 
       {/* Packages for this Service */}
-      <section style={{ padding: '80px 0', background: '#0e0e0e' }}>
+      <section style={{ padding: '80px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)' }}>
         <div className="container">
           <div className="text-center headingmain" style={{ marginBottom: '50px' }}>
-            <h6 style={{ color: '#f2b519', textTransform: 'uppercase', letterSpacing: '2px' }}>Value Investment</h6>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800 }}>
-              {config.title} <span className="themecolor">Packages</span>
+            <h6 style={{ color: '#2563eb', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 600 }}>Value Investment</h6>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff' }}>
+              {config.title} <span className="themecolor" style={{ color: '#2563eb' }}>Packages</span>
             </h2>
           </div>
 

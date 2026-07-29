@@ -49,15 +49,15 @@ const settings = {
 };
 
 const Reliability = () => (
-  <section className="newsec happywork" style={{ background: '#ffffff', padding: '70px 0 0', color: '#000' }}>
+  <section className="newsec happywork" style={{ background: 'linear-gradient(180deg, #050510 0%, #080820 100%)', padding: '70px 0 0', color: '#fff' }}>
     <div className="container">
       <div className="text-center headingmain" data-aos="fade-up" data-aos-duration="1500">
-        <h6 style={{ fontSize: '15px', color: '#3c3c3c', fontFamily: 'Poppins, sans-serif', marginBottom: '8px' }}>
+        <h6 style={{ fontSize: '15px', color: '#2563eb', fontFamily: 'Poppins, sans-serif', marginBottom: '8px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Clients are happy for our work
         </h6>
-        <h2 style={{ fontSize: '42px', color: '#000000', fontWeight: 900, textTransform: 'uppercase', lineHeight: '1.2' }}>
+        <h2 style={{ fontSize: '42px', color: '#ffffff', fontWeight: 900, textTransform: 'uppercase', lineHeight: '1.2' }}>
           WE DO ACCORDING TO OUR <br className="d-md-none" />
-          <span className="themecolor" style={{ color: '#f2b519', display: 'inline-block' }}>BEST</span>
+          <span className="themecolor" style={{ color: '#2563eb', display: 'inline-block' }}>BEST</span>
         </h2>
       </div>
     </div>
@@ -72,7 +72,7 @@ const Reliability = () => (
             <div className="item--shape item--shape4"><Shape4 /></div>
             <div className="item--meta">
               <div className="item--category">
-                <img src={ASSETS.logo} alt="Qorbit Tech Logo" style={{ maxHeight: '36px', width: 'auto', margin: '0 auto 10px', display: 'block' }} />
+                <img src={ASSETS.logo} alt="Qorbit Tech Logo" style={{ maxHeight: '50px', width: 'auto', margin: '0 auto 10px', display: 'block', mixBlendMode: 'screen', filter: 'brightness(1.2)' }} />
               </div>
               <div className="item--category">
                 <a href="#" onClick={(e) => e.preventDefault()} rel="tag" tabIndex={0}>

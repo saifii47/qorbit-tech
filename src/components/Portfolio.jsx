@@ -131,7 +131,8 @@ const Portfolio = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'rgba(0,0,0,0.92)',
+            background: 'rgba(5, 5, 16, 0.85)',
+            backdropFilter: 'blur(12px)',
             zIndex: 999999,
             position: 'fixed',
             top: 0,
@@ -147,10 +148,11 @@ const Portfolio = () => {
               position: 'relative',
               maxWidth: '90vw',
               maxHeight: '90vh',
-              borderRadius: 12,
+              borderRadius: 16,
               overflow: 'hidden',
-              boxShadow: '0 20px 50px rgba(0,0,0,0.9)',
-              background: '#111',
+              boxShadow: '0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(37,99,235,0.2)',
+              background: 'rgba(13,20,50,0.95)',
+              backdropFilter: 'blur(20px)',
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -160,19 +162,22 @@ const Portfolio = () => {
                 position: 'absolute',
                 top: 15,
                 right: 20,
-                color: '#fff',
-                fontSize: 32,
-                background: 'rgba(0,0,0,0.6)',
-                border: 'none',
+                color: '#ffffff',
+                fontSize: 28,
+                background: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.2)',
                 borderRadius: '50%',
-                width: 44,
-                height: 44,
+                width: 40,
+                height: 40,
                 cursor: 'pointer',
                 zIndex: 10,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                transition: 'all 0.2s',
               }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(37,99,235,0.4)'; e.currentTarget.style.borderColor = 'rgba(37,99,235,0.6)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
             >
               &times;
             </button>
@@ -191,7 +196,7 @@ const Portfolio = () => {
                 <source src={lightboxItem.src} type="video/mp4" />
               </video>
             )}
-            <div style={{ padding: '15px 20px', background: '#000', color: '#f2b519', textAlign: 'center', fontWeight: 600 }}>
+            <div style={{ padding: '15px 20px', background: 'rgba(37,99,235,0.1)', color: '#ffffff', borderTop: '1px solid rgba(37,99,235,0.2)', textAlign: 'center', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
               {lightboxItem.title}
             </div>
           </div>

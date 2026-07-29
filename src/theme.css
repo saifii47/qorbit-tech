@@ -1,11 +1,39 @@
 /**
- * Optional theme overrides.
- * For an exact match to pinnacledesignagency.com, leave this file empty
- * or keep the original gold values below.
+ * Qorbit Tech — Deep Black / Electric Blue Futuristic Theme
  */
 :root {
-  --theme-primary: #ffb400;
-  --theme-gradient-start: #f4a21a;
-  --theme-gradient-end: #ffde00;
-  --theme-cta-bg: #f2b519;
+  /* Core palette */
+  --brand-void: #050510;
+  --brand-dark: #080820;
+  --brand-surface: #0d1432;
+
+  /* Accent */
+  --theme-primary: #2563eb;
+  --theme-purple: #7c3aed;
+  --theme-gradient-start: #2563eb;
+  --theme-gradient-end: #7c3aed;
+
+  /* Interactive */
+  --theme-cta-bg: linear-gradient(135deg, #2563eb, #7c3aed);
+  --accent: #2563eb;
+  --accent-bg: rgba(37, 99, 235, 0.12);
+  --accent-border: rgba(37, 99, 235, 0.4);
+
+  /* Glass card */
+  --glass-bg: rgba(13, 20, 50, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(16px);
+
+  /* Typography */
+  --text-h: #ffffff;
+  --text-body: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.45);
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.08);
+
+  /* Shadows */
+  --shadow-blue: 0 0 30px rgba(37, 99, 235, 0.35);
+  --shadow-purple: 0 0 30px rgba(124, 58, 237, 0.35);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
 }

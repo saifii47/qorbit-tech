@@ -18,26 +18,29 @@ const ContactPage = () => {
       <section
         className="inner-banner"
         style={{
-          background: 'linear-gradient(135deg, rgba(8,8,8,0.95) 0%, rgba(20,20,20,0.85) 100%), url(https://www.pinnacledesignagency.com/assets/images/inner-banner/contact-bann.jpg) center/cover no-repeat',
+          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
           padding: '160px 0 100px',
-          color: '#fff',
+          color: '#ffffff',
+          borderBottom: '1px solid rgba(37,99,235,0.15)',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>
-            Get In <span className="themecolor">Touch</span>
+          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
+            Get In <span className="themecolor" style={{ color: '#2563eb' }}>Touch</span>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#b0b0b0', maxWidth: '750px', margin: '0 auto 25px' }}>
+          <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '750px', margin: '0 auto 25px' }}>
             Have a project in mind or want to consult with our digital experts? We are available 24/7 to turn your ideas into reality.
           </p>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#f2b519' }}>
-            Home &nbsp;/&nbsp; <span style={{ color: '#fff' }}>Contact Us</span>
+          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#2563eb', fontWeight: 600 }}>
+            Home &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>Contact Us</span>
           </div>
         </div>
       </section>
 
       {/* Info Cards Bar */}
-      <section style={{ padding: '60px 0', background: '#0e0e0e' }}>
+      <section style={{ padding: '60px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)' }}>
         <div className="container">
           <div className="row">
             {[
@@ -49,12 +52,13 @@ const ContactPage = () => {
               <div key={idx} className="col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <div
                   style={{
-                    background: '#161616',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    background: 'rgba(13,20,50,0.6)',
+                    border: '1px solid rgba(37,99,235,0.12)',
                     borderRadius: '12px',
                     padding: '30px 20px',
                     textAlign: 'center',
                     height: '100%',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
                     transition: 'all 0.3s ease',
                   }}
                 >
@@ -63,22 +67,22 @@ const ContactPage = () => {
                       width: 55,
                       height: 55,
                       borderRadius: '50%',
-                      background: 'rgba(242, 181, 25, 0.15)',
+                      background: 'rgba(80, 11, 40, 0.08)',
                       display: 'inline-flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '15px',
                     }}
                   >
-                    <i className={`fas ${card.icon}`} style={{ fontSize: '1.5rem', color: '#f2b519' }}></i>
+                    <i className={`fas ${card.icon}`} style={{ fontSize: '1.5rem', color: '#2563eb' }}></i>
                   </div>
-                  <h4 style={{ fontSize: '1.1rem', color: '#fff', marginBottom: '10px' }}>{card.title}</h4>
+                  <h4 style={{ fontSize: '1.1rem', color: '#ffffff', marginBottom: '10px' }}>{card.title}</h4>
                   {card.href ? (
-                    <a href={card.href} style={{ color: '#aaa', fontSize: '0.95rem', textDecoration: 'none' }}>
+                    <a href={card.href} style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', textDecoration: 'none' }}>
                       {card.text}
                     </a>
                   ) : (
-                    <p style={{ color: '#aaa', fontSize: '0.95rem', margin: 0 }}>{card.text}</p>
+                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', margin: 0 }}>{card.text}</p>
                   )}
                 </div>
               </div>
@@ -91,34 +95,34 @@ const ContactPage = () => {
       <Contact />
 
       {/* Office Location Map Mockup Section */}
-      <section style={{ padding: '80px 0', background: '#090909' }}>
+      <section style={{ padding: '80px 0', background: 'rgba(13,20,50,0.6)' }}>
         <div className="container">
           <div className="text-center headingmain" style={{ marginBottom: '40px' }}>
-            <h6 style={{ color: '#f2b519', textTransform: 'uppercase', letterSpacing: '2px' }}>Visit Us</h6>
-            <h2 style={{ fontSize: '2.4rem', fontWeight: 800 }}>
-              San Jose <span className="themecolor">Headquarters</span>
+            <h6 style={{ color: '#2563eb', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 600 }}>Visit Us</h6>
+            <h2 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#ffffff' }}>
+              San Jose <span className="themecolor" style={{ color: '#2563eb' }}>Headquarters</span>
             </h2>
           </div>
 
           <div
             style={{
-              background: '#121212',
+              background: 'linear-gradient(180deg, #080820 0%, #050510 100%)',
               borderRadius: '16px',
               overflow: 'hidden',
-              border: '1px solid rgba(255,255,255,0.1)',
+              border: '1px solid rgba(37,99,235,0.12)',
               position: 'relative',
               height: '380px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               textAlign: 'center',
-              backgroundImage: 'radial-gradient(circle at center, rgba(242,181,25,0.1) 0%, rgba(0,0,0,0.95) 70%)',
+              backgroundImage: 'radial-gradient(circle at center, rgba(80,11,40,0.05) 0%, rgba(248,250,252,0.95) 70%)',
             }}
           >
             <div style={{ padding: '30px', maxWidth: '600px' }}>
-              <i className="fas fa-building" style={{ fontSize: '3rem', color: '#f2b519', marginBottom: '20px' }}></i>
-              <h3 style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '10px' }}>Qorbit Tech USA</h3>
-              <p style={{ color: '#ccc', fontSize: '1.05rem', marginBottom: '20px' }}>
+              <i className="fas fa-building" style={{ fontSize: '3rem', color: '#2563eb', marginBottom: '20px' }}></i>
+              <h3 style={{ fontSize: '1.8rem', color: '#ffffff', marginBottom: '10px' }}>Qorbit Tech USA</h3>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', marginBottom: '20px' }}>
                 123 E San Carlos St, San Jose, CA 95112, United States
               </p>
               <a

@@ -42,20 +42,23 @@ const PricingPage = () => {
       <section
         className="inner-banner"
         style={{
-          background: 'linear-gradient(135deg, rgba(8,8,8,0.95) 0%, rgba(20,20,20,0.85) 100%), url(https://www.pinnacledesignagency.com/assets/images/inner-banner/printing-bann.jpg) center/cover no-repeat',
+          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
           padding: '160px 0 100px',
-          color: '#fff',
+          color: '#ffffff',
+          borderBottom: '1px solid rgba(37,99,235,0.15)',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>
-            Transparent <span className="themecolor">Pricing &amp; Packages</span>
+          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
+            Transparent <span className="themecolor" style={{ color: '#2563eb' }}>Pricing &amp; Packages</span>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#b0b0b0', maxWidth: '750px', margin: '0 auto 25px' }}>
+          <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '750px', margin: '0 auto 25px' }}>
             Choose from our budget-friendly, value-packed design &amp; development packages. Premium quality without the corporate markup.
           </p>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#f2b519' }}>
-            Home &nbsp;/&nbsp; <span style={{ color: '#fff' }}>Pricing</span>
+          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#2563eb', fontWeight: 600 }}>
+            Home &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>Pricing</span>
           </div>
         </div>
       </section>
@@ -64,7 +67,7 @@ const PricingPage = () => {
       <Pricing onOpenModal={() => setModalOpen(true)} />
 
       {/* Value Badges */}
-      <section style={{ padding: '60px 0', background: '#111' }}>
+      <section style={{ padding: '60px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)' }}>
         <div className="container">
           <div className="row text-center">
             {[
@@ -74,10 +77,10 @@ const PricingPage = () => {
               { icon: 'fa-headset', title: '24/7 Dedicated Support', desc: 'Personal account manager available for guidance anytime.' },
             ].map((badge, i) => (
               <div key={i} className="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <div style={{ padding: '25px', background: '#181818', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <i className={`fas ${badge.icon}`} style={{ fontSize: '2.5rem', color: '#f2b519', marginBottom: '15px' }}></i>
-                  <h4 style={{ fontSize: '1.1rem', color: '#fff', marginBottom: '10px' }}>{badge.title}</h4>
-                  <p style={{ color: '#888', fontSize: '0.9rem', margin: 0 }}>{badge.desc}</p>
+                <div style={{ padding: '25px', background: 'rgba(13,20,50,0.6)', borderRadius: '12px', border: '1px solid rgba(37,99,235,0.12)', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
+                  <i className={`fas ${badge.icon}`} style={{ fontSize: '2.5rem', color: '#2563eb', marginBottom: '15px' }}></i>
+                  <h4 style={{ fontSize: '1.1rem', color: '#ffffff', marginBottom: '10px' }}>{badge.title}</h4>
+                  <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', margin: 0 }}>{badge.desc}</p>
                 </div>
               </div>
             ))}
@@ -86,12 +89,12 @@ const PricingPage = () => {
       </section>
 
       {/* FAQs Section */}
-      <section style={{ padding: '90px 0', background: '#090909' }}>
+      <section style={{ padding: '90px 0', background: 'rgba(13,20,50,0.6)' }}>
         <div className="container">
           <div className="text-center headingmain" style={{ marginBottom: '50px' }}>
-            <h6 style={{ color: '#f2b519', textTransform: 'uppercase', letterSpacing: '2px' }}>Got Questions?</h6>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800 }}>
-              Frequently Asked <span className="themecolor">Questions</span>
+            <h6 style={{ color: '#2563eb', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 600 }}>Got Questions?</h6>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff' }}>
+              Frequently Asked <span className="themecolor" style={{ color: '#2563eb' }}>Questions</span>
             </h2>
           </div>
 
@@ -100,10 +103,10 @@ const PricingPage = () => {
               <div
                 key={idx}
                 style={{
-                  background: '#141414',
+                  background: 'linear-gradient(180deg, #080820 0%, #050510 100%)',
                   borderRadius: '10px',
                   marginBottom: '15px',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(37,99,235,0.12)',
                   overflow: 'hidden',
                 }}
               >
@@ -111,7 +114,7 @@ const PricingPage = () => {
                   onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
                   style={{
                     padding: '20px 25px',
-                    color: '#fff',
+                    color: '#ffffff',
                     fontWeight: 600,
                     fontSize: '1.1rem',
                     cursor: 'pointer',
@@ -121,10 +124,10 @@ const PricingPage = () => {
                   }}
                 >
                   <span>{faq.q}</span>
-                  <i className={`fas fa-chevron-${openFaq === idx ? 'up' : 'down'}`} style={{ color: '#f2b519' }}></i>
+                  <i className={`fas fa-chevron-${openFaq === idx ? 'up' : 'down'}`} style={{ color: '#2563eb' }}></i>
                 </div>
                 {openFaq === idx && (
-                  <div style={{ padding: '0 25px 20px', color: '#aaa', fontSize: '0.95rem', lineHeight: '1.7' }}>
+                  <div style={{ padding: '0 25px 20px', color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: '1.7' }}>
                     {faq.a}
                   </div>
                 )}
