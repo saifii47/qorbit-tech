@@ -1,9 +1,13 @@
+import logoImg from '../assets/images/qorbit-logo-new.png';
+import qWatermarkImg from '../assets/images/q-watermark.png';
+import heroBannerImg from '../assets/images/hero-banner.png';
+
 const CDN = 'https://www.pinnacledesignagency.com/assets/images';
 
 export const ASSETS = {
   cdn: CDN,
-  logo: '/src/assets/images/qorbit-logo-new.png',
-  qWatermark: '/src/assets/images/q-watermark.png',
-  heroBanner: '/src/assets/images/hero-banner.png',
+  logo: logoImg,
+  qWatermark: qWatermarkImg,
+  heroBanner: heroBannerImg,
   bannerPeople: `${CDN}/banner_people.png`,
 };
