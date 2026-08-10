@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import heroBannerImg from '../assets/images/hero-banner.png';
+import heroMainBgVideo from '../assets/videos/hero-main-bg.mp4';
 
 const Hero = ({ onOpenModal }) => (
   <section className="bannermain" style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden' }}>
-    {/* Clean, Full HD Background Image */}
-    <img
-      src={heroBannerImg}
-      alt="Hero Background"
+    {/* High Definition Continuous Looping Video Banner */}
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="auto"
+      src={heroMainBgVideo}
       style={{
         position: 'absolute',
         top: 0,
@@ -18,12 +22,11 @@ const Hero = ({ onOpenModal }) => (
         objectPosition: 'center',
         zIndex: 0,
         pointerEvents: 'none',
-        filter: 'none',
-        WebkitFilter: 'none',
-        backdropFilter: 'none',
-        WebkitBackdropFilter: 'none',
       }}
-    />
+    >
+      <source src={heroMainBgVideo} type="video/mp4" />
+      <source src="/assets/videos/hero-main-bg.mp4" type="video/mp4" />
+    </video>
     <div className="container" style={{ position: 'relative', zIndex: 4, paddingTop: '100px' }}>
       <div className="row align-items-center">
         <div className="col-md-12 col-lg-7 texture1">

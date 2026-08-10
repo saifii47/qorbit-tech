@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import BookOrbitShowcase from '../components/BookOrbitShowcase';
 import Portfolio from '../components/Portfolio';
 import About from '../components/About';
 import CtaBanner from '../components/CtaBanner';
@@ -26,6 +27,7 @@ const Home = () => {
       <CustomCursor />
       <Navbar onOpenModal={() => setModalOpen(true)} />
       <Hero onOpenModal={() => setModalOpen(true)} />
+      <BookOrbitShowcase onOpenModal={() => setModalOpen(true)} />
       <Portfolio />
       <About onOpenModal={() => setModalOpen(true)} />
       <CtaBanner onOpenModal={() => setModalOpen(true)} />
@@ -41,3 +43,4 @@ const Home = () => {
 };
 
 export default Home;
+

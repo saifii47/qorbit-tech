@@ -1,0 +1,326 @@
+/* BookOrbitShowcase.css - QOrbit Tech Electric Blue & Purple 3D Service Showcase */
+
+.qorbit-orbit-section {
+  position: relative;
+  width: 100%;
+  padding: 90px 0 100px 0;
+  background: radial-gradient(ellipse at 50% 10%, #0d1432 0%, #080820 55%, #050510 100%);
+  overflow: hidden;
+}
+
+/* Background Ambient Glow Effects */
+.orbit-glow-1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 850px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.22) 0%, rgba(124, 58, 237, 0.15) 50%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.orbit-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  right: 8%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.intro-strip {
+  padding: 0 0 20px 0;
+  text-align: center;
+}
+
+.intro-strip .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  padding: 6px 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+}
+
+.intro-strip .eyebrow i {
+  font-size: 14px;
+}
+
+.intro-strip h2 {
+  font-family: "Poppins", "Inter", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.intro-strip h2 .highlight {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.intro-strip p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.showcase-section {
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+.showcase-shell {
+  position: relative;
+  padding: 0 0 10px;
+}
+
+.book-orbit {
+  position: relative;
+  height: 520px;
+  max-width: 1180px;
+  margin: 0 auto;
+  perspective: 1600px;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+  overflow: visible;
+}
+
+.book-orbit.is-dragging {
+  cursor: grabbing;
+}
+
+.book-ring {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+
+.orbit-book {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 210px;
+  height: 290px;
+  margin-left: -105px;
+  margin-top: -145px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+  transition: opacity 0.16s linear, filter 0.16s linear;
+  text-decoration: none;
+  display: block;
+}
+
+.book-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(37, 99, 235, 0.25);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orbit-book:hover .book-shell {
+  border-color: rgba(37, 99, 235, 0.8);
+  box-shadow: 0 25px 60px rgba(37, 99, 235, 0.5), 0 0 35px rgba(124, 58, 237, 0.4);
+}
+
+.book-shell::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  width: 22px;
+  height: calc(100% - 10px);
+  background: linear-gradient(90deg, #0d1432, #1e293b);
+  transform: rotateY(-90deg) translateZ(12px);
+  transform-origin: right center;
+  box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.book-shell::after {
+  content: "";
+  position: absolute;
+  inset: 8px -12px 8px 12px;
+  background: #0d1432;
+  transform: translateZ(-18px);
+  box-shadow: 0 22px 34px rgba(0, 0, 0, 0.6);
+}
+
+.book-shell img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(18px);
+  border-radius: 10px;
+  pointer-events: none;
+  transition: transform 0.4s ease;
+}
+
+.orbit-book:hover .book-shell img {
+  transform: translateZ(22px) scale(1.03);
+}
+
+.orbit-floor {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  width: min(86%, 900px);
+  height: 100px;
+  transform: translateX(-50%) rotateX(78deg);
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.35), rgba(124, 58, 237, 0.15) 50%, transparent 75%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.orbit-caption {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.orbit-caption span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(13, 20, 50, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  border-radius: 999px;
+  padding: 9px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.orbit-caption span i {
+  font-size: 14px;
+  color: #60a5fa;
+}
+
+.cta-btn-box {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 10px 10px;
+  flex-wrap: wrap;
+}
+
+.cta-btn-box .btn-qorbit {
+  border-radius: 999px;
+  padding: 15px 36px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.35);
+  transition: all 0.3s ease;
+}
+
+.cta-btn-box .btn-qorbit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(124, 58, 237, 0.55);
+  color: #ffffff;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 991.98px) {
+  .book-orbit {
+    height: 420px;
+  }
+
+  .orbit-book {
+    width: 165px;
+    height: 230px;
+    margin-left: -82px;
+    margin-top: -115px;
+  }
+
+  .intro-strip h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .book-orbit {
+    height: 375px;
+    perspective: 1200px;
+    overflow: hidden;
+  }
+
+  .orbit-book {
+    width: 140px;
+    height: 195px;
+    margin-left: -70px;
+    margin-top: -97px;
+  }
+
+  .orbit-caption {
+    gap: 10px;
+  }
+
+  .orbit-caption span {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  .intro-strip h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .book-orbit {
+    height: 335px;
+  }
+
+  .orbit-book {
+    width: 118px;
+    height: 165px;
+    margin-left: -59px;
+    margin-top: -82px;
+  }
+
+  .book-shell::before {
+    left: -14px;
+    width: 16px;
+  }
+}

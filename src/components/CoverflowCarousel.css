@@ -1,0 +1,303 @@
+/* 3D Circular Orbit Ring Showcase (Denver Publishers Exact 3rd Section Style) */
+
+.orbit-showcase-section {
+  position: relative;
+  width: 100%;
+  padding: 100px 0 120px 0;
+  background: radial-gradient(ellipse at 50% 0%, #0d1432 0%, #080820 50%, #050510 100%);
+  overflow: hidden;
+}
+
+/* Background Ambient Blur Glows */
+.orbit-bg-glow-1 {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.22) 0%, rgba(124, 58, 237, 0.12) 45%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.orbit-bg-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  right: 10%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+  filter: blur(95px);
+  pointer-events: none;
+}
+
+.orbit-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.orbit-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.orbit-badge {
+  display: inline-block;
+  padding: 6px 22px;
+  border-radius: 30px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  color: #60a5fa;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  box-shadow: 0 0 18px rgba(37, 99, 235, 0.25);
+}
+
+.orbit-title {
+  font-size: 2.9rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.5px;
+  margin: 0 0 12px 0;
+}
+
+.orbit-title .highlight {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.orbit-subtitle {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.1rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* 3D Orbit Stage Container */
+.orbit-stage {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.orbit-stage.is-dragging {
+  cursor: grabbing;
+}
+
+/* Floor Reflection Shadow */
+.orbit-floor {
+  position: absolute;
+  bottom: 20px;
+  width: 750px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.28) 0%, rgba(124, 58, 237, 0.12) 45%, transparent 75%);
+  filter: blur(25px);
+  transform: rotateX(75deg);
+  pointer-events: none;
+}
+
+/* 3D Ring Circle */
+.orbit-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.05s linear;
+}
+
+/* Card Wrapper in 3D Space */
+.orbit-card-wrapper {
+  position: absolute;
+  width: 250px;
+  height: 360px;
+  transform-style: preserve-3d;
+  transition: opacity 0.3s ease;
+  backface-visibility: hidden;
+}
+
+/* Card Visual Element */
+.orbit-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0d1432;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 20px rgba(37, 99, 235, 0.15);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.orbit-card-wrapper.is-active .orbit-card {
+  border-color: rgba(37, 99, 235, 0.85);
+  box-shadow: 0 25px 65px rgba(37, 99, 235, 0.45), 0 0 40px rgba(124, 58, 237, 0.35);
+}
+
+.orbit-card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+.orbit-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  transition: transform 0.5s ease;
+}
+
+.orbit-card:hover .orbit-card-img {
+  transform: scale(1.06);
+}
+
+/* Gradient Overlay & Text */
+.orbit-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(9, 5, 24, 0.02) 0%, rgba(9, 5, 24, 0.35) 50%, rgba(9, 5, 24, 0.94) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  pointer-events: none;
+}
+
+.orbit-card-badge {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #60a5fa;
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(37, 99, 235, 0.38);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: auto;
+  backdrop-filter: blur(8px);
+}
+
+.orbit-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.orbit-card-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.orbit-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #60a5fa;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.orbit-card:hover .orbit-card-cta {
+  gap: 12px;
+  color: #93c5fd;
+}
+
+/* 3 Instruction Badges / Pills at Bottom */
+.orbit-instructions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.instruction-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.88);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.instruction-pill:hover {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+}
+
+.instruction-pill-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .orbit-title {
+    font-size: 2.1rem;
+  }
+  .orbit-stage {
+    height: 420px;
+  }
+  .orbit-card-wrapper {
+    width: 200px;
+    height: 290px;
+    transform: translateZ(280px) !important;
+  }
+  .orbit-floor {
+    width: 500px;
+    height: 90px;
+  }
+}

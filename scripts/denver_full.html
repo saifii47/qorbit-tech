@@ -1,0 +1,1599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Denver Publishers is a premium book publishing, editing, design, marketing, and author branding company.">
+  
+  <meta name="keywords" content="book publishing, author services, book design, book marketing, Denver Publishers">
+  
+  <meta name="author" content="Denver Publishers">
+  
+  <title>Denver Publishers | Premium Book Publishing Company</title>
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/ui/favicon.png">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+  
+  <link href="css/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar navbar-expand-xl">
+      <div class="container">
+        <a class="navbar-brand brand-lockup" href="/index.php" aria-label="Denver Publishers home">
+          <img src="assets/images/ui/logo.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="/writing.php">Writing</a></li>
+            <li class="nav-item"><a class="nav-link" href="/editing.php">Editing</a></li>
+            <li class="nav-item"><a class="nav-link" href="/design.php">Design</a></li>
+            <li class="nav-item"><a class="nav-link" href="/publishing.php">Publishing</a></li>
+            <li class="nav-item"><a class="nav-link" href="/printing.php">Printing</a></li>
+            <li class="nav-item"><a class="nav-link" href="/marketing.php">Marketing</a></li>
+            <li class="nav-item"><a class="nav-link" href="/audio.php">Audio Book</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about.php">Why Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact-us.php">Contact</a></li>
+          </ul>
+          <a class="btn btn-gold nav-cta" href=""  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <span>Start Publishing</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header" style="background-color: #fefaf1;">
+     
+        <div>
+            <span class="eyebrow">Your Publishing Journey Starts Today</span>
+            <h2>Request A Publishing Plan</h2>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class=" ">
+        <form class="contact-form" action="/send-mail" method="POST">
+              
+              <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="hidden" name="page_url"
+value="https://denverpublishers.com/">
+                    <input type="hidden" name="user_ip" id="user_ip">
+                  <label for="name">Name</label>
+                  <input class="form-control" id="name" type="text" placeholder="Your name" name="name">
+                </div>
+                <div class="col-md-6">
+                  <label for="email">Email</label>
+                  <input class="form-control" id="email" type="email" placeholder="you@example.com" name="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="phone">Phone</label>
+                  <input class="form-control" id="phone" type="tel" placeholder="+1 000 000 0000" name="phone">
+                </div>
+                <div class="col-md-6">
+                  <label for="genre">Genre</label>
+                  <select class="form-select" id="genre" name="genre">
+                    <option selected>Choose genre</option>
+                    <option>Fiction</option>
+                    <option>Business</option>
+                    <option>Memoir</option>
+                    <option>Children's</option>
+                    <option>Self Help</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your manuscript"></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-gold" type="submit">Submit Request</button>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
+ <script>
+document.getElementById('page_url').value = window.location.href;
+</script>
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header" style="background-color: #fefaf1;">
+     
+        <div>
+            <span class="eyebrow">Your Publishing Journey Starts Today</span>
+            <h2>Request A Publishing Plan</h2>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class=" ">
+        <form class="contact-form" action="/send-mail" method="POST">
+              
+              <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="hidden" name="page_url"
+value="https://denverpublishers.com/">
+                    <input type="hidden" name="user_ip" id="user_ip">
+                  <label for="name">Name</label>
+                  <input class="form-control" id="name" type="text" placeholder="Your name" name="name">
+                </div>
+                <div class="col-md-6">
+                  <label for="email">Email</label>
+                  <input class="form-control" id="email" type="email" placeholder="you@example.com" name="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="phone">Phone</label>
+                  <input class="form-control" id="phone" type="tel" placeholder="+1 000 000 0000" name="phone">
+                </div>
+                <div class="col-md-6">
+                  <label for="genre">Genre</label>
+                  <select class="form-select" id="genre" name="genre">
+                    <option selected>Choose genre</option>
+                    <option>Fiction</option>
+                    <option>Business</option>
+                    <option>Memoir</option>
+                    <option>Children's</option>
+                    <option>Self Help</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your manuscript"></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-gold" type="submit">Submit Request</button>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
+ <script>
+document.getElementById('page_url').value = window.location.href;
+</script>
+<!-- Modal --><!-- Modal -->
+<div class="modal fade" id="staticsBackdrop" data-bs-backdrop="statics" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticsBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header" style="background-color: #fefaf1;">
+     
+        <h2>Get Connected With Us</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class=" ">
+        <form class="contact-form" action="/send-mail" method="POST">
+             
+              <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="hidden" name="page_url"
+value="https://denverpublishers.com/">
+                    <input type="hidden" name="user_ip" id="user_ip">
+                  <label for="name">Name</label>
+                  <input class="form-control" id="name" type="text" placeholder="Your name" name="name">
+                </div>
+                <div class="col-md-6">
+                  <label for="email">Email</label>
+                  <input class="form-control" id="email" type="email" placeholder="you@example.com" name="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="phone">Phone</label>
+                  <input class="form-control" id="phone" type="tel" placeholder="+1 000 000 0000" name="phone">
+                </div>
+                <div class="col-md-6">
+                  <label for="genre">Genre</label>
+                  <select class="form-select" id="genre" name="genre">
+                    <option selected>Choose genre</option>
+                    <option>Fiction</option>
+                    <option>Business</option>
+                    <option>Memoir</option>
+                    <option>Children's</option>
+                    <option>Self Help</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your manuscript"></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-gold" type="submit">Submit Request</button>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
+ <script>
+document.getElementById('page_url').value = window.location.href;
+</script>
+<!-- Modal -->
+
+     <!-- ============================================================
+     Hero Banner Section
+     ============================================================ -->
+
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6">
+            <div class="hero-copy" data-aos="fade-right">
+              <span class="eyebrow">#1 Book Publishing Experience</span>
+              <h1>Your Story Deserves An Unforgettable Experience</h1>
+              <p>Denver Publishers helps authors shape, design, publish, and promote books with the polish of a premium publishing house.</p>
+              <div class="hero-actions">
+                <a class="btn btn-gold btn-lg"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <button onclick="openLiveChat()" class="btn btn-outline-green btn-lg" >
+                  <i class="bi bi-chat"></i>
+                   Chat Now
+                  </a>
+                </button>
+              </div>
+              
+            
+
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-book-stage" id="heroBookStage" data-aos="zoom-in" aria-label="Animated book covers">
+              <div class="hero-book-track">
+                <div class="hero-book-row">
+                  <article class="book-mockup tall"><img src="assets/images/portfolio/BIography & Memoir 2.jpg" alt="PROOF"></article>
+                  <article class="book-mockup"><img src="assets/images/portfolio/BIography & Memoir 5.jpg" alt="The Bootle Boy"></article>
+                  <article class="book-mockup short"><img src="assets/images/portfolio/Children 2.jpg" alt="EVERY **FAMILY: HAS A STORYA"></article>
+                  <article class="book-mockup"><img src="assets/images/portfolio/Children 4.jpg" alt="Hoover and Boon"></article>
+                </div>
+                <div class="hero-book-row">
+                  <article class="book-mockup"><img src="assets/images/portfolio/Fantasy Sci Fi 2.jpg" alt="The Rise and Fall of Five"></article>
+                  <article class="book-mockup tall"><img src="assets/images/portfolio/Fantasy Sci Fi 5.jpg" alt="ATONEMENT FOR A SINLESS SOCIETY"></article>
+                  <article class="book-mockup"><img src="assets/images/portfolio/Mystery 3.jpg" alt="ACROSS AND DOWN IN THE DESERT"></article>
+                  <article class="book-mockup short"><img src="assets/images/portfolio/Non fiction 1.jpg" alt="Negative Thinking"></article>
+                </div>
+                <div class="hero-book-row" aria-hidden="true">
+                  <article class="book-mockup tall"><img src="assets/images/portfolio/BIography & Memoir 2.jpg" alt="PROOF"></article>
+                  <article class="book-mockup"><img src="assets/images/portfolio/BIography & Memoir 5.jpg" alt="The Bootle Boy"></article>
+                  <article class="book-mockup short"><img src="assets/images/portfolio/Children 2.jpg" alt="EVERY **FAMILY: HAS A STORYA"></article>
+                  <article class="book-mockup"><img src="assets/images/portfolio/Children 4.jpg" alt="Hoover and Boon"></article>
+                </div>
+                <div class="hero-book-row" aria-hidden="true">
+                  <article class="book-mockup"><img src="assets/images/portfolio/Fantasy Sci Fi 2.jpg" alt="The Rise and Fall of Five"></article>
+                  <article class="book-mockup tall"><img src="assets/images/portfolio/Fantasy Sci Fi 5.jpg" alt="ATONEMENT FOR A SINLESS SOCIETY"></article>
+                  <article class="book-mockup"><img src="assets/images/portfolio/Mystery 3.jpg" alt="ACROSS AND DOWN IN THE DESERT"></article>
+                  <article class="book-mockup short"><img src="assets/images/portfolio/Non fiction 1.jpg" alt="Negative Thinking"></article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    
+    
+    <!-- ============================================================
+     Hero form Section
+     ============================================================ -->
+  
+    
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+            
+          <div class="col-lg-6">
+              
+              <form class="contact-form" action="/send-mail" method="POST">
+              <span class="eyebrow">Your Publishing Journey Starts Today</span>
+              <h2>Request a Publishing Plan</h2>
+              <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="hidden" name="page_url"
+value="https://denverpublishers.com/">
+                     <input type="hidden" name="user_ip" id="user_ip">
+                  <label for="name">Name</label>
+                  <input class="form-control" id="name" type="text" placeholder="Your name" name="name">
+                </div>
+                <div class="col-md-6">
+                  <label for="email">Email</label>
+                  <input class="form-control" id="email" type="email" placeholder="you@example.com" name="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="phone">Phone</label>
+                  <input class="form-control" id="phone" type="tel" placeholder="+1 000 000 0000" name="phone">
+                </div>
+                <div class="col-md-6">
+                  <label for="genre">Genre</label>
+                  <select class="form-select" id="genre" name="genre">
+                    <option selected>Choose genre</option>
+                    <option>Fiction</option>
+                    <option>Business</option>
+                    <option>Memoir</option>
+                    <option>Children's</option>
+                    <option>Self Help</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your manuscript"></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-gold" type="submit">Submit Request</button>
+                </div>
+              </div>
+            </form>
+            <script>
+document.getElementById('page_url').value = window.location.href;
+</script>            
+          </div>
+          <div class="col-lg-6">
+         
+          
+          
+          <div class="hero-copy" data-aos="fade-right">
+              <span class="eyebrow">Real Stories, Real Impact</span>
+              <h1>Have a Story Worth Sharing?</h1>
+              <p>Every successful book starts with a conversation. Share your ideas, manuscript, or publishing goals with us, and our publishing specialists will help you choose the right services for your project. We're committed to making your publishing experience simple, professional, and rewarding.</p>
+              <div class="hero-actions">
+                <a class="btn btn-gold btn-lg" href=""  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a class="btn btn-outline-green btn-lg" href="Portfolio.php">
+                  <i class="bi bi-play-circle"></i>
+                  <span>View Covers</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+     <!-- ============================================================
+     3D Book Spining Section
+     ============================================================ -->
+
+    <section class="section intro-strip">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Real Covers, Spinning In 3D</span>
+          <h2>Books That Feel Finished Before You Touch Them</h2>
+          <p>Premium cover design, cinematic depth, and motion built for authors who want their book to look ready for a global shelf.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section" id="showcase">
+      <div class="container">
+        <div class="showcase-shell" data-aos="fade-up">
+          <div class="book-orbit" id="bookOrbit" tabindex="0" aria-label="Interactive 3D circular book carousel. Drag, swipe, or use the mouse wheel to rotate.">
+            <div class="orbit-floor"></div>
+            <div class="book-ring" id="bookRing">
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/BIography & Memoir 3.jpg" alt="July Three In Washington"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/BIography & Memoir 5.jpg" alt="What's Time"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/Children 2.jpg" alt="Mommy's More Than Milk"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/Romance 4.jpg" alt="Love True Story"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/BIography & Memoir 5.jpg" alt="Touched"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/Romance 3.jpg" alt="The Midnight Atlas"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/Children 4.jpg" alt="The Quiet War"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/BIography & Memoir 2.jpg" alt="Starlight Ledger"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/Fantasy Sci Fi 3.jpg" alt="Master Your Path"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/BIography & Memoir 1.jpg" alt="Scattered Pages"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/Children 1.jpg" alt="The Future of Us"></div></figure>
+              <figure class="orbit-book"><div class="book-shell"><img src="assets/images/portfolio/Fantasy Sci Fi 3.jpg" alt="A Story We Kept"></div></figure>
+            </div>
+          </div>
+          <div class="orbit-caption">
+            <span><i class="bi bi-cursor"></i> Hold and drag</span>
+            <span><i class="bi bi-mouse"></i> Wheel to rotate</span>
+            <span><i class="bi bi-phone"></i> Swipe on mobile</span>
+          </div>
+          
+          
+            <div class="cta-btn-box">
+                 
+                <a class="btn btn-gold btn-lg"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                
+                <a class="btn btn-outline-green btn-lg" href="Portfolio.php">
+                  <i class="bi bi-play-circle"></i>
+                  <span>View Covers</span>
+                </a>
+              </div>
+
+        </div>
+      </div>
+    </section>
+
+     <!-- ============================================================
+     Author Card Section
+     ============================================================ -->
+
+    <section class="section authors-section" id="authors">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">More Than One Published Author</span>
+          <h2>Authors Who Built Their Names With Us</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+            <article class="author-card">
+              <img src="assets/images/authors/Natalie Harper.webp" alt="Natalie Harper">
+              <div>
+                <h3>Natalie Harper</h3>
+                <p><i>Children's Book Author</i><br>
+                Natalie creates imaginative worlds for young readers through engaging stories filled with wonder, creativity, and life lessons.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+            <article class="author-card">
+              <img src="assets/images/authors/Ethan Walker.webp" alt="Ethan Walker">
+              <div>
+                <h3>Ethan Walker</h3>
+                <p><i>Thriller Author</i><br>
+                Ethan writes gripping thrillers that blend suspense, mystery, and unforgettable characters to keep readers turning pages.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+            <article class="author-card">
+              <img src="assets/images/authors/Amelia Brooks.webp" alt="Amelia Brooks">
+              <div>
+                <h3>Amelia Brooks</h3>
+                <p><i>Romance Author</i><br>
+                Amelia crafts emotionally rich stories about love, relationships, and the unforgettable moments that connect people.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      
+         <div class="cta-btn-box">
+                <a class="btn btn-gold btn-lg"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                
+                <button onclick="openLiveChat()" class="btn btn-outline-green btn-lg" >
+                  <i class="bi bi-chat"></i>
+                   Chat Now
+                </button>
+              </div>
+              
+    </section>
+
+     <!-- ============================================================
+     Book Portfolio Slider Section
+     ============================================================ -->
+
+    <section class="section featured-books" id="featured">
+      <div class="container">
+        <div class="section-heading-row" data-aos="fade-up">
+          <div>
+            <span class="eyebrow">Bestsellers Wearing A Crown</span>
+            <h2>Featured Books From Our Shelf</h2>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn featured-prev" type="button" aria-label="Previous featured book"><i class="bi bi-arrow-left"></i></button>
+            <button class="slider-btn featured-next" type="button" aria-label="Next featured book"><i class="bi bi-arrow-right"></i></button>
+          </div>
+        </div>
+        <div class="swiper featuredSwiper ">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><article class="featured-card"><img src="assets/images/portfolio/BIography & Memoir 1.jpg" alt="DE QUIRÓFANO"><h3>QUIRÓFANO BEISBOL</h3><span>Biography & Memoir</span></article></div>
+            <div class="swiper-slide"><article class="featured-card"><img src="assets/images/portfolio/Mystery 5.jpg" alt="The Tap"><h3>THE TAP</h3><span>Mystery</span></article></div>
+            <div class="swiper-slide"><article class="featured-card"><img src="assets/images/portfolio/BIography & Memoir 2.jpg" alt="Proof"><h3>PROOF</h3><span>Biography & Memoir</span></article></div>
+            <div class="swiper-slide"><article class="featured-card"><img src="assets/images/portfolio/Children 1.jpg" alt="RAISE CHILDREN STREET-SMART"><h3>RAISE CHILDREN</h3><span>Children</span></article></div>
+            <div class="swiper-slide"><article class="featured-card"><img src="assets/images/portfolio/Mystery 1.jpg" alt="CALL ME LAWLESS"><h3>CALL ME LAWLESS</h3><span>Mystery</span></article></div>
+            <div class="swiper-slide"><article class="featured-card"><img src="assets/images/portfolio/Fantasy Sci Fi 1.jpg" alt="WRITING SCIENCE"><h3>WRITING SCIENCE</h3><span>Sci-Fi</span></article></div>
+            <div class="swiper-slide"><article class="featured-card"><img src="assets/images/portfolio/Non fiction 5.jpg" alt="SELF RELIANCE"><h3>SELF-RELIANCE</h3><span>Nonfiction</span></article></div>
+            <div class="swiper-slide"><article class="featured-card"><img src="assets/images/portfolio/Romance 1.jpg" alt="Love and Laughter"><h3>Love & Laughter</h3><span>Romance</span></article></div>
+          </div>
+        </div>
+        
+          <div class="cta-btn-box">
+                <a class="btn btn-gold btn-lg"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                
+                <a class="btn btn-outline-green btn-lg" href="Portfolio.php">
+                  <i class="bi bi-play-circle"></i>
+                  <span>View Covers</span>
+                </a>
+              </div>
+      </div>
+    </section>
+
+     <!-- ============================================================
+     Genre Grid Section
+     ============================================================ -->
+
+    <section class="section genres-section">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Every Genre, Given The Lead</span>
+          <h2>Publishing Support Across Shelves</h2>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up"><article class="genre-card"><i class="fa-solid fa-feather-pointed"></i><h3>Fiction</h3><p>Developmental editing, cover mood, interior rhythm, and market placement.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80"><article class="genre-card"><i class="fa-solid fa-chart-line"></i><h3>Business</h3><p>Authority books, founder stories, leadership guides, and polished launch assets.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160"><article class="genre-card"><i class="fa-solid fa-child-reaching"></i><h3>Children's</h3><p>Illustration direction, friendly layouts, parent-facing copy, and color-rich covers.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up"><article class="genre-card"><i class="fa-solid fa-brain"></i><h3>Memoir</h3><p>Private story shaping, sensitive editing, and jacket copy with emotional weight.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80"><article class="genre-card"><i class="fa-solid fa-microscope"></i><h3>Academic</h3><p>Formatting, citations, indexing, proofreading, and careful structure for complex work.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160"><article class="genre-card"><i class="fa-solid fa-heart"></i><h3>Romance</h3><p>Series branding, sales copy, reader hooks, and scroll-stopping storefront visuals.</p></article></div>
+        </div>
+      </div>
+      
+      
+             <div class="cta-btn-box">
+                 
+                <a class="btn btn-gold btn-lg"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                
+                <button onclick="openLiveChat()" class="btn btn-outline-green btn-lg" >
+                  <i class="bi bi-chat"></i>
+                   Chat Now
+                </button>
+              </div>
+      
+    </section>
+
+     <!-- ============================================================
+     About Us Section
+     ============================================================ -->
+
+    <section class="section premium-band">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <span class="eyebrow light">Every Book Measures Up To The Mark</span>
+            <h2>Publishing That Treats Your Manuscript Like A Main Event</h2>
+            <p>From manuscript review to finished distribution, each phase is handled with precise creative direction and author-first communication.</p>
+            <ul class="check-list">
+              <li><i class="bi bi-check-circle-fill"></i> Editorial planning with clear milestones</li>
+              <li><i class="bi bi-check-circle-fill"></i> Cover systems built for print, ebook, and ads</li>
+              <li><i class="bi bi-check-circle-fill"></i> Metadata, storefront copy, and launch positioning</li>
+              <li><i class="bi bi-check-circle-fill"></i> Marketing assets for campaigns and author platforms</li>
+            </ul>
+            <a class="btn btn-gold" href="services.php">Explore Services</a>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="feature-book-scene">
+              <img class="feature-book main" src="assets/images/portfolio/BIography & Memoir 1.jpg" alt="The Future of Us book cover">
+              <img class="feature-book side side-a" src="assets/images/portfolio/BIography & Memoir 3.jpg" alt="Rise Above Fear book cover">
+              <img class="feature-book side side-b" src="assets/images/portfolio/BIography & Memoir 5.jpg" alt="Dreams By Design book cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- ============================================================
+     Gallery Section
+     ============================================================ -->
+
+    <!-- <section class="section gallery-section">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Meeting Authors On The World Stage</span>
+          <h2>From Launch Tables To Reader Rooms</h2>
+        </div>
+        <div class="swiper gallerySwiper" data-aos="fade-up">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="assets/images/gallery/gallery-01.png" alt="Author signing night"></div>
+            <div class="swiper-slide"><img src="assets/images/gallery/gallery-02.png" alt="Independent book fair"></div>
+            <div class="swiper-slide"><img src="assets/images/gallery/gallery-03.png" alt="Mobile library"></div>
+            <div class="swiper-slide"><img src="assets/images/gallery/gallery-04.png" alt="Reader meet and greet"></div>
+            <div class="swiper-slide"><img src="assets/images/gallery/gallery-05.png" alt="Editorial workshop"></div>
+            <div class="swiper-slide"><img src="assets/images/gallery/gallery-06.png" alt="Launch day display"></div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+     <!-- ============================================================
+     Comparison Before After
+     ============================================================ -->
+
+    <section class="msp-before-after-section" aria-labelledby="mspBasHeading">
+
+      <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Before & After</span>
+          <h2>A Manuscript Becomes A Market-Ready Book</h2>
+        </div>
+
+
+  <div class="msp-bas-grid">
+
+    <!-- ===================== CARD 1 — FANTASY ===================== -->
+    <article class="msp-bas-card">
+      <header class="msp-bas-card__head">
+        <span class="msp-bas-badge">Fantasy</span>
+        <svg class="msp-bas-sparkle" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" fill="currentColor"/>
+        </svg>
+      </header>
+      <h3 class="msp-bas-card__title">Sketch <span class="msp-bas-arrow">&#8594;</span> Best-Seller</h3>
+
+      <div class="msp-bas-compare" style="--msp-pos:50" data-msp-bas-compare>
+        <!-- BASE LAYER: always fully visible = finished / after image -->
+        <div class="msp-bas-layer msp-bas-layer--after">
+          <img
+            class="msp-bas-img"
+            src="assets/images/ui/after2.jpg"
+            alt="Finished, full-colour cover of The Ember Throne">
+        </div>
+
+        <!-- OVERLAY LAYER: clipped by drag position = sketch / before image -->
+        <div class="msp-bas-layer msp-bas-layer--before">
+          <img
+            class="msp-bas-img"
+            src="assets/images/ui/before2.png"
+            alt="Early pencil sketch of The Ember Throne cover">
+        </div>
+
+        <!-- Divider + drag handle -->
+        <div class="msp-bas-divider" data-msp-bas-divider>
+          <button type="button" class="msp-bas-handle" data-msp-bas-handle role="slider" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Drag to compare sketch and finished cover">
+            <svg viewBox="0 0 24 24" class="msp-bas-handle__icon" aria-hidden="true">
+              <path d="M8 7 L3 12 L8 17 M16 7 L21 12 L16 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <span class="msp-bas-tag msp-bas-tag--before">Before</span>
+        <span class="msp-bas-tag msp-bas-tag--after">After</span>
+      </div>
+
+      <p class="msp-bas-caption">Drag the handle to reveal the transformation.</p>
+    </article>
+
+    <!-- ===================== CARD 2 — Fiction ===================== -->
+    <article class="msp-bas-card">
+      <header class="msp-bas-card__head">
+        <span class="msp-bas-badge">Fiction</span>
+        <svg class="msp-bas-sparkle" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" fill="currentColor"/>
+        </svg>
+      </header>
+      <h3 class="msp-bas-card__title">Concept <span class="msp-bas-arrow">&#8594;</span> Cinematic</h3>
+
+      <div class="msp-bas-compare" style="--msp-pos:50" data-msp-bas-compare>
+        <div class="msp-bas-layer msp-bas-layer--after">
+          <img
+            class="msp-bas-img"
+            src="assets/images/ui/after1.jpg"
+            alt="Finished, full-colour cover of Moonlit Meadow Academy">
+        </div>
+
+        <div class="msp-bas-layer msp-bas-layer--before">
+          <img
+            class="msp-bas-img"
+            src="assets/images/ui/before1.png"
+            alt="Early concept sketch of Moonlit Meadow Academy cover">
+        </div>
+
+        <div class="msp-bas-divider" data-msp-bas-divider>
+          <button type="button" class="msp-bas-handle" data-msp-bas-handle role="slider" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Drag to compare sketch and finished cover">
+            <svg viewBox="0 0 24 24" class="msp-bas-handle__icon" aria-hidden="true">
+              <path d="M8 7 L3 12 L8 17 M16 7 L21 12 L16 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <span class="msp-bas-tag msp-bas-tag--before">Before</span>
+        <span class="msp-bas-tag msp-bas-tag--after">After</span>
+      </div>
+
+      <p class="msp-bas-caption">Drag the handle to reveal the transformation.</p>
+    </article>
+
+  </div>
+  
+     <div class="cta-btn-box">
+                <a class="btn btn-gold btn-lg"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                
+                 <a class="btn btn-outline-green btn-lg" href="design.php">
+                  <i class="bi bi-play-circle"></i>
+                  <span>View Our Design</span>
+                </a>
+              </div>
+  
+</section>
+
+
+
+
+    <!-- <section class="section publishing-section">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <span class="eyebrow">We Are The Publishing Team You Need</span>
+            <h2>Every Detail Is Built Around Author Momentum</h2>
+            <div class="stacked-list">
+              <div><i class="bi bi-pencil-square"></i><span>Editing that strengthens voice without flattening it.</span></div>
+              <div><i class="bi bi-palette2"></i><span>Cover and interior design with premium shelf presence.</span></div>
+              <div><i class="bi bi-megaphone"></i><span>Launch campaigns built around genre, audience, and timing.</span></div>
+              <div><i class="bi bi-box-seam"></i><span>Print, ebook, and distribution files prepared with care.</span></div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="zoom-in">
+            <div class="angled-book-stack">
+              <img src="assets/images/books/book-01.png" alt="What's Time book cover">
+              <img src="assets/images/books/book-03.png" alt="Love True Story book cover">
+              <img src="assets/images/books/book-16.png" alt="Line 47 Up book cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+     <!-- ============================================================
+     Process Section
+     ============================================================ -->
+
+    <section class="section process-section" id="process">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">How We Publish Your Brand</span>
+          <h2>A Clear Process From Draft To Distribution</h2>
+        </div>
+        <div class="process-timeline">
+          <article data-aos="fade-up"><span>01</span><h3>Discovery</h3><p>We map your book goals, genre, audience, and publishing route.</p></article>
+          <article data-aos="fade-up" data-aos-delay="80"><span>02</span><h3>Editorial</h3><p>Editors shape structure, flow, clarity, and final proofreading passes.</p></article>
+          <article data-aos="fade-up" data-aos-delay="160"><span>03</span><h3>Design</h3><p>Cover, interior, typography, and visual assets become one system.</p></article>
+          <article data-aos="fade-up" data-aos-delay="240"><span>04</span><h3>Production</h3><p>Print-ready, ebook, metadata, ISBN, and distribution files are prepared.</p></article>
+          <article data-aos="fade-up" data-aos-delay="320"><span>05</span><h3>Launch</h3><p>Campaign assets, storefront copy, and visibility tools go live.</p></article>
+        </div>
+      </div>
+      
+         <div class="cta-btn-box">
+                 
+                <a class="btn btn-gold btn-lg"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                
+                <button onclick="openLiveChat()" class="btn btn-outline-green btn-lg" >
+                  <i class="bi bi-chat"></i>
+                   Chat Now
+                </button>
+              </div>
+              
+    </section>
+
+     <!-- ============================================================
+     Book Portfolio Section
+     ============================================================ -->
+
+    <section class="section books-grid-section" id="books">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Covers That Sell</span>
+          <h2>A Shelf Designed For Attention</h2>
+        </div>
+        <div class="book-grid" data-aos="fade-up">
+          <article><img src="assets/images/portfolio/BIography & Memoir 1.jpg" alt="DE QUIRÓFANO Y BEISBOL"></article>
+          <article><img src="assets/images/portfolio/BIography & Memoir 2.jpg" alt="PROOF"></article>
+          <article><img src="assets/images/portfolio/BIography & Memoir 3.jpg" alt="THE SHORTER END OF THE STICK"></article>
+          <article><img src="assets/images/portfolio/BIography & Memoir 4.jpg" alt="The Bootle Boy"></article>
+          <article><img src="assets/images/portfolio/BIography & Memoir 5.jpg" alt="Wild We Carry"></article>
+          <article><img src="assets/images/portfolio/Children 1.jpg" alt="RAISE CHILDREN STREET-SMART"></article>
+          <article><img src="assets/images/portfolio/Children 2.jpg" alt="EVERY **FAMILY: HAS A STORYA"></article>
+          <article><img src="assets/images/portfolio/Children 3.jpg" alt="Socrates and the Boy Who Asked Why"></article>
+          <article><img src="assets/images/portfolio/Children 4.jpg" alt="Hoover and Boon"></article>
+          <article><img src="assets/images/portfolio/Children 5.jpg" alt="RAISE CHILDREN"></article>
+          <article><img src="assets/images/portfolio/Fantasy Sci Fi 1.jpg" alt="WRITING SCIENCE FICTION"></article>
+          <article><img src="assets/images/portfolio/Fantasy Sci Fi 2.jpg" alt="The Rise and Fall of Five"></article>
+          <!-- <article><img src="assets/images/portfolio/Fantasy Sci Fi 3.jpg" alt="THE WRONG MAN"></article>
+          <article><img src="assets/images/portfolio/Fantasy Sci Fi 4.jpg" alt="ATONEMENT FOR A SINLESS SOCIETY"></article>
+          <article><img src="assets/images/portfolio/Fantasy Sci Fi 5.jpg" alt="MURDER IN RETROGRADE"></article>
+          <article><img src="assets/images/portfolio/Mystery 1.jpg" alt="CALL ME LAWLESS"></article>
+          <article><img src="assets/images/portfolio/Mystery 2.jpg" alt="THE GARGOYLES WATCHED"></article>
+          <article><img src="assets/images/portfolio/Mystery 3.jpg" alt="ACROSS AND DOWN IN THE DESERT"></article>
+          <article><img src="assets/images/portfolio/Mystery 4.jpg" alt="THE VALUE OF NOTHING"></article>
+          <article><img src="assets/images/portfolio/Mystery 5.jpg" alt="THE TAP"></article>
+          <article><img src="assets/images/portfolio/Non fiction 1.jpg" alt="Negative Thinking"></article>
+          <article><img src="assets/images/portfolio/Non fiction 2.jpg" alt="be helpful, not perfect: how to write a self-help book"></article>
+          <article><img src="assets/images/portfolio/Non fiction 3.jpg" alt="BEFORE YOU CHOOSE"></article>
+          <article><img src="assets/images/portfolio/Non fiction 4.jpg" alt="COGNITIVE LOAD THEORY FOR SELF-LEARNERS"></article>
+          <article><img src="assets/images/portfolio/Non fiction 5.jpg" alt="SELF-RELIANCE"></article>
+          <article><img src="assets/images/portfolio/Romance 1.jpg" alt="LOVE AND LAUGHTER"></article>
+          <article><img src="assets/images/portfolio/Romance 2.jpg" alt="BOUGHT"></article>
+          <article><img src="assets/images/portfolio/Romance 3.jpg" alt="The Unwanted Bride of Cottonwood Falls"></article>
+          <article><img src="assets/images/portfolio/Romance 4.jpg" alt="THE WAY SEE HIM"></article>
+          <article><img src="assets/images/portfolio/Romance 5.jpg" alt="THROUGH DUST & DOWN POURS"></article>  -->
+        </div>
+      
+           <div class="cta-btn-box">
+                 
+                <a class="btn btn-gold btn-lg"  data-bs-toggle="modal" data-bs-target="#staticsBackdrop">
+                  <span>Create My Cover</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                
+                <button onclick="openLiveChat()" class="btn btn-outline-green btn-lg" >
+                  <i class="bi bi-chat"></i>
+                   Chat Now
+                </button>
+              </div>
+        
+      </div>
+    </section>
+
+     <!-- ============================================================
+     Author Service Section
+     ============================================================ -->
+
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">A Full Royal Court Of Author Services</span>
+          <h2>Everything Your Book Needs Under One Roof</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up"><article class="service-card"><i class="bi bi-journal-richtext"></i><h3>Book Editing</h3><p>Developmental, line, copyediting, and proofreading with author-friendly notes.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80"><article class="service-card"><i class="bi bi-brush"></i><h3>Cover Design</h3><p>Genre-aware jacket concepts, ebook covers, print wraps, and ad-ready artwork.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160"><article class="service-card"><i class="bi bi-layout-text-window"></i><h3>Formatting</h3><p>Interior layout, typography, ebook conversion, print files, and quality checks.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up"><article class="service-card"><i class="bi bi-cloud-upload"></i><h3>Publishing</h3><p>ISBN guidance, metadata, platform setup, distribution, and launch-day support.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80"><article class="service-card"><i class="bi bi-bullseye"></i><h3>Marketing</h3><p>Campaign planning, sales copy, author branding, and social launch graphics.</p></article></div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160"><article class="service-card featured"><i class="bi bi-gem"></i><h3>Author Brand</h3><p>Web presence, media kit, book trailer direction, and launch identity systems.</p></article></div>
+        </div>
+      </div>
+      
+         <div class="cta-btn-box">
+             
+             <a class="btn btn-gold btn-lg"  href="services.php">
+                  <span>Explore Our Service</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                 
+                <button onclick="openLiveChat()" class="btn btn-outline-green btn-lg" >
+                  <i class="bi bi-chat"></i>
+                   Chat Now
+                </button>
+                
+              </div>
+
+    
+    </section>
+
+     <!-- ============================================================
+     Counter Section
+     ============================================================ -->
+
+   
+      
+ <section class="banner-form">
+      <div class="container">
+        <div class="row align-items-center" data-aos="zoom-in">
+          <div class="col-lg-3 text-lg-start text-center mb-lg-0 mb-4">
+            <h2 class="banner-title">Get in Touch</h2>
+          </div>
+
+          <div class="col-lg-9">
+            <form action="../cta-mail" method="POST">
+              <div class="form-wrapper">
+                   <input type="hidden" name="page_url"
+value="https://denverpublishers.com/">
+                   <input type="hidden" name="user_ip" id="user_ip">
+                <input 
+                type="hidden"
+                name="brand_id"
+                value="20"
+                />
+                    
+                <input 
+                type="hidden"
+                name="url"
+                value="#"
+                />
+      
+                <input
+                  type="text"
+                  class="form-control banner-input"
+                  placeholder="Name"
+                  name="name"
+                />
+
+                <input
+                  type="email"
+                  class="form-control banner-input"
+                  placeholder="Email"
+                  name="email"
+                />
+
+                <input
+                  type="tel"
+                  class="form-control banner-input"
+                  placeholder="Phone"
+                  name="phone"
+                />
+
+                <select class="form-select banner-input" name="service">
+                  <option value="" selected disabled>Services</option>
+                  <option value="Publishing">Publishing</option>
+                  <option value="Editing">Editing</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Writing">Writing</option>
+                  <option value="Audio book">Audio book</option>
+                  <option value="Illustrations">Illustrations</option>
+                  <option value="Cover Design">Cover Design</option>
+                </select>
+
+                <button type="submit" class="btn btn-gold">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+ <script>
+document.getElementById('page_url').value = window.location.href;
+</script>
+
+
+
+<!--    <section class="counter-section">-->
+<!--      <div class="container">-->
+<!--        <div class="line-form" data-aos="zoom-in">-->
+<!--          <div class="col-lg-3">-->
+<!--            <h2 class="p-2 text-center">Get in Touch</h2>-->
+<!--          </div>-->
+<!--            <div class="col-lg-9 contact-hori-form" bis_skin_checked="1">-->
+<!--      <form style="display:contents;" action="cta-mail.php" method="POST">-->
+<!--      <input type="hidden" name="brand_id" value="20">-->
+<!--      <input type="hidden" name="url" value="#">-->
+<!--      <div class="input-field" bis_skin_checked="1"><input class="form-control" type="text" name="name" placeholder="Name"></div>-->
+<!--      <div class="input-field" bis_skin_checked="1"><input class="form-control" type="email" name="email" placeholder="Email"></div>-->
+<!--      <div class="input-field" bis_skin_checked="1"><input class="form-control" type="tel" name="phone" placeholder="Phone"></div>-->
+<!--      <div class="input-field" bis_skin_checked="1">-->
+<!--         <select class="form-select" name="service">-->
+<!--    <option value="" selected disabled>Services</option>-->
+<!--    <option value="Publishing">Publishing</option>-->
+<!--    <option value="Editing">Editing</option>-->
+<!--    <option value="Marketing">Marketing</option>-->
+<!--    <option value="Writing">Writing</option>-->
+<!--    <option value="Audio book">Audio book</option>-->
+<!--    <option value="Illustrations">Illustrations</option>-->
+<!--    <option value="Cover Design">Cover Design</option>-->
+<!--</select>-->
+<!--      </div>-->
+<!--      <button type="submit" class="btn btn-gold">-->
+<!--          Send -->
+<!--      </button>-->
+<!--      </form>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
+     <!-- ============================================================
+     Publishing Journey Section
+     ============================================================ -->
+
+    <section class="section journey-section">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img class="rounded-media" src="assets/images/ui/professional publishing team.webp" alt="Publishing journey workshop">
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <span class="eyebrow">Navigating the Publishing Journey</span>
+            <h2>We Keep The Path Practical, Clear, And Premium</h2>
+            <p>Authors get one coordinated team that understands words, visuals, platforms, and launch pressure.</p>
+            <div class="journey-grid">
+              <div><i class="bi bi-calendar-check"></i><span>Milestone-based project calendars</span></div>
+              <div><i class="bi bi-person-workspace"></i><span>Dedicated publishing coordinator</span></div>
+              <div><i class="bi bi-stars"></i><span>Design reviews before production</span></div>
+              <div><i class="bi bi-graph-up-arrow"></i><span>Launch visibility and market guidance</span></div>
+            </div>
+            <a class="btn btn-gold" href=""  data-bs-toggle="modal" data-bs-target="#staticsBackdrop">Book A Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+     <!-- ============================================================
+     Pricing & Packaging Section
+     ============================================================ -->
+
+    <!-- <section class="section pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Pricing Fit For Royalty</span>
+          <h2>Choose The Publishing Path That Fits</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="fade-up">
+            <article class="pricing-card">
+              <span>Starter</span>
+              <h3>Editorial Launch</h3>
+              <strong>$899</strong>
+              <ul>
+                <li>Manuscript review</li>
+                <li>Copyediting pass</li>
+                <li>Basic cover direction</li>
+                <li>Publishing roadmap</li>
+              </ul>
+              <a class="btn btn-outline-green w-100" href="#contact">Get Started</a>
+            </article>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="120">
+            <article class="pricing-card popular">
+              <em>Most Popular</em>
+              <span>Signature</span>
+              <h3>Complete Publishing</h3>
+              <strong>$2,499</strong>
+              <ul>
+                <li>Editing and proofreading</li>
+                <li>Premium cover design</li>
+                <li>Interior formatting</li>
+                <li>Distribution setup</li>
+                <li>Launch graphics</li>
+              </ul>
+              <a class="btn btn-gold w-100" href="#contact">Choose Package</a>
+            </article>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="240">
+            <article class="pricing-card">
+              <span>Elite</span>
+              <h3>Author Brand Suite</h3>
+              <strong>$4,799</strong>
+              <ul>
+                <li>Everything in Signature</li>
+                <li>Author website direction</li>
+                <li>Media kit and trailer plan</li>
+                <li>Marketing campaign system</li>
+              </ul>
+              <a class="btn btn-outline-green w-100" href="#contact">Talk To Us</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+     <!-- ============================================================
+     CTA Banner Section
+     ============================================================ -->
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-inner" data-aos="fade-up">
+          <span>Your Story Deserves To Become The Next Book Readers Remember</span>
+          
+          <button onclick="openLiveChat()" class="btn btn-gold" >
+                  <i class="bi bi-chat"></i>
+                   Start The Conversation
+                  </a>
+                </button>
+        </div>
+      </div>
+    </section>
+
+     <!-- ============================================================
+     Author Success Section
+     ============================================================ -->
+
+    <section class="section reasons-section">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Built for Author Success</span>
+          <h2>Why Authors Choose Us</h2>
+        </div>
+        <div class="reason-grid">
+          <article data-aos="fade-up"><i class="bi bi-award"></i><h3>Premium Direction</h3><p>Every book gets strategy before design begins.</p></article>
+          <article data-aos="fade-up" data-aos-delay="80"><i class="bi bi-layers"></i><h3>Complete Systems</h3><p>Cover, interior, copy, and launch assets are aligned.</p></article>
+          <article data-aos="fade-up" data-aos-delay="160"><i class="bi bi-lightning-charge"></i><h3>Fast Momentum</h3><p>Clear milestones keep the project moving confidently.</p></article>
+          <article data-aos="fade-up" data-aos-delay="240"><i class="bi bi-people"></i><h3>Author Care</h3><p>Human feedback, useful updates, and transparent process.</p></article>
+          <article data-aos="fade-up" data-aos-delay="320"><i class="bi bi-globe2"></i><h3>Global Ready</h3><p>Files, metadata, and visuals prepared for modern channels.</p></article>
+        </div>
+        
+        
+      </div>
+      
+       <div class="cta-btn-box">
+                 
+                <a class="btn btn-gold btn-lg"   data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <span>Start Your Journey</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+                
+                <button onclick="openLiveChat()" class="btn btn-outline-green btn-lg" >
+                  <i class="bi bi-chat"></i>
+                   Chat Now
+                  </a>
+                </button>
+              </div>
+      
+    </section>
+
+     <!-- ============================================================
+     Testimonials Section
+     ============================================================ -->
+    
+    
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Authors Speaking for the Work</span>
+          <h2>What Our Publishing Partners Say</h2>
+        </div>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
+          <div class="carousel-inner">
+                     <div class="carousel-item active">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>Jason Dailey was great to work with from day one. He kept me updated, answered all my questions, and made the whole publishing process a lot less intimidating. My book turned out better than I expected, and I'm really happy I chose Denver Publishers.</p>
+                <h3>Daniel Foster</h3>
+                <span>Thriller Author</span>
+              </article>
+            </div>
+            
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>I honestly didn't know what to expect when I started, but Isaac Jones made everything easy to understand. He never rushed me and was always willing to explain the next step. The finished book looks amazing, and I've already started planning my next project with the team.</p>
+                <h3>Nicole Reed</h3>
+                <span>Children’s Author</span>
+              </article>
+            </div>
+                <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>Big thanks to Jason for sticking with me through the entire process. There were a few changes I wanted along the way, and he handled everything quickly and professionally. The final book looks fantastic, and I've received so many compliments on it already.</p>
+                <h3>Kevin Turner</h3>
+                <span>Mystery Author</span>
+              </article>
+            </div>
+              
+              
+            <div class="carousel-item ">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>Denver Publishers helped me turn my manuscript into a beautiful, professionally finished book. I couldn’t be happier with the final result.</p>
+                <h3>Olivia Bennett</h3>
+                <span>Children's Author</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>The team at Denver Publishers understood my vision from the beginning. Their editing, design, and publishing support made the entire process smooth and stress-free.</p>
+                <h3>Marcus Reed</h3>
+                <span>Fiction Author</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>I was impressed by the level of care and attention to detail throughout the project. They improved my manuscript while keeping my voice and message exactly the way I wanted.</p>
+                <h3>Rachel Morgan</h3>
+                <span>Memoir Author</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>Working with Denver Publishers was an incredible experience. As a first-time author, I had many questions about publishing, formatting, and distribution. Their team guided me through every step and helped me create a book that I’m proud to share with readers.</p>
+                <h3>Jonathan Williams</h3>
+                <span>Non-Fiction Author</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>My book cover, interior layout, and illustrations turned out better than I imagined. The design team captured the heart of my story and created something that truly connects with readers.</p>
+                <h3>Sophia Carter</h3>
+                <span>Children's Book Author</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>Denver Publishers provided the professional support I needed to bring my book to life. From manuscript editing to final production, every stage was handled with expertise and genuine care. Their team made what felt like an overwhelming process feel simple and achievable.</p>
+                <h3>Daniel Brooks</h3>
+                <span>Self-Published Author</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>Excellent service, great communication, and amazing results. My book looks exactly like something from a major publishing house.</p>
+                <h3>Emily Parker</h3>
+                <span>Emily Parker</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>The audiobook production exceeded my expectations. The narration quality, sound editing, and final delivery were outstanding. Denver Publishers helped me reach readers in a completely new way.</p>
+                <h3>Andrew Collins</h3>
+                <span>Audiobook Author</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>I had spent years writing my book and wanted a publishing partner who would respect my work. Denver Publishers provided thoughtful guidance, creative solutions, and professional expertise at every stage. The final book represents my vision perfectly.</p>
+                <h3>Rebecca Thompson</h3>
+                <span>Inspirational Author</span>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card">
+                <i class="bi bi-quote"></i>
+                <p>From editing and formatting to marketing support, Denver Publishers delivered a complete publishing experience. Their team was responsive, knowledgeable, and committed to helping my book succeed.</p>
+                <h3>Michael Davis</h3>
+                <span>Business Author</span>
+              </article>
+            </div>
+     
+          </div>
+          <div class="testimonial-controls">
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" aria-label="Previous testimonial"><i class="bi bi-arrow-left"></i></button>
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" aria-label="Next testimonial"><i class="bi bi-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section> 
+     <!-- ============================================================
+     Contact Us Section
+     ============================================================ -->
+
+       <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-5" data-aos="fade-right">
+            <div class="contact-info-card">
+              <span class="eyebrow">Get Free Consultation</span>
+              <h2>Tell Us What You Are Publishing Next</h2>
+              <p>Share your manuscript stage, genre, and goals. Our publishing team will suggest a route that keeps your book moving.</p>
+              <br>
+              <br>
+              <div class="contact-row"><i class="bi bi-telephone"></i><span>(888) 260-4874</span></div>
+              <div class="contact-row"><i class="bi bi-envelope"></i><span>info@denverpublishers.com</span></div>
+              <div class="contact-row"><i class="bi bi-geo-alt"></i><span>929 Colorado Ave, Santa Monica, CA 90401, United States</span></div>
+              
+            </div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+           <form class="contact-form" action="/send-mail" method="POST">
+              <span class="eyebrow">Your Publishing Journey Starts Today</span>
+              <h2>Request A Publishing Plan</h2>
+              <div class="row g-3">
+                <div class="col-md-6">
+                     <input type="hidden" name="page_url"
+value="https://denverpublishers.com/">
+                     <input type="hidden" name="user_ip" id="user_ip">
+                  <label for="name">Name</label>
+                  <input class="form-control" id="name" type="text" placeholder="Your name" name="name">
+                </div>
+                <div class="col-md-6">
+                  <label for="email">Email</label>
+                  <input class="form-control" id="email" type="email" placeholder="you@example.com" name="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="phone">Phone</label>
+                  <input class="form-control" id="phone" type="tel" placeholder="+1 000 000 0000" name="phone">
+                </div>
+                <div class="col-md-6">
+                  <label for="genre">Genre</label>
+                  <select class="form-select" id="genre" name="genre">
+                    <option selected>Choose genre</option>
+                    <option>Fiction</option>
+                    <option>Business</option>
+                    <option>Memoir</option>
+                    <option>Children's</option>
+                    <option>Self Help</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your manuscript"></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-gold" type="submit">Submit Request</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- <div class="map-wrap" data-aos="fade-up">
+          <iframe title="Madison Square Publishers map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Madison%20Square%20Park%20New%20York&output=embed"></iframe>
+        </div> -->
+      </div>
+    </section>
+     <script>
+document.getElementById('page_url').value = window.location.href;
+</script>
+     <!-- ============================================================
+     Faq's Section
+     ============================================================ -->
+
+    <section class="section faq-section">
+      <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2>Clear Answers Before We Begin</h2>
+        </div>
+        <div class="accordion faq-accordion" id="faqAccordion" data-aos="fade-up">
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">How long does the publishing process take?</button></h3>
+            <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Most complete publishing projects take 8 to 14 weeks depending on editing depth, design rounds, and launch scope.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">Can you redesign an existing cover?</button></h3>
+            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes. We can refresh covers, interiors, metadata, and launch assets for books that are already published.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">Do I keep rights to my book?</button></h3>
+            <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes. Our service model is built so authors maintain ownership while receiving professional publishing support.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">Do you help with marketing?</button></h3>
+            <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">We provide launch strategy, storefront copy, ad graphics, author branding, and campaign planning depending on the package.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+   <!-- ============================================================
+     Footer Section
+    ============================================================ -->
+
+
+    <section class="final-cta">
+      <div class="container">
+        <div class="final-cta-inner" data-aos="zoom-in">
+          <h2>Claim Your Manuscript's Publishing Plan</h2>
+          <p>Get a premium path for editing, design, distribution, and launch.</p>
+          <a class="btn btn-gold" href="0"  data-bs-toggle="modal" data-bs-target="#staticsBackdrop">Get Free Consultation</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Modal -->
+<div class="modal fade" id="staticsBackdrop" data-bs-backdrop="statics" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticsBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header" style="background-color: #fefaf1;">
+     
+        <h2>Get Connected With Us</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class=" ">
+        <form class="contact-form" action="/send-mail" method="POST">
+             
+              <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="hidden" name="page_url"
+value="https://denverpublishers.com/">
+                    <input type="hidden" name="user_ip" id="user_ip">
+                  <label for="name">Name</label>
+                  <input class="form-control" id="name" type="text" placeholder="Your name" name="name">
+                </div>
+                <div class="col-md-6">
+                  <label for="email">Email</label>
+                  <input class="form-control" id="email" type="email" placeholder="you@example.com" name="email">
+                </div>
+                <div class="col-md-6">
+                  <label for="phone">Phone</label>
+                  <input class="form-control" id="phone" type="tel" placeholder="+1 000 000 0000" name="phone">
+                </div>
+                <div class="col-md-6">
+                  <label for="genre">Genre</label>
+                  <select class="form-select" id="genre" name="genre">
+                    <option selected>Choose genre</option>
+                    <option>Fiction</option>
+                    <option>Business</option>
+                    <option>Memoir</option>
+                    <option>Children's</option>
+                    <option>Self Help</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your manuscript"></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-gold" type="submit">Submit Request</button>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
+ <script>
+document.getElementById('page_url').value = window.location.href;
+</script>
+<!-- Modal -->
+<footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="footer-brand brand-lockup" href="#home">
+            <img src="assets/images/ui/f-logo.png" alt="">
+          </a>
+          <p>Premium publishing, design, editing, and launch support for authors ready to make their book feel unforgettable.</p>
+          
+          <div class="py-4">
+          <ul>
+            <li><i class="bi bi-telephone"></i><a href="tel:8882604874"> (888) 260-4874</a></li>
+            <li><i class="bi bi-envelope"></i><a href="mailto:info@denverpublishers.com"> info@denverpublishers.com</a></li>
+            <li><i class="bi bi-geo-alt"></i><a href=""> 929 Colorado Ave, Santa Monica, CA 90401, United States</a></li>
+          </ul>
+          </div>
+          
+          <div class="socials">
+            <a href="https://www.facebook.com/profile.php?id=61591435877426" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/denverpublishers2" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UC5JsNoW5bPWgPKugEVf-PJQ" aria-label="Instagram"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="services.php">Services</a></li>
+            <li><a href="Portfolio.php">Portfolio</a></li>
+            <li><a href="testimonials.php">Testimonials</a></li>
+            <li><a href="contact-us.php">Contact</a></li>
+            <li><a href="privacy-policy.php">Privacy Policy</a></li>
+            <li><a href="refund-policy.php">Refund Policy</a></li>
+            <li><a href="term-and-conditions.php">Terms & Conditions</a></li>
+            
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="writing.php">Writing</a></li>
+            <li><a href="editing.php">Editing</a></li>
+            <li><a href="design.php">Cover Design</a></li>
+            <li><a href="publishing.php">Publishing</a></li>
+            <li><a href="marketing.php">Marketing</a></li>
+            <li><a href="printing.php">Printing</a></li>
+            <li><a href="audio.php">Audiobook</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h3>Newsletter</h3>
+          <p>Get publishing notes, launch ideas, and cover inspiration in your inbox.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Email address" aria-label="Email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-send"></i></button>
+          </form>
+          
+        
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright 2026 Denver Publishers. All Rights Reserved.</span>
+        
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/script.js"></script>
+  
+  
+
+
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+        window.__lc = window.__lc || {};
+        window.__lc.license = 19581927;
+        window.__lc.integration_name = "manual_channels";
+        window.__lc.product_name = "livechat";
+        ;(function(n,t,c){
+            function i(n){
+                return e._h ? e._h.apply(null,n) : e._q.push(n);
+            }
+            var e={
+                _q:[],
+                _h:null,
+                _v:"2.0",
+                on:function(){i(["on",c.call(arguments)])},
+                once:function(){i(["once",c.call(arguments)])},
+                off:function(){i(["off",c.call(arguments)])},
+                get:function(){
+                    if(!e._h) throw new Error("[LiveChatWidget] You can't use getters before load.");
+                    return i(["get",c.call(arguments)]);
+                },
+                call:function(){i(["call",c.call(arguments)])},
+                init:function(){
+                    var n=t.createElement("script");
+                    n.async=true;
+                    n.type="text/javascript";
+                    n.src="https://cdn.livechatinc.com/tracking.js";
+                    t.head.appendChild(n);
+                }
+            };
+            !n._lc?.asyncInit && e.init();
+            n.LiveChatWidget=n.LiveChatWidget||e;
+        })(window,document,[].slice);
+    </script>
+<!-- End of LiveChat code -->
+
+
+<!-- Start of LiveChat Open code -->
+
+<script>
+function onNewEvent(event) {
+    switch (event.type) {
+        case "message":
+            LiveChatWidget.call("maximize");
+            break;
+        case "rich_message":
+            LiveChatWidget.call("maximize");
+            break;
+        case "file":
+            LiveChatWidget.call("maximize");
+            break;
+        default:
+            break;
+    }
+}
+
+LiveChatWidget.on('new_event', onNewEvent);
+
+
+function openLiveChat() {
+            LiveChatWidget.call("maximize");
+        }
+        
+</script>
+
+<!-- End of LiveChat Open code -->
+
+</body>
+</html>
