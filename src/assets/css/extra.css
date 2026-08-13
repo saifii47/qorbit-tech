@@ -625,3 +625,255 @@ header.fixed.sticky {
   .ct-testimonial .slick-prev { left: 5px !important; }
   .ct-testimonial .slick-next { right: 5px !important; }
 }
+
+/* ============================================================
+   MOBILE & TABLET RESPONSIVE OVERRIDES (PC/Desktop UNTOUCHED)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  /* Tablet Container & Base Fixes */
+  .container, .container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Headings Fluid Scaling for Tablet */
+  h1, .bannermain h1 {
+    font-size: clamp(2.2rem, 5vw, 3rem) !important;
+    line-height: 1.15 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  h2, .headingmain h2, .sec_02 h2, .ctamm h2, .intro-strip h2, .footercta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem) !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Stat Counter Grid on Tablet */
+  .counterlist {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal page overflow on mobile */
+  html, body, #root {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Container Edge Padding */
+  .container, .container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Headings & Typography Cuts Fix */
+  h1, .bannermain h1 {
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem) !important;
+    line-height: 1.18 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  h2, .headingmain h2, .sec_02 h2, .ctamm h2, .intro-strip h2, .footercta h2, .awards_dv h3 {
+    font-size: clamp(1.4rem, 5.5vw, 1.8rem) !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  h3, .pricing_dv h3 {
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem) !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  h4, h5, h6, .headingmain h6, .sec_02 h6 {
+    font-size: clamp(1rem, 3.5vw, 1.15rem) !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  p, .bannermain p, .sec_02 p, .intro-strip p {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    word-break: break-word !important;
+  }
+
+  /* Hero Section Stacking & Alignment */
+  .bannermain {
+    padding-top: 110px !important;
+    min-height: auto !important;
+    text-align: center !important;
+  }
+
+  .bannermain .row {
+    flex-direction: column !important;
+  }
+
+  .bannermain .col-md-12,
+  .bannermain .col-lg-7,
+  .bannermain .texture1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .bannermain p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .btnstyle-bann {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* Hero Micro-Stats Row Stacking */
+  .texture1 > div[style*="flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin-top: 32px !important;
+    padding-top: 24px !important;
+  }
+
+  /* Portfolio Tabs & Grid Stacking */
+  .filterport {
+    width: 100% !important;
+  }
+
+  .filterport ul {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    padding: 0 !important;
+  }
+
+  .filterport ul li {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    text-align: center !important;
+  }
+
+  .filterport ul li a {
+    font-size: 24px !important;
+    display: block !important;
+    padding: 10px 0 !important;
+  }
+
+  .portfolio_main .filterport ul li.active a:before {
+    display: none !important;
+  }
+
+  .porfolio-dv {
+    column-count: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+  }
+
+  .porfolio-dv .items,
+  .ct-image-single {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .porfolio-dv img,
+  .ct-image-single img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    border-radius: 8px !important;
+  }
+
+  /* Stat Counter Section Stacking */
+  .counterlist {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .itemscount {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Testimonials Section Stacking */
+  .ct-testimonial .item--inner {
+    padding: 24px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* About & Service Grid Layouts */
+  .sec_02 .row,
+  .services_sec02 .row,
+  .pricing_dv .row,
+  .contact-section .row {
+    flex-direction: column !important;
+  }
+
+  .sec_02 [class*="col-"],
+  .services_sec02 [class*="col-"],
+  .pricing_dv [class*="col-"],
+  .contact-section [class*="col-"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Cards Width Reset */
+  .card, .pricing-card, .testimonial-card, .service-card, .contact-info-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Icon Rendering Fallbacks */
+  i.fa, i.bi, span.icon {
+    display: inline-block !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .btnstyle-bann a,
+  .btnstyle-bann button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .cta-btn-box .btn-qorbit {
+    width: 100% !important;
+    padding: 14px 20px !important;
+  }
+
+  .entry-box, .entry-right {
+    padding: 16px !important;
+    width: 100% !important;
+  }
+}

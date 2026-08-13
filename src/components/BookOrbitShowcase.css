@@ -261,36 +261,41 @@
   color: #ffffff;
 }
 
-/* Responsive Media Queries */
-@media (max-width: 991.98px) {
+/* Responsive Media Queries — Desktop (>1024px) UNTOUCHED */
+@media (max-width: 1024px) {
   .book-orbit {
-    height: 420px;
+    height: 440px;
+    perspective: 1400px;
   }
 
   .orbit-book {
-    width: 165px;
-    height: 230px;
-    margin-left: -82px;
-    margin-top: -115px;
+    width: 180px;
+    height: 250px;
+    margin-left: -90px;
+    margin-top: -125px;
   }
 
   .intro-strip h2 {
-    font-size: 34px;
+    font-size: clamp(1.8rem, 4.5vw, 2.2rem);
   }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
+  .qorbit-orbit-section {
+    padding: 60px 0 70px 0;
+  }
+
   .book-orbit {
-    height: 375px;
+    height: 400px;
     perspective: 1200px;
     overflow: hidden;
   }
 
   .orbit-book {
-    width: 140px;
-    height: 195px;
-    margin-left: -70px;
-    margin-top: -97px;
+    width: 170px;
+    height: 235px;
+    margin-left: -85px;
+    margin-top: -118px;
   }
 
   .orbit-caption {
@@ -303,24 +308,45 @@
   }
 
   .intro-strip h2 {
-    font-size: 28px;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  .intro-strip p {
+    font-size: 14px;
+    padding: 0 16px;
   }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 480px) {
+  .qorbit-orbit-section {
+    padding: 45px 0 50px 0;
+  }
+
   .book-orbit {
-    height: 335px;
+    height: 350px;
+    perspective: 1000px;
   }
 
   .orbit-book {
-    width: 118px;
-    height: 165px;
-    margin-left: -59px;
-    margin-top: -82px;
+    width: 150px;
+    height: 210px;
+    margin-left: -75px;
+    margin-top: -105px;
   }
 
   .book-shell::before {
     left: -14px;
     width: 16px;
+  }
+
+  .intro-strip h2 {
+    font-size: 1.5rem;
+  }
+
+  .orbit-caption span {
+    font-size: 11px;
+    padding: 6px 12px;
   }
 }

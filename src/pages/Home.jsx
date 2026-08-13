@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import BookOrbitShowcase from '../components/BookOrbitShowcase';
 import Portfolio from '../components/Portfolio';
 import About from '../components/About';
+import MeetTheFounders from '../components/MeetTheFounders';
 import CtaBanner from '../components/CtaBanner';
 import Pricing from '../components/Pricing';
 import Reliability from '../components/Reliability';
@@ -30,6 +31,7 @@ const Home = () => {
       <BookOrbitShowcase onOpenModal={() => setModalOpen(true)} />
       <Portfolio />
       <About onOpenModal={() => setModalOpen(true)} />
+      <MeetTheFounders onOpenModal={() => setModalOpen(true)} />
       <CtaBanner onOpenModal={() => setModalOpen(true)} />
       <Pricing onOpenModal={() => setModalOpen(true)} />
       <Reliability />

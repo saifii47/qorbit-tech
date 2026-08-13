@@ -6,6 +6,7 @@ import PopupForm from '../components/PopupForm';
 import Counter from '../components/Counter';
 import Testimonials from '../components/Testimonials';
 import About from '../components/About';
+import MeetTheFounders from '../components/MeetTheFounders';
 import CtaBanner from '../components/CtaBanner';
 
 const AboutPage = () => {
@@ -48,6 +49,9 @@ const AboutPage = () => {
 
       {/* About Main Component */}
       <About onOpenModal={() => setModalOpen(true)} />
+
+      {/* Meet The Founders Section */}
+      <MeetTheFounders onOpenModal={() => setModalOpen(true)} />
 
       {/* Process Workflow Section */}
       <section style={{ padding: '90px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)', position: 'relative' }}>

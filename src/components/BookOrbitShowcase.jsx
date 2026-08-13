@@ -41,31 +41,35 @@ const BookOrbitShowcase = () => {
     const dragStrength = 0.22;
 
     const sizeOrbit = () => {
-      const width = orbit.clientWidth || 900;
-      if (width < 430) {
-        radius = width * 0.45;
-      } else if (width < 760) {
-        radius = width * 0.42;
+      const width = orbit.clientWidth || window.innerWidth || 900;
+      if (width < 480) {
+        radius = Math.max(width * 0.58, 220);
+      } else if (width < 768) {
+        radius = Math.max(width * 0.52, 270);
+      } else if (width < 1024) {
+        radius = Math.max(width * 0.44, 340);
       } else {
-        radius = Math.min(Math.max(width * 0.36, 320), 500);
+        radius = Math.min(Math.max(width * 0.36, 340), 500);
       }
     };
 
     const render = () => {
+      const width = orbit.clientWidth || window.innerWidth || 900;
+      const isMobile = width <= 768;
       const step = 360 / items.length;
       items.forEach((item, index) => {
         const angle = rotation + index * step;
         const rad = (angle * Math.PI) / 180;
         const front = Math.cos(rad);
         const depth = (front + 1) / 2;
-        const scale = 0.7 + depth * 0.42;
-        const lift = (1 - depth) * 18;
+        const scale = isMobile ? (0.78 + depth * 0.34) : (0.7 + depth * 0.42);
+        const lift = (1 - depth) * (isMobile ? 12 : 18);
         const brightness = 0.65 + depth * 0.45;
         const saturation = 0.88 + depth * 0.12;
 
         item.style.transform = `rotateY(${angle}deg) translateZ(${radius}px) translateY(${lift}px) scale(${scale})`;
         item.style.zIndex = String(Math.round(depth * 1000));
-        item.style.opacity = String(0.34 + depth * 0.66);
+        item.style.opacity = String(isMobile ? (0.2 + depth * 0.8) : (0.34 + depth * 0.66));
         item.style.filter = `brightness(${brightness}) saturate(${saturation})`;
       });
     };
