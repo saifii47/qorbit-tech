@@ -20,7 +20,7 @@ const serviceDetailsConfig = {
       'Brand guideline manual including typography & color palette',
       '100% full copyright & ownership rights transferred',
     ],
-    whyUs: 'A great logo isn\'t just art—it\'s your company\'s handshake. Our designers fuse brand psychology with modern aesthetic principles to craft unforgettable logos.',
+    whyUs: "A great logo isn't just art, it's your company's handshake. Our designers fuse brand psychology with modern aesthetic principles to craft unforgettable logos.",
   },
   'web-design-development': {
     title: 'Web Design & Development',

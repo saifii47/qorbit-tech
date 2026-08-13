@@ -28,7 +28,7 @@ const Footer = ({ onOpenModal }) => (
                 <div className="col-md-6">
                   <div className="flogo">
                     <Link to="/">
-                      <img src={ASSETS.logo} alt="Qorbit Tech" style={{ maxHeight: '75px', width: 'auto', mixBlendMode: 'screen', filter: 'brightness(1.2) drop-shadow(0 0 10px rgba(37,99,235,0.4))', marginBottom: '15px' }} />
+                      <img src={ASSETS.logo} alt="Qorbit Tech" style={{ maxHeight: '95px', width: 'auto', filter: 'brightness(1.15) drop-shadow(0 4px 15px rgba(37,99,235,0.35))', marginBottom: '15px' }} />
                     </Link>
                   </div>
                   <p>Our industry experts make sure to deliver bespoke designs and cutting-edge technology so that your brand stands out amongst competition.</p>

@@ -190,7 +190,7 @@ const BookOrbitShowcase = () => {
               High-Performance <span className="highlight">Digital Solutions</span>
             </h2>
             <p>
-              Explore our core digital engineering and creative services — engineered to elevate your brand, engage your audience, and convert visitors.
+              Explore our core digital engineering and creative services, engineered to elevate your brand, engage your audience, and convert visitors.
             </p>
           </div>
         </div>

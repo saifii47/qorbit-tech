@@ -19,7 +19,7 @@ const items = [
   {
     image: `${CDN}/carousel-03.jpg`,
     tag: 'Brand Cohesion',
-    title: 'Our holistic approach takes your entire business ethos - your brand, your mission and vision, your goals - and transforms it into a cohesive digital journey.'
+    title: 'Our holistic approach takes your entire business ethos including your brand, mission, vision, and goals, transforming it into a cohesive digital journey.'
   },
   {
     image: `${CDN}/carousel-04.jpg`,
@@ -72,7 +72,7 @@ const Reliability = () => (
             <div className="item--shape item--shape4"><Shape4 /></div>
             <div className="item--meta">
               <div className="item--category">
-                <img src={ASSETS.logo} alt="Qorbit Tech Logo" style={{ maxHeight: '50px', width: 'auto', margin: '0 auto 10px', display: 'block', mixBlendMode: 'screen', filter: 'brightness(1.2)' }} />
+                <img src={ASSETS.logo} alt="Qorbit Tech Logo" style={{ maxHeight: '60px', width: 'auto', margin: '0 auto 10px', display: 'block', filter: 'brightness(1.15)' }} />
               </div>
               <div className="item--category">
                 <a href="#" onClick={(e) => e.preventDefault()} rel="tag" tabIndex={0}>

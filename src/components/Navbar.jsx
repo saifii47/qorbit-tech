@@ -52,7 +52,7 @@ const Navbar = ({ onOpenModal }) => {
           <nav className="navbar navbar-expand-lg">
             <div className="container">
               <Link to="/" className="logo" onClick={closeMenu}>
-                <img src={ASSETS.logo} alt="Qorbit Tech" style={{ maxHeight: '70px', width: 'auto', mixBlendMode: 'screen', filter: 'brightness(1.2) drop-shadow(0 0 10px rgba(37,99,235,0.4))' }} />
+                <img src={ASSETS.logo} alt="Qorbit Tech" style={{ maxHeight: '95px', width: 'auto', filter: 'brightness(1.15) drop-shadow(0 4px 15px rgba(37,99,235,0.35))' }} />
               </Link>
 
               {/* Mobile Toggle */}

@@ -9,13 +9,13 @@
 
   /* Accent */
   --theme-primary: #2563eb;
-  --theme-purple: #7c3aed;
-  --theme-gradient-start: #2563eb;
-  --theme-gradient-end: #7c3aed;
+  --theme-purple: #38bdf8;
+  --theme-gradient-start: #1d4ed8;
+  --theme-gradient-end: #38bdf8;
 
   /* Interactive */
-  --theme-cta-bg: linear-gradient(135deg, #2563eb, #7c3aed);
-  --accent: #2563eb;
+  --theme-cta-bg: linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8);
+  --accent: #3b82f6;
   --accent-bg: rgba(37, 99, 235, 0.12);
   --accent-border: rgba(37, 99, 235, 0.4);
 
@@ -33,7 +33,7 @@
   --border: rgba(255, 255, 255, 0.08);
 
   /* Shadows */
-  --shadow-blue: 0 0 30px rgba(37, 99, 235, 0.35);
-  --shadow-purple: 0 0 30px rgba(124, 58, 237, 0.35);
+  --shadow-blue: 0 0 30px rgba(37, 99, 235, 0.45);
+  --shadow-purple: 0 0 30px rgba(56, 189, 248, 0.45);
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
 }

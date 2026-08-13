@@ -58,7 +58,7 @@ const AboutPage = () => {
         <div style={{
           position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
           width: '600px', height: '400px',
-          background: 'radial-gradient(ellipse, rgba(124,58,237,0.07) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, rgba(56,189,248,0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>

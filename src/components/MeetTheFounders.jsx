@@ -10,8 +10,8 @@ const MeetTheFounders = ({ onOpenModal }) => {
       imgClass: 'muazzam-img',
       experience: '6+ Years',
       tags: ['Paid Ad Accounts', 'Meta & Google Ads', 'A/B Testing', 'ROAS Optimization', 'Performance Funnels'],
-      highlight: 'Spent six years figuring out why people click — and why they don’t.',
-      bio: "Not from a textbook. From live ad accounts, real budgets, campaigns that either paid for themselves or got killed by Thursday. Meta, Google, endless A/B tests — Muazzam's real education was the gap between what looks smart on a slide and what actually earns money in the feed.",
+      highlight: 'Spent six years figuring out why people click, and why they don’t.',
+      bio: "Not from a textbook. From live ad accounts, real budgets, campaigns that either paid for themselves or got killed by Thursday. Meta, Google, endless A/B tests: Muazzam's real education was the gap between what looks smart on a slide and what actually earns money in the feed.",
     },
     {
       name: 'Huzaifa',
@@ -21,7 +21,7 @@ const MeetTheFounders = ({ onOpenModal }) => {
       experience: '8+ Years',
       tags: ['Brand Identity', 'Motion & Video', 'Scroll-Stopping Design', 'UI/UX Craft', 'Creative Direction'],
       highlight: 'Spent eight years learning that attention is borrowed, never owned.',
-      bio: "Every scroll is a brand asking permission to exist for one more second. Huzaifa's work — design, video, motion — is built entirely around that half-second decision: stay or swipe. Nothing he makes is there to look nice in a portfolio. It's there to survive the scroll.",
+      bio: "Every scroll is a brand asking permission to exist for one more second. Huzaifa's work in design, video, and motion is built entirely around that half-second decision: stay or swipe. Nothing he makes is there to look nice in a portfolio. It's there to survive the scroll.",
     },
   ];
 
@@ -34,7 +34,7 @@ const MeetTheFounders = ({ onOpenModal }) => {
     {
       num: '02',
       title: "We don't hand off. We stay in orbit.",
-      desc: "Strategy and creative aren't two departments here — they're one conversation, start to finish.",
+      desc: "Strategy and creative aren't two departments here: they're one conversation, start to finish.",
     },
     {
       num: '03',
@@ -137,13 +137,13 @@ const MeetTheFounders = ({ onOpenModal }) => {
               </div>
 
               <p className="idea-body-text">
-                A satellite doesn&apos;t stay in orbit by accident — it&apos;s two forces in constant tension: one pulling in, one pushing forward. Break the balance, and it either crashes or drifts off into nothing.
+                A satellite doesn&apos;t stay in orbit by accident. It is two forces in constant tension: one pulling in, one pushing forward. Break the balance, and it either crashes or drifts off into nothing.
               </p>
               <p className="idea-body-text">
                 That&apos;s most marketing. All pull (creative) with no push (strategy) looks great and goes nowhere. All push with no pull gets clicks nobody remembers.
               </p>
               <p className="idea-body-text" style={{ color: '#ffffff', fontWeight: 600 }}>
-                <strong style={{ background: 'linear-gradient(135deg, #60a5fa, #38bdf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Qorbit</strong> was built to hold that balance on purpose — for founders who are tired of choosing between an agency that&apos;s polished but slow, and a freelancer who&apos;s fast but narrow.
+                <strong style={{ background: 'linear-gradient(135deg, #60a5fa, #38bdf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Qorbit</strong> was built to hold that balance on purpose, for founders who are tired of choosing between an agency that&apos;s polished but slow, and a freelancer who&apos;s fast but narrow.
               </p>
             </div>
           </div>

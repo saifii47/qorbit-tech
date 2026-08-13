@@ -27,8 +27,8 @@ const Contact = () => {
     >
       {/* Decorative glows */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '10%', left: '-10%', width: '400px', height: '400px', background: 'radial-gradient(ellipse, rgba(37,99,235,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
-        <div style={{ position: 'absolute', bottom: '10%', right: '-10%', width: '300px', height: '300px', background: 'radial-gradient(ellipse, rgba(124,58,237,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
+        <div style={{ position: 'absolute', top: '10%', left: '-10%', width: '400px', height: '400px', background: 'radial-gradient(ellipse, rgba(37,99,235,0.12) 0%, transparent 70%)', borderRadius: '50%' }} />
+        <div style={{ position: 'absolute', bottom: '10%', right: '-10%', width: '300px', height: '300px', background: 'radial-gradient(ellipse, rgba(56,189,248,0.12) 0%, transparent 70%)', borderRadius: '50%' }} />
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -42,19 +42,20 @@ const Contact = () => {
             </div>
             <div className="contactlist">
               {[
-                { icon: 'flaticon-location', label: 'Office Address:', text: '123 E San Carlos St San Jose, CA 95112', href: null },
-                { icon: 'flaticon-call', label: 'Phone number:', text: '+ 1 (510) 476-9126', href: 'tel:+15104769126' },
-                { icon: 'flaticon-chat', label: 'Mail Address:', text: 'info@qorbit.tech', href: 'mailto:info@qorbit.tech' },
+                { icon: 'fas fa-map-marker-alt', label: 'Office Address:', text: '123 E San Carlos St San Jose, CA 95112', href: null },
+                { icon: 'fas fa-phone-alt', label: 'Phone number:', text: '+ 1 (510) 476-9126', href: 'tel:+15104769126' },
+                { icon: 'fas fa-envelope', label: 'Mail Address:', text: 'info@qorbit.tech', href: 'mailto:info@qorbit.tech' },
               ].map((item) => (
                 <div key={item.label} className="listing_info" style={{ marginBottom: '28px', display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
                   <div style={{
                     width: '54px', height: '54px', minWidth: '54px',
-                    background: 'linear-gradient(135deg, rgba(37,99,235,0.2), rgba(124,58,237,0.15))',
-                    border: '1px solid rgba(37,99,235,0.3)',
-                    borderRadius: '12px', display: 'flex', alignItems: 'center',
-                    justifyContent: 'center', backdropFilter: 'blur(10px)',
+                    background: 'linear-gradient(135deg, #4f46e5, #2563eb)',
+                    border: 'none',
+                    borderRadius: '14px', display: 'flex', alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 8px 20px rgba(79,70,229,0.4)'
                   }}>
-                    <i className={`flaticon ${item.icon}`} style={{ color: '#3b82f6', fontSize: '24px' }} />
+                    <i className={item.icon} style={{ color: '#ffffff', fontSize: '22px' }} />
                   </div>
                   <div>
                     <h5 style={{ color: '#ffffff', fontSize: '20px', marginBottom: '4px' }}>{item.label}</h5>
@@ -73,7 +74,7 @@ const Contact = () => {
           <div className="col-md-6 col-lg-5">
             <div style={{
               background: 'rgba(13,20,50,0.7)',
-              border: '1px solid rgba(37,99,235,0.15)',
+              border: '1px solid rgba(37,99,235,0.25)',
               borderRadius: '20px',
               padding: '40px 36px',
               backdropFilter: 'blur(20px)',
@@ -108,7 +109,7 @@ const Contact = () => {
                               outline: 'none', transition: 'border-color 0.3s',
                               fontFamily: 'Poppins,sans-serif',
                             }}
-                            onFocus={(e) => e.target.style.borderColor = 'rgba(37,99,235,0.6)'}
+                            onFocus={(e) => e.target.style.borderColor = 'rgba(56,189,248,0.6)'}
                             onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
                           />
                         </div>
@@ -119,15 +120,15 @@ const Contact = () => {
                         type="submit"
                         style={{
                           width: '100%', height: '52px',
-                          background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+                          background: 'linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8)',
                           border: 'none', borderRadius: '8px', color: '#ffffff',
                           fontSize: '16px', fontFamily: 'Bebas Neue,sans-serif',
                           letterSpacing: '0.08em', cursor: 'pointer',
-                          boxShadow: '0 4px 20px rgba(37,99,235,0.4)',
+                          boxShadow: '0 4px 20px rgba(37,99,235,0.45)',
                           transition: 'all 0.3s ease',
                         }}
-                        onMouseEnter={(e) => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 8px 30px rgba(37,99,235,0.55)'; }}
-                        onMouseLeave={(e) => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 4px 20px rgba(37,99,235,0.4)'; }}
+                        onMouseEnter={(e) => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 8px 30px rgba(56,189,248,0.6)'; }}
+                        onMouseLeave={(e) => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 4px 20px rgba(37,99,235,0.45)'; }}
                       >
                         Let&apos;s Get to Work →
                       </button>

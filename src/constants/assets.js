@@ -1,4 +1,4 @@
-import logoImg from '../assets/images/qorbit-logo-new.png';
+import logoImg from '../assets/images/qorbit-logo-transparent.png';
 import qWatermarkImg from '../assets/images/q-watermark.png';
 import heroBannerImg from '../assets/images/hero-banner.png';
 
