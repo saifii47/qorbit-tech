@@ -175,9 +175,12 @@ const BookOrbitShowcase = () => {
 
   return (
     <section className="qorbit-orbit-section">
-      {/* Ambient Background Glows */}
+      {/* Ambient Background Grid & Floating Aurora Glows */}
+      <div className="orbit-tech-grid" />
       <div className="orbit-glow-1" />
       <div className="orbit-glow-2" />
+      <div className="orbit-bg-ring" />
+      <div className="orbit-bg-ring-2" />
 
       {/* Intro Header */}
       <div className="intro-strip">

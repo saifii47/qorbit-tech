@@ -4,7 +4,7 @@ import './MeetTheFounders.css';
 const MeetTheFounders = ({ onOpenModal }) => {
   const founders = [
     {
-      name: 'Muazzam',
+      name: 'Muazzam Ahmed Siddiqui',
       role: 'Co-Founder & Growth Strategist',
       image: '/images/muazzam.jpg',
       imgClass: 'muazzam-img',
@@ -14,7 +14,7 @@ const MeetTheFounders = ({ onOpenModal }) => {
       bio: "Not from a textbook. From live ad accounts, real budgets, campaigns that either paid for themselves or got killed by Thursday. Meta, Google, endless A/B tests: Muazzam's real education was the gap between what looks smart on a slide and what actually earns money in the feed.",
     },
     {
-      name: 'Huzaifa',
+      name: 'Huzaifa Raja',
       role: 'Co-Founder & Creative Director',
       image: '/images/huzaifa.jpg',
       imgClass: 'huzaifa-img',
@@ -94,7 +94,7 @@ const MeetTheFounders = ({ onOpenModal }) => {
 
                 {/* Founder Skill Badges / Tags */}
                 <div className="founder-tags-wrapper">
-                  <span className="founder-tag-pill" style={{ background: 'rgba(37, 99, 235, 0.2)', borderColor: 'rgba(96, 165, 250, 0.4)', color: '#93c5fd' }}>
+                  <span className="founder-tag-pill" style={{ background: '#dbeafe', borderColor: '#93c5fd', color: '#1e40af', fontWeight: 700 }}>
                     {founder.experience}
                   </span>
                   {founder.tags.map((tag) => (
@@ -142,8 +142,8 @@ const MeetTheFounders = ({ onOpenModal }) => {
               <p className="idea-body-text">
                 That&apos;s most marketing. All pull (creative) with no push (strategy) looks great and goes nowhere. All push with no pull gets clicks nobody remembers.
               </p>
-              <p className="idea-body-text" style={{ color: '#ffffff', fontWeight: 600 }}>
-                <strong style={{ background: 'linear-gradient(135deg, #60a5fa, #38bdf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Qorbit</strong> was built to hold that balance on purpose, for founders who are tired of choosing between an agency that&apos;s polished but slow, and a freelancer who&apos;s fast but narrow.
+              <p className="idea-body-text" style={{ color: '#0f172a', fontWeight: 600 }}>
+                <strong style={{ background: 'linear-gradient(135deg, #1d4ed8, #2563eb)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Qorbit</strong> was built to hold that balance on purpose, for founders who are tired of choosing between an agency that&apos;s polished but slow, and a freelancer who&apos;s fast but narrow.
               </p>
             </div>
           </div>

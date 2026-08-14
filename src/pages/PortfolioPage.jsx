@@ -145,9 +145,6 @@ const PortfolioPage = () => {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <CtaBanner onOpenModal={() => setModalOpen(true)} />
-
       <Footer onOpenModal={() => setModalOpen(true)} />
       <PopupForm isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>

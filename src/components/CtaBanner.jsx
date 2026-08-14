@@ -17,7 +17,7 @@ const CtaBanner = ({ onOpenModal }) => (
           <div className="icos"><i className="fa fa-phone"></i></div>
         </div>
         <div className="simplebtn_request">
-          <a className="btn btn-outline-gradient" href="#" onClick={(e) => { e.preventDefault(); onOpenModal?.(); }}>
+          <a className="btn btn-black-cta" href="#" onClick={(e) => { e.preventDefault(); onOpenModal?.(); }}>
             Request a Quote
           </a>
         </div>

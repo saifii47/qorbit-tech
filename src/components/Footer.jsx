@@ -11,7 +11,7 @@ const Footer = ({ onOpenModal }) => (
             <h2>Want to consult with our team?</h2>
           </div>
           <div className="col-md-4 text-right">
-            <a className="btn btn-outline-gradient" href="#" onClick={(e) => { e.preventDefault(); onOpenModal?.(); }}>
+            <a className="btn btn-black-cta" href="#" onClick={(e) => { e.preventDefault(); onOpenModal?.(); }}>
               get a quote now
             </a>
           </div>

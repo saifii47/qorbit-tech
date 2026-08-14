@@ -77,7 +77,10 @@ const Counter = () => {
 
   return (
     <section className="componycounter" data-aos="fade-up" data-aos-duration="1500">
-      <div className="container">
+      <div className="counter-tech-grid" />
+      <div className="counter-glow-1" />
+      <div className="counter-glow-2" />
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {isMobile ? (
           <div className="counter-slider-wrapper">
             <Slider {...sliderSettings}>

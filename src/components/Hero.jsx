@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import heroMainBgVideo from '../assets/videos/hero-main-bg.mp4';
 
 const Hero = ({ onOpenModal }) => (
-  <section className="bannermain" style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden' }}>
+  <section className="bannermain" style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden', paddingBottom: '80px' }}>
     {/* High Definition Continuous Looping Video Banner */}
     <video
       autoPlay
@@ -28,7 +28,27 @@ const Hero = ({ onOpenModal }) => (
       <source src="/assets/videos/hero-main-bg.mp4" type="video/mp4" />
     </video>
     <div className="container" style={{ position: 'relative', zIndex: 4, paddingTop: '100px' }}>
-      <div className="row align-items-center">
+
+      {/* QORBIT watermark — About Us banner style */}
+      <div style={{
+        position: 'absolute',
+        top: '90px',
+        left: '-50px',
+        zIndex: 1,
+        fontSize: '200px',
+        lineHeight: 1,
+        fontFamily: 'Bebas Neue, sans-serif',
+        color: 'transparent',
+        WebkitTextStroke: '1px rgba(177,177,177,0.21)',
+        whiteSpace: 'nowrap',
+        opacity: 0.5,
+        userSelect: 'none',
+        pointerEvents: 'none',
+      }}>
+        QORBIT
+      </div>
+
+      <div className="row align-items-center" style={{ marginTop: '100px' }}>
         <div className="col-md-12 col-lg-7 texture1">
           <h1 style={{ fontSize: '58px', lineHeight: '1.08', fontWeight: 900, marginBottom: '0' }}>
             We Build
@@ -91,7 +111,7 @@ const Hero = ({ onOpenModal }) => (
           {/* Micro-stats row */}
           <div style={{
             display: 'flex', gap: '32px', marginTop: '48px',
-            paddingTop: '32px', borderTop: '1px solid rgba(255,255,255,0.08)',
+            paddingTop: '32px', borderTop: '1px solid rgba(255,255,255,0.12)',
           }}>
             {[
               { value: '780+', label: 'Projects Done' },
@@ -100,14 +120,15 @@ const Hero = ({ onOpenModal }) => (
             ].map((stat) => (
               <div key={stat.label}>
                 <div style={{
-                  fontSize: '28px', fontFamily: 'Bebas Neue, sans-serif',
-                  background: 'linear-gradient(135deg, #3b82f6, #7c3aed)',
-                  WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text', lineHeight: 1,
+                  fontSize: '32px', fontFamily: 'Bebas Neue, sans-serif',
+                  color: '#ffffff',
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  letterSpacing: '0.04em',
                 }}>
                   {stat.value}
                 </div>
-                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', marginTop: '4px', fontWeight: 500 }}>
+                <div style={{ fontSize: '13px', color: '#ffffff', marginTop: '4px', fontWeight: 700, letterSpacing: '0.02em' }}>
                   {stat.label}
                 </div>
               </div>

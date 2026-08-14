@@ -69,8 +69,32 @@ const Portfolio = () => {
   const [lightboxItem, setLightboxItem] = useState(null);
 
   return (
-    <section className="portfolio_main" data-aos="fade-up" data-aos-duration="1500">
-      <div className="container">
+    <section className="portfolio_main" data-aos="fade-up" data-aos-duration="1500" style={{ position: 'relative' }}>
+      {/* Giant Transparent Outlined QORBIT Watermark */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '25px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          fontFamily: 'Bebas Neue, sans-serif',
+          fontSize: 'clamp(90px, 16vw, 200px)',
+          fontWeight: 900,
+          letterSpacing: '10px',
+          color: 'transparent',
+          WebkitTextStroke: '2px rgba(37, 99, 235, 0.08)',
+          userSelect: 'none',
+          pointerEvents: 'none',
+          zIndex: 0,
+          lineHeight: 0.85,
+          textTransform: 'uppercase',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        QORBIT
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="text-center headingmain">
           <h6>What We Do</h6>
           <h2>OUR <span className="themecolor">Portfolio</span></h2>

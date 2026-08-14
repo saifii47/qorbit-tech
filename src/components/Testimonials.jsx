@@ -29,10 +29,13 @@ const settings = {
 
 const Testimonials = () => (
   <section className="testimonials-sec" data-aos="fade-up" data-aos-duration="1500">
-    <div className="container" style={{ position: 'relative' }}>
+    <div className="testimonials-tech-grid" />
+    <div className="testimonials-glow-1" />
+    <div className="testimonials-glow-2" />
+    <div className="container" style={{ position: 'relative', zIndex: 1 }}>
       <div className="text-center headingmain">
         <h6>What Clients Say?</h6>
-        <h2>Feedback from our honorable <span className="themecolor">clients</span></h2>
+        <h2>Feedback from our honorable <span className="themecolor" style={{ color: '#2563eb' }}>clients</span></h2>
       </div>
       <div className="ct-testimonial" data-cursor-label="DRAG">
         <Slider {...settings}>

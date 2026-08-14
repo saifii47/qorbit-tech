@@ -11,6 +11,24 @@ const About = ({ onOpenModal }) => (
       overflow: 'hidden',
     }}
   >
+    {/* Q watermark bottom-left — same style as pricing box */}
+    <img
+      src={ASSETS.qWatermark}
+      alt=""
+      style={{
+        position: 'absolute',
+        bottom: '30px',
+        left: '-30px',
+        width: '280px',
+        height: 'auto',
+        opacity: 0.28,
+        mixBlendMode: 'screen',
+        filter: 'brightness(1.5)',
+        userSelect: 'none',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }}
+    />
     {/* Background decorative glow */}
     <div style={{
       position: 'absolute', top: '-200px', right: '-100px',
@@ -43,9 +61,14 @@ const About = ({ onOpenModal }) => (
                 { icon: 'fa-angle-double-right', title: 'Attention To Detail', desc: "It's our attention to the small stuff, timelines & keen project management that makes us stand out." },
               ].map((item) => (
                 <div key={item.title} className="col-md-6" style={{ marginBottom: '24px' }}>
-                  <h4 style={{ color: '#ffffff', fontSize: '16px', fontFamily: 'Poppins,sans-serif', fontWeight: 600, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <h4 style={{ fontSize: '16px', fontFamily: 'Poppins,sans-serif', fontWeight: 700, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <i className={`fa ${item.icon}`} style={{ color: '#2563eb', fontSize: '14px' }} />
-                    {item.title}
+                    <span style={{
+                      background: 'linear-gradient(135deg, #3b82f6, #7c3aed)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}>{item.title}</span>
                   </h4>
                   <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '14px', lineHeight: 1.7 }}>{item.desc}</p>
                 </div>

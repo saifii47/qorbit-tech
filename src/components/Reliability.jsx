@@ -49,19 +49,37 @@ const settings = {
 };
 
 const Reliability = () => (
-  <section className="newsec happywork" style={{ background: 'linear-gradient(180deg, #050510 0%, #080820 100%)', padding: '70px 0 0', color: '#fff' }}>
-    <div className="container">
+  <section className="newsec happywork" style={{ background: '#ffffff', padding: '70px 0 0', color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
+    {/* Tech grid pattern */}
+    <div style={{
+      position: 'absolute', inset: 0,
+      backgroundImage: 'radial-gradient(rgba(37,99,235,0.10) 1.2px, transparent 1.2px), radial-gradient(rgba(124,58,237,0.06) 1.2px, transparent 1.2px)',
+      backgroundSize: '34px 34px',
+      backgroundPosition: '0 0, 17px 17px',
+      maskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, #000 35%, transparent 100%)',
+      WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, #000 35%, transparent 100%)',
+      pointerEvents: 'none',
+    }} />
+    {/* Aurora glow */}
+    <div style={{
+      position: 'absolute', top: '10%', left: '30%',
+      width: '700px', height: '500px',
+      background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.09) 0%, rgba(124,58,237,0.05) 50%, transparent 70%)',
+      filter: 'blur(80px)', pointerEvents: 'none',
+      animation: 'floatOrb 14s ease-in-out infinite alternate',
+    }} />
+    <div className="container" style={{ position: 'relative', zIndex: 1 }}>
       <div className="text-center headingmain" data-aos="fade-up" data-aos-duration="1500">
-        <h6 style={{ fontSize: '15px', color: '#2563eb', fontFamily: 'Poppins, sans-serif', marginBottom: '8px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <h6 style={{ fontSize: '15px', color: '#2563eb', fontFamily: 'Poppins, sans-serif', marginBottom: '8px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Clients are happy for our work
         </h6>
-        <h2 style={{ fontSize: '42px', color: '#ffffff', fontWeight: 900, textTransform: 'uppercase', lineHeight: '1.2' }}>
+        <h2 style={{ fontSize: '42px', color: '#0f172a', fontWeight: 900, textTransform: 'uppercase', lineHeight: '1.2' }}>
           WE DO ACCORDING TO OUR <br className="d-md-none" />
-          <span className="themecolor" style={{ color: '#2563eb', display: 'inline-block' }}>BEST</span>
+          <span style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', display: 'inline-block' }}>BEST</span>
         </h2>
       </div>
     </div>
-    <div className="ct-carousel-inner" data-aos="fade-up" data-aos-duration="1500" data-cursor-label="DRAG">
+    <div className="ct-carousel-inner" data-aos="fade-up" data-aos-duration="1500" data-cursor-label="DRAG" style={{ position: 'relative', zIndex: 1 }}>
       <Slider {...settings}>
         {items.map((item, i) => (
           <div key={i} className="grid-item-inner">
