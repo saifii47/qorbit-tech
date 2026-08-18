@@ -18,7 +18,7 @@ const ContactPage = () => {
       <section
         className="inner-banner"
         style={{
-          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
+          background: 'url(https://www.pinnacledesignagency.com/assets/images/inner-banner/contact-bann.jpg) center center / cover no-repeat',
           padding: '160px 0 100px',
           color: '#ffffff',
           borderBottom: '1px solid rgba(37,99,235,0.15)',
@@ -27,14 +27,14 @@ const ContactPage = () => {
         }}
       >
         <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
-            Get In <span className="themecolor" style={{ color: '#2563eb' }}>Touch</span>
+          <h1 style={{ fontSize: '3.5rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff', textShadow: '0 4px 20px rgba(0,0,0,0.8)' }}>
+            Get In <span className="themecolor" style={{ color: '#2563eb', textShadow: 'none' }}>Touch</span>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '750px', margin: '0 auto 25px' }}>
+          <p style={{ fontSize: '1.25rem', color: '#ffffff', maxWidth: '750px', margin: '0 auto 25px', textShadow: '0 2px 10px rgba(0,0,0,0.8)', fontWeight: 500 }}>
             Have a project in mind or want to consult with our digital experts? We are available 24/7 to turn your ideas into reality.
           </p>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#2563eb', fontWeight: 600 }}>
-            Home &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>Contact Us</span>
+          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#ffffff', fontWeight: 600, textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+            Home &nbsp;/&nbsp; <span style={{ color: '#2563eb', textShadow: 'none' }}>Contact Us</span>
           </div>
         </div>
       </section>

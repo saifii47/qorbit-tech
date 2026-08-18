@@ -86,7 +86,7 @@ const ServicesPage = () => {
       <section
         className="inner-banner"
         style={{
-          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
+          background: 'url(https://www.pinnacledesignagency.com/assets/images/inner-banner/services-bann.jpg) center center / cover no-repeat',
           padding: '160px 0 100px',
           color: '#ffffff',
           borderBottom: '1px solid rgba(37,99,235,0.15)',
@@ -95,14 +95,14 @@ const ServicesPage = () => {
         }}
       >
         <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
-            Our Digital <span className="themecolor" style={{ color: '#2563eb' }}>Services</span>
+          <h1 style={{ fontSize: '3.5rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff', textShadow: '0 4px 20px rgba(0,0,0,0.8)' }}>
+            Our Digital <span className="themecolor" style={{ color: '#2563eb', textShadow: 'none' }}>Services</span>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '750px', margin: '0 auto 25px' }}>
+          <p style={{ fontSize: '1.25rem', color: '#ffffff', maxWidth: '750px', margin: '0 auto 25px', textShadow: '0 2px 10px rgba(0,0,0,0.8)', fontWeight: 500 }}>
             End-to-end creative digital solutions engineered to scale your revenue, brand reputation, and user engagement.
           </p>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#2563eb', fontWeight: 600 }}>
-            Home &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>Services</span>
+          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#ffffff', fontWeight: 600, textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+            Home &nbsp;/&nbsp; <span style={{ color: '#2563eb', textShadow: 'none' }}>Services</span>
           </div>
         </div>
       </section>

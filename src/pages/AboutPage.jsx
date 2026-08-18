@@ -21,7 +21,7 @@ const AboutPage = () => {
       <section
         className="inner-banner inner_bann"
         style={{
-          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
+          background: 'url(https://www.pinnacledesignagency.com/assets/images/inner-banner/about-bann.jpg) center center / cover no-repeat',
           padding: '160px 0 100px',
           color: '#ffffff',
           borderBottom: '1px solid rgba(37,99,235,0.15)',
@@ -35,14 +35,14 @@ const AboutPage = () => {
           pointerEvents: 'none',
         }} />
         <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
-            About <span className="themecolor" style={{ background: 'linear-gradient(135deg,#3b82f6,#7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Qorbit Tech</span>
+          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff', textShadow: '0 4px 20px rgba(0,0,0,0.8)' }}>
+            About <span className="themecolor" style={{ color: '#3b82f6', textShadow: 'none' }}>Qorbit Tech</span>
           </h1>
-          <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.6)', maxWidth: '700px', margin: '0 auto 25px', lineHeight: 1.7 }}>
+          <p style={{ fontSize: '1.15rem', color: '#ffffff', maxWidth: '700px', margin: '0 auto 25px', lineHeight: 1.7, textShadow: '0 2px 10px rgba(0,0,0,0.8)', fontWeight: 500 }}>
             We are a full-service creative digital agency engineering iconic brand identities, bespoke web systems, and high-performance digital marketing campaigns worldwide.
           </p>
-          <div style={{ fontSize: '0.9rem', letterSpacing: '1px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', fontWeight: 600 }}>
-            Home &nbsp;/&nbsp; <span style={{ color: '#3b82f6' }}>About Us</span>
+          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#ffffff', fontWeight: 600, textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+            Home &nbsp;/&nbsp; <span style={{ color: '#3b82f6', textShadow: 'none' }}>About Us</span>
           </div>
         </div>
       </section>
