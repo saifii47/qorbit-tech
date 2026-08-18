@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from './shared/Slider';
 import { Shape3, Shape4 } from './shared/CarouselShapes';
 import { ASSETS } from '../constants/assets';
@@ -33,7 +33,7 @@ const items = [
   },
 ];
 
-const settings = {
+const desktopSettings = {
   dots: false,
   infinite: true,
   speed: 600,
@@ -42,72 +42,94 @@ const settings = {
   arrows: true,
   autoplay: true,
   autoplaySpeed: 4000,
-  responsive: [
-    { breakpoint: 992, settings: { slidesToShow: 2 } },
-    { breakpoint: 576, settings: { slidesToShow: 1 } },
-  ],
 };
 
-const Reliability = () => (
-  <section className="newsec happywork" style={{ background: '#ffffff', padding: '70px 0 0', color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
-    {/* Tech grid pattern */}
-    <div style={{
-      position: 'absolute', inset: 0,
-      backgroundImage: 'radial-gradient(rgba(37,99,235,0.10) 1.2px, transparent 1.2px), radial-gradient(rgba(124,58,237,0.06) 1.2px, transparent 1.2px)',
-      backgroundSize: '34px 34px',
-      backgroundPosition: '0 0, 17px 17px',
-      maskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, #000 35%, transparent 100%)',
-      WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, #000 35%, transparent 100%)',
-      pointerEvents: 'none',
-    }} />
-    {/* Aurora glow */}
-    <div style={{
-      position: 'absolute', top: '10%', left: '30%',
-      width: '700px', height: '500px',
-      background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.09) 0%, rgba(124,58,237,0.05) 50%, transparent 70%)',
-      filter: 'blur(80px)', pointerEvents: 'none',
-      animation: 'floatOrb 14s ease-in-out infinite alternate',
-    }} />
-    <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-      <div className="text-center headingmain" data-aos="fade-up" data-aos-duration="1500">
-        <h6 style={{ fontSize: '15px', color: '#2563eb', fontFamily: 'Poppins, sans-serif', marginBottom: '8px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-          Clients are happy for our work
-        </h6>
-        <h2 style={{ fontSize: '42px', color: '#0f172a', fontWeight: 900, textTransform: 'uppercase', lineHeight: '1.2' }}>
-          WE DO ACCORDING TO OUR <br className="d-md-none" />
-          <span style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', display: 'inline-block' }}>BEST</span>
-        </h2>
+const mobileSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+};
+
+const Reliability = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 992);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const activeSettings = isMobile ? mobileSettings : desktopSettings;
+
+  return (
+    <section className="newsec happywork" style={{ background: '#ffffff', padding: '70px 0 0', color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
+      {/* Tech grid pattern */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: 'radial-gradient(rgba(37,99,235,0.10) 1.2px, transparent 1.2px), radial-gradient(rgba(124,58,237,0.06) 1.2px, transparent 1.2px)',
+        backgroundSize: '34px 34px',
+        backgroundPosition: '0 0, 17px 17px',
+        maskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, #000 35%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, #000 35%, transparent 100%)',
+        pointerEvents: 'none',
+      }} />
+      {/* Aurora glow */}
+      <div style={{
+        position: 'absolute', top: '10%', left: '30%',
+        width: '700px', height: '500px',
+        background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.09) 0%, rgba(124,58,237,0.05) 50%, transparent 70%)',
+        filter: 'blur(80px)', pointerEvents: 'none',
+        animation: 'floatOrb 14s ease-in-out infinite alternate',
+      }} />
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="text-center headingmain" data-aos="fade-up" data-aos-duration="1500">
+          <h6 style={{ fontSize: '15px', color: '#2563eb', fontFamily: 'Poppins, sans-serif', marginBottom: '8px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            Clients are happy for our work
+          </h6>
+          <h2 style={{ fontSize: '42px', color: '#0f172a', fontWeight: 900, textTransform: 'uppercase', lineHeight: '1.2' }}>
+            WE DO ACCORDING TO OUR <br className="d-md-none" />
+            <span style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', display: 'inline-block' }}>BEST</span>
+          </h2>
+        </div>
       </div>
-    </div>
-    <div className="ct-carousel-inner" data-aos="fade-up" data-aos-duration="1500" data-cursor-label="DRAG" style={{ position: 'relative', zIndex: 1 }}>
-      <Slider {...settings}>
-        {items.map((item, i) => (
-          <div key={i} className="grid-item-inner">
-            <div className="item--featured">
-              <img src={item.image} alt={item.tag} loading="lazy" />
-            </div>
-            <div className="item--shape item--shape3"><Shape3 /></div>
-            <div className="item--shape item--shape4"><Shape4 /></div>
-            <div className="item--meta">
-              <div className="item--category">
-                <img src={ASSETS.logo} alt="Qorbit Tech Logo" style={{ maxHeight: '60px', width: 'auto', margin: '0 auto 10px', display: 'block', filter: 'brightness(1.15)' }} />
+      <div className="ct-carousel-inner" data-aos="fade-up" data-aos-duration="1500" data-cursor-label="DRAG" style={{ position: 'relative', zIndex: 1 }}>
+        <Slider key={isMobile ? 'mobile-reliability' : 'desktop-reliability'} {...activeSettings}>
+          {items.map((item, i) => (
+            <div key={i} className="grid-item-inner">
+              <div className="item--featured">
+                <img src={item.image} alt={item.tag} loading="lazy" />
               </div>
-              <div className="item--category">
-                <a href="#" onClick={(e) => e.preventDefault()} rel="tag" tabIndex={0}>
-                  {item.tag}
-                </a>
+              <div className="item--shape item--shape3"><Shape3 /></div>
+              <div className="item--shape item--shape4"><Shape4 /></div>
+              <div className="item--meta">
+                <div className="item--category">
+                  <img src={ASSETS.logo} alt="Qorbit Tech Logo" style={{ maxHeight: '60px', width: 'auto', margin: '0 auto 10px', display: 'block', filter: 'brightness(1.15)' }} />
+                </div>
+                <div className="item--category">
+                  <a href="#" onClick={(e) => e.preventDefault()} rel="tag" tabIndex={0}>
+                    {item.tag}
+                  </a>
+                </div>
+                <h4 className="item--title">
+                  <a href="#" onClick={(e) => e.preventDefault()} tabIndex={0}>
+                    {item.title}
+                  </a>
+                </h4>
               </div>
-              <h4 className="item--title">
-                <a href="#" onClick={(e) => e.preventDefault()} tabIndex={0}>
-                  {item.title}
-                </a>
-              </h4>
             </div>
-          </div>
-        ))}
-      </Slider>
-    </div>
-  </section>
-);
+          ))}
+        </Slider>
+      </div>
+    </section>
+  );
+};
 
 export default Reliability;

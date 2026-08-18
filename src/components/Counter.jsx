@@ -54,6 +54,7 @@ const sliderSettings = {
   arrows: false,
   autoplay: true,
   autoplaySpeed: 4000,
+  centerMode: false,
 };
 
 const stats = [

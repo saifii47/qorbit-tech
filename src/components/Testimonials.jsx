@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from './shared/Slider';
 import { ASSETS } from '../constants/assets';
 
@@ -11,7 +11,7 @@ const testimonials = [
   { img: `${CDN}/testimonials-01.jpg`, name: 'Pamela Johnson', text: 'Over the years we have relied heavily onto Qorbit Tech for creative design and marketing services in business.' },
 ];
 
-const settings = {
+const desktopSettings = {
   dots: true,
   infinite: true,
   speed: 600,
@@ -21,47 +21,70 @@ const settings = {
   autoplay: true,
   autoplaySpeed: 4500,
   pauseOnHover: true,
-  responsive: [
-    { breakpoint: 992, settings: { slidesToShow: 2 } },
-    { breakpoint: 576, settings: { slidesToShow: 1 } },
-  ],
 };
 
-const Testimonials = () => (
-  <section className="testimonials-sec" data-aos="fade-up" data-aos-duration="1500">
-    <div className="testimonials-tech-grid" />
-    <div className="testimonials-glow-1" />
-    <div className="testimonials-glow-2" />
-    <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-      <div className="text-center headingmain">
-        <h6>What Clients Say?</h6>
-        <h2>Feedback from our honorable <span className="themecolor" style={{ color: '#2563eb' }}>clients</span></h2>
-      </div>
-      <div className="ct-testimonial" data-cursor-label="DRAG">
-        <Slider {...settings}>
-          {testimonials.map((t, i) => (
-            <div key={i} className="testimonial-slide-wrapper">
-              <div className="item--inner">
-                <div className="item--image">
-                  <img src={t.img} alt={t.name} />
-                  <i className="item--icon fa fa-quote-right"></i>
-                </div>
-                <div className="item--star">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <i key={s} className="fas fa-star"></i>
-                  ))}
-                </div>
-                <div className="item--description">{t.text}</div>
-                <div className="item--meta">
-                  <h4 className="item--title">{t.name}</h4>
+const mobileSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 4500,
+  pauseOnHover: true,
+};
+
+const Testimonials = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 992);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const activeSettings = isMobile ? mobileSettings : desktopSettings;
+
+  return (
+    <section className="testimonials-sec" data-aos="fade-up" data-aos-duration="1500">
+      <div className="testimonials-tech-grid" />
+      <div className="testimonials-glow-1" />
+      <div className="testimonials-glow-2" />
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="text-center headingmain">
+          <h6>What Clients Say?</h6>
+          <h2>Feedback from our honorable <span className="themecolor" style={{ color: '#2563eb' }}>clients</span></h2>
+        </div>
+        <div className="ct-testimonial" data-cursor-label="DRAG">
+          <Slider key={isMobile ? 'mobile-testimonials' : 'desktop-testimonials'} {...activeSettings}>
+            {testimonials.map((t, i) => (
+              <div key={i} className="testimonial-slide-wrapper">
+                <div className="item--inner">
+                  <div className="item--image">
+                    <img src={t.img} alt={t.name} />
+                    <i className="item--icon fa fa-quote-right"></i>
+                  </div>
+                  <div className="item--star">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <i key={s} className="fas fa-star"></i>
+                    ))}
+                  </div>
+                  <div className="item--description">{t.text}</div>
+                  <div className="item--meta">
+                    <h4 className="item--title">{t.name}</h4>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Testimonials;

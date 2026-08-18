@@ -99,7 +99,7 @@ const BookOrbitShowcase = () => {
       if (event?.pointerId !== undefined && orbit.hasPointerCapture?.(event.pointerId)) {
         try {
           orbit.releasePointerCapture(event.pointerId);
-        } catch (_) {}
+        } catch (_) { }
       }
     };
 
@@ -111,7 +111,7 @@ const BookOrbitShowcase = () => {
       velocity = 0;
       try {
         orbit.setPointerCapture?.(event.pointerId);
-      } catch (_) {}
+      } catch (_) { }
     };
 
     const handlePointerMove = (event) => {

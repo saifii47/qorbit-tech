@@ -136,8 +136,8 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: 
-    radial-gradient(rgba(37, 99, 235, 0.11) 1.2px, transparent 1.2px), 
+  background-image:
+    radial-gradient(rgba(37, 99, 235, 0.11) 1.2px, transparent 1.2px),
     radial-gradient(rgba(124, 58, 237, 0.07) 1.2px, transparent 1.2px);
   background-size: 34px 34px;
   background-position: 0 0, 17px 17px;
@@ -355,8 +355,8 @@ body {
 .testimonials-tech-grid {
   position: absolute;
   inset: 0;
-  background-image: 
-    radial-gradient(rgba(37, 99, 235, 0.11) 1.2px, transparent 1.2px), 
+  background-image:
+    radial-gradient(rgba(37, 99, 235, 0.11) 1.2px, transparent 1.2px),
     radial-gradient(rgba(124, 58, 237, 0.07) 1.2px, transparent 1.2px);
   background-size: 34px 34px;
   background-position: 0 0, 17px 17px;
@@ -739,12 +739,13 @@ header.fixed.sticky {
   .portfolio_main .filterport ul li a {
     font-size: 36px !important;
     font-weight: 700 !important;
-    color: rgba(255, 255, 255, 0.65) !important;
+    color: #475569 !important;
     letter-spacing: 1px !important;
     text-transform: uppercase !important;
   }
 
-  .portfolio_main .filterport ul li.active a {
+  .portfolio_main .filterport ul li.active a,
+  .portfolio_main .filterport ul li:hover a {
     color: #2563eb !important;
   }
 
@@ -769,21 +770,58 @@ header.fixed.sticky {
   }
 
   .componycounter {
-    padding: 20px 0 40px !important;
+    padding: 30px 0 45px !important;
+    overflow: hidden !important;
+  }
+
+  .counter-slider-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+
+  .counter-slider-wrapper .slick-slider,
+  .counter-slider-wrapper .slick-list {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .counter-slider-wrapper .slick-track {
+    display: flex !important;
+    margin: 0 !important;
+  }
+
+  .counter-slider-wrapper .slick-slide {
+    width: 100% !important;
+    float: none !important;
+    box-sizing: border-box !important;
   }
 
   .stat-slide-item {
-    padding: 0 10px !important;
+    padding: 0 5px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .itemscount {
     width: 100% !important;
-    background: rgba(13, 20, 50, 0.8) !important;
+    max-width: 100% !important;
+    background: rgba(13, 20, 50, 0.85) !important;
     padding: 35px 20px !important;
-    border-radius: 12px !important;
+    border-radius: 16px !important;
     text-align: center !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    display: block !important;
   }
 
   .itemscount .ct-counter-number span {
@@ -792,7 +830,7 @@ header.fixed.sticky {
   }
 
   .itemscount .ct-counter-title {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
     font-size: 16px !important;
     margin-top: 8px !important;
     white-space: normal !important;
@@ -805,17 +843,62 @@ header.fixed.sticky {
     display: inline-block !important;
   }
 
+  /* Testimonials Mobile Fix */
+  .ct-testimonial {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+  }
+
+  .ct-testimonial .slick-slider,
+  .ct-testimonial .slick-list {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ct-testimonial .slick-track {
+    display: flex !important;
+    margin: 0 !important;
+  }
+
+  .ct-testimonial .slick-slide {
+    width: 100% !important;
+    float: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .ct-testimonial .testimonial-slide-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 5px !important;
+  }
+
   .ct-testimonial .item--inner {
-    background: rgba(13, 20, 50, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    padding: 40px 25px 30px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    background: rgba(13, 20, 50, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 40px 22px 28px !important;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+    margin-top: 45px !important;
+    height: auto !important;
+    min-height: 280px !important;
   }
 
   .ct-testimonial .item--description {
-    color: rgba(255, 255, 255, 0.7) !important;
-    font-size: 15px !important;
-    line-height: 1.7 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    margin: 15px 0 !important;
   }
 
   .ct-testimonial .item--title {
@@ -835,11 +918,13 @@ header.fixed.sticky {
   }
 
   .ct-testimonial .slick-prev {
-    left: 5px !important;
+    left: 2px !important;
+    z-index: 10 !important;
   }
 
   .ct-testimonial .slick-next {
-    right: 5px !important;
+    right: 2px !important;
+    z-index: 10 !important;
   }
 }
 
@@ -886,6 +971,26 @@ header.fixed.sticky {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
     width: 100% !important;
+  }
+
+  /* Hide ONLY the image carousel under "Clients are happy for our work" on mobile/tablet viewports (Heading visible, Desktop untouched) */
+  .happywork .ct-carousel-inner {
+    display: none !important;
+  }
+
+  .ct-testimonial .slick-slide {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+  }
+
+  .ct-testimonial .testimonial-slide-wrapper,
+  .ct-testimonial .item--inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -1020,6 +1125,12 @@ header.fixed.sticky {
     font-size: 24px !important;
     display: block !important;
     padding: 10px 0 !important;
+    color: #475569 !important;
+  }
+
+  .filterport ul li.active a,
+  .filterport ul li:hover a {
+    color: #2563eb !important;
   }
 
   .portfolio_main .filterport ul li.active a:before {
