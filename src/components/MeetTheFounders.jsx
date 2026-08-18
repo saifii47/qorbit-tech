@@ -8,20 +8,20 @@ const MeetTheFounders = ({ onOpenModal }) => {
       role: 'Co-Founder & Growth Strategist',
       image: '/images/muazzam.jpg',
       imgClass: 'muazzam-img',
-      experience: '6+ Years',
-      tags: ['Paid Ad Accounts', 'Meta & Google Ads', 'A/B Testing', 'ROAS Optimization', 'Performance Funnels'],
+      expertisePara:
+        'With 6+ years of hands-on experience scaling paid ad accounts, Muazzam specializes in Meta & Google Ads strategy, data-driven A/B testing, ROAS optimization, and building high-performance acquisition funnels that convert scrollers into high-value customers.',
       highlight: 'Spent six years figuring out why people click, and why they don’t.',
-      bio: "Not from a textbook. From live ad accounts, real budgets, campaigns that either paid for themselves or got killed by Thursday. Meta, Google, endless A/B tests: Muazzam's real education was the gap between what looks smart on a slide and what actually earns money in the feed.",
+      bio: "Not from a textbook. From live ad accounts, real budgets, and campaigns that either paid for themselves or got killed by Thursday. Meta, Google, endless A/B tests: Muazzam's real education was closing the gap between what looks smart on a slide and what actually earns money in the feed.",
     },
     {
       name: 'Huzaifa Raja',
       role: 'Co-Founder & Creative Director',
       image: '/images/huzaifa.jpg',
       imgClass: 'huzaifa-img',
-      experience: '8+ Years',
-      tags: ['Brand Identity', 'Motion & Video', 'Scroll-Stopping Design', 'UI/UX Craft', 'Creative Direction'],
+      expertisePara:
+        'With 8+ years of industry expertise across brand identity, motion graphics, and UI/UX design, Huzaifa crafts scroll-stopping visual assets and creative direction engineered to capture immediate user attention and build brand authority.',
       highlight: 'Spent eight years learning that attention is borrowed, never owned.',
-      bio: "Every scroll is a brand asking permission to exist for one more second. Huzaifa's work in design, video, and motion is built entirely around that half-second decision: stay or swipe. Nothing he makes is there to look nice in a portfolio. It's there to survive the scroll.",
+      bio: "Every scroll is a brand asking permission to exist for one more second. Huzaifa's work in design, video, and motion is built entirely around that half-second decision: stay or swipe. Nothing he makes is there just to look nice in a portfolio. It's there to survive the scroll and drive action.",
     },
   ];
 
@@ -51,7 +51,7 @@ const MeetTheFounders = ({ onOpenModal }) => {
   return (
     <section className="founders-section" id="founders">
       <div className="container" data-aos="fade-up">
-        {/* Header inspired by ThinLine Design - Qorbit Blue Theme */}
+        {/* Header - Qorbit Blue Theme */}
         <div className="text-center">
           <div className="founders-header-tag">Origin &amp; Founders</div>
           <h2 className="founders-main-title">
@@ -69,7 +69,7 @@ const MeetTheFounders = ({ onOpenModal }) => {
           {founders.map((founder, idx) => (
             <div key={founder.name} className="col-lg-6 col-md-12 mb-5">
               <div className="founder-card" data-aos="fade-up" data-aos-delay={idx * 150}>
-                {/* Avatar with ThinLine Orbital Ring & Floating Satellites */}
+                {/* Avatar with Clean Gradient Frame (Dots Removed) */}
                 <div className="founder-avatar-container">
                   <div className="founder-avatar-ring">
                     <div className="founder-avatar-ring-inner"></div>
@@ -81,31 +81,28 @@ const MeetTheFounders = ({ onOpenModal }) => {
                       className={`founder-avatar-img ${founder.imgClass}`} 
                     />
                   </div>
-                  <div className="orbit-satellite orbit-satellite-1"></div>
-                  <div className="orbit-satellite orbit-satellite-2"></div>
-                  <div className="orbit-satellite orbit-satellite-3"></div>
                 </div>
 
-                {/* ThinLine Glass Card Badge */}
+                {/* Founder Name & Role Badge */}
                 <div className="founder-badge-box">
                   <h3 className="founder-name">{founder.name}</h3>
                   <div className="founder-role">{founder.role}</div>
                 </div>
 
-                {/* Founder Skill Badges / Tags */}
-                <div className="founder-tags-wrapper">
-                  <span className="founder-tag-pill" style={{ background: '#dbeafe', borderColor: '#93c5fd', color: '#1e40af', fontWeight: 700 }}>
-                    {founder.experience}
-                  </span>
-                  {founder.tags.map((tag) => (
-                    <span key={tag} className="founder-tag-pill">{tag}</span>
-                  ))}
+                {/* Founder Expertise Summary Paragraph */}
+                <div className="founder-expertise-box">
+                  <p className="founder-expertise-p">
+                    <i className="fas fa-chart-line founder-expertise-icon" />
+                    {founder.expertisePara}
+                  </p>
                 </div>
 
-                {/* Bio & Highlight Quote */}
+                {/* Highlight Quote */}
                 <div className="founder-quote-box">
                   &ldquo;{founder.highlight}&rdquo;
                 </div>
+
+                {/* Bio Text */}
                 <p className="founder-bio-p">{founder.bio}</p>
               </div>
             </div>
@@ -170,30 +167,7 @@ const MeetTheFounders = ({ onOpenModal }) => {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); onOpenModal?.(); }}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '12px',
-              background: 'linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8)',
-              color: '#ffffff',
-              padding: '16px 36px',
-              borderRadius: '50px',
-              fontWeight: 800,
-              fontSize: '1.05rem',
-              letterSpacing: '1px',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              boxShadow: '0 10px 30px rgba(37, 99, 235, 0.4)',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 15px 40px rgba(56, 189, 248, 0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(37, 99, 235, 0.4)';
-            }}
+            className="btn-founder-cta"
           >
             Work Directly With The Founders <i className="fa fa-arrow-right" />
           </a>

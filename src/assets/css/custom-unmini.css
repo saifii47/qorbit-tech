@@ -2302,8 +2302,9 @@ button.yellow_btn:focus:before {
 
 .copyright {
     padding: 20px 0;
-    background: #030308;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #050510;
+    border-top: none;
+    border: none;
 }
 
 .copyright p {

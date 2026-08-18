@@ -89,6 +89,13 @@ const Footer = ({ onOpenModal }) => (
           </div>
         </div>
       </div>
+
+      {/* Goodspeed Publishing Style Curved Arch Footer Section */}
+      <div className="footer-curved-arch-container">
+        <div className="footer-curved-arch-box">
+          <h2 className="footer-curved-arch-text">Qorbit Tech</h2>
+        </div>
+      </div>
     </footer>
   </>
 );

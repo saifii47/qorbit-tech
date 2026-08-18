@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -7,212 +7,304 @@ import PopupForm from '../components/PopupForm';
 import CtaBanner from '../components/CtaBanner';
 import PackageCard from '../components/shared/PackageCard';
 import { pricingTabs } from '../data/packages';
-
-const serviceDetailsConfig = {
-  'logo-design': {
-    title: 'Logo Design & Brand Identity',
-    subtitle: 'Custom logos that capture the soul of your business and compel customer trust.',
-    bannerImg: 'https://www.pinnacledesignagency.com/assets/images/inner-banner/about-bann.jpg',
-    tabId: 'box-logo',
-    features: [
-      'Original vector design concepts tailored to your niche',
-      'Full suite of formats (AI, PSD, SVG, EPS, PNG, PDF)',
-      'Brand guideline manual including typography & color palette',
-      '100% full copyright & ownership rights transferred',
-    ],
-    whyUs: "A great logo isn't just art, it's your company's handshake. Our designers fuse brand psychology with modern aesthetic principles to craft unforgettable logos.",
-  },
-  'web-design-development': {
-    title: 'Web Design & Development',
-    subtitle: 'High-speed, responsive, conversion-focused websites engineered for business growth.',
-    bannerImg: 'https://www.pinnacledesignagency.com/assets/images/inner-banner/website-bann.jpg',
-    tabId: 'box-web',
-    features: [
-      'Bespoke UX/UI interface design with zero boilerplate templates',
-      'Mobile-first responsive engineering optimized for all screen sizes',
-      'SEO-friendly, fast page loading speeds and clean W3C standards',
-      'Content Management System (CMS) integration for effortless updates',
-    ],
-    whyUs: 'We don\'t just build websites; we construct digital sales engines. From high-converting landing pages to complex enterprise web portals.',
-  },
-  'mobile-app': {
-    title: 'Mobile Application Development',
-    subtitle: 'Feature-packed native iOS and Android apps with fluid UI animation and robust backends.',
-    bannerImg: 'https://www.pinnacledesignagency.com/assets/images/inner-banner/mobile-bann.jpg',
-    tabId: 'box-web',
-    features: [
-      'iOS & Android native application engineering',
-      'React Native cross-platform performance optimization',
-      'Intuitive touch UX design with micro-interactions',
-      'End-to-end App Store and Google Play deployment',
-    ],
-    whyUs: 'Turn your app vision into an App Store success story. Our mobile architects design silky-smooth mobile experiences that users love.',
-  },
-  'seo': {
-    title: 'Search Engine Optimization (SEO)',
-    subtitle: 'Dominate Google search results and drive high-intent organic traffic to your business.',
-    bannerImg: 'https://www.pinnacledesignagency.com/assets/images/inner-banner/seo-bann.jpg',
-    tabId: 'box-seo',
-    features: [
-      'In-depth technical SEO audits and on-page optimization',
-      'High-converting keyword research and strategic mapping',
-      'Authority backlink acquisition and digital PR campaigns',
-      'Transparent monthly analytics and keyword position tracking',
-    ],
-    whyUs: 'Rank higher, outpace your competitors, and capture active customers searching for your products right now.',
-  },
-  'smm': {
-    title: 'Social Media Marketing (SMM)',
-    subtitle: 'Amplify your brand presence across Facebook, Instagram, LinkedIn, and TikTok.',
-    bannerImg: 'https://www.pinnacledesignagency.com/assets/images/inner-banner/smm-bann.jpg',
-    tabId: 'box-smm',
-    features: [
-      'Data-backed social media ad campaign strategy',
-      'Custom post graphics, reels, and video ad creatives',
-      'Audience demographic targeting and retargeting funnels',
-      'Monthly engagement and ROI conversion reporting',
-    ],
-    whyUs: 'We turn casual scrollers into loyal customers with thumb-stopping social content and high-ROI ad funnels.',
-  },
-  'printing-services': {
-    title: 'Printing & Packaging Design',
-    subtitle: 'Tangible, high-grade print collateral that commands attention at every touchpoint.',
-    bannerImg: 'https://www.pinnacledesignagency.com/assets/images/inner-banner/printing-bann.jpg',
-    tabId: 'box-print',
-    features: [
-      'Luxury business cards, letterheads, and corporate stationery',
-      'Tri-fold brochures, sales flyers, and event banners',
-      'Product box packaging, labels, and apparel merchandise',
-      'High-resolution print-ready files delivered with print specs',
-    ],
-    whyUs: 'In a digital world, premium physical print assets make an indelible impression on high-value clients.',
-  },
-  'animation': {
-    title: '2D & 3D Video Animation',
-    subtitle: 'Tell your story with breathtaking 2D/3D animated explainer videos and commercial reels.',
-    bannerImg: 'https://www.pinnacledesignagency.com/assets/images/inner-banner/animation-bann.jpg',
-    tabId: 'box-animation',
-    features: [
-      'Professional scriptwriting and storyboard development',
-      'Native voiceover recording in multiple accents',
-      'Cinematic 2D/3D motion graphics rendering in Full HD/4K',
-      'Custom sound design and background music mastering',
-    ],
-    whyUs: 'Video is the most powerful medium on the web. We craft compelling animations that boost user engagement and sales conversions.',
-  },
-  'nft-services': {
-    title: 'NFT Design & Metaverse Art',
-    subtitle: '3D generative art, character models, and digital collectibles ready for Web3.',
-    bannerImg: 'https://www.pinnacledesignagency.com/assets/images/inner-banner/nft-bann.jpg',
-    tabId: 'box-logo',
-    features: [
-      '10k NFT collection trait generation & metadata coding',
-      'High-detail 3D avatars, characters, and metaverse assets',
-      'Solana & Ethereum smart contract ready deliverables',
-      'Full promotional banner artwork and Discord graphics',
-    ],
-    whyUs: 'We empower Web3 creators with cutting-edge 2D and 3D digital artwork that dominates digital marketplaces.',
-  },
-};
+import { servicesDataMap } from '../data/servicesData';
+import '../components/ServiceShowcase.css';
 
 const ServiceDetailPage = ({ serviceKey }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [activeTabId, setActiveTabId] = useState('');
+  const [activePortTabId, setActivePortTabId] = useState('');
+  const [zoomedMedia, setZoomedMedia] = useState(null);
   const location = useLocation();
   const params = useParams();
 
   // Determine active service slug from route props or path
-  const currentSlug = serviceKey || params.slug || location.pathname.replace(/^\//, '');
-  const config = serviceDetailsConfig[currentSlug] || serviceDetailsConfig['logo-design'];
+  const rawSlug = serviceKey || params.slug || location.pathname.replace(/^\//, '');
+  const currentSlug = servicesDataMap[rawSlug] ? rawSlug : 'logo-design';
+  const serviceData = servicesDataMap[currentSlug];
 
-  const packageTab = pricingTabs.find((t) => t.id === config.tabId) || pricingTabs[0];
-  const packages = packageTab.packages;
+  // Set default active tab when service changes
+  useEffect(() => {
+    if (serviceData && serviceData.tabs && serviceData.tabs.length > 0) {
+      setActiveTabId(serviceData.tabs[0].id);
+    }
+    if (
+      serviceData &&
+      serviceData.portfolioSection &&
+      serviceData.portfolioSection.tabs &&
+      serviceData.portfolioSection.tabs.length > 0
+    ) {
+      setActivePortTabId(serviceData.portfolioSection.tabs[0].id);
+    }
+  }, [currentSlug, serviceData]);
+
+  // Find packages tab
+  const packageTab = pricingTabs.find((t) => t.id === serviceData.tabId) || pricingTabs[0];
+  const packages = packageTab ? packageTab.packages : [];
+
+  // Active tab data for Section 2 (Dark Showcase)
+  const currentTab = serviceData.tabs.find((t) => t.id === activeTabId) || serviceData.tabs[0];
+
+  // Active tab data for Section 3 (White Portfolio Showcase)
+  const portConfig = serviceData.portfolioSection;
+  const currentPortTab =
+    portConfig && portConfig.tabs
+      ? portConfig.tabs.find((t) => t.id === activePortTabId) || portConfig.tabs[0]
+      : null;
 
   return (
     <>
       <CustomCursor />
       <Navbar onOpenModal={() => setModalOpen(true)} />
 
-      {/* Inner Banner */}
+      {/* Inner Banner - Clear Background Image without Heavy Overlay */}
       <section
-        className="inner-banner"
+        className="service-inner-banner"
         style={{
-          background: 'linear-gradient(135deg, #050510 0%, #080820 60%, #0d1432 100%)',
-          padding: '160px 0 100px',
-          color: '#ffffff',
-          borderBottom: '1px solid rgba(37,99,235,0.15)',
-          position: 'relative',
-          overflow: 'hidden',
+          backgroundImage: `url(${serviceData.bannerImg || 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1920&q=80'})`,
         }}
       >
-        <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
-            {config.title}
-          </h1>
-          <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '750px', margin: '0 auto 25px' }}>
-            {config.subtitle}
-          </p>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#2563eb', fontWeight: 600 }}>
-            Home &nbsp;/&nbsp; Services &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>{config.title}</span>
+        <div className="service-banner-overlay" />
+
+        <div className="container text-center" style={{ position: 'relative', zIndex: 3 }}>
+          <div className="service-banner-glass-box">
+            <h1 className="service-banner-title">{serviceData.bannerTitle}</h1>
+            <p className="service-banner-subtitle">{serviceData.bannerSubtitle}</p>
+            <div className="service-banner-breadcrumbs">
+              Home &nbsp;/&nbsp; Services &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>{serviceData.bannerTitle}</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Overview & Key Highlights */}
-      <section style={{ padding: '90px 0', background: 'rgba(13,20,50,0.6)' }}>
+      {/* Section 1 & 2 Main Showcase Container */}
+      <section className="services-sec-container">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6 mb-4 mb-lg-0">
-              <h6 style={{ color: '#2563eb', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 600 }}>Why Choose Qorbit Tech</h6>
-              <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '20px', color: '#ffffff' }}>
-                Excellence in <span className="themecolor" style={{ color: '#2563eb' }}>{config.title}</span>
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '25px' }}>
-                {config.whyUs}
-              </p>
+          {/* Section 1: Overview Card */}
+          <div className="sec1-header-card">
+            <div className="row align-items-center">
+              <div className="col-lg-5 mb-4 mb-lg-0">
+                <span className="sec1-badge">
+                  <i className="fas fa-layer-group mr-2"></i>
+                  {serviceData.sec1Tag || 'OUR EXPERTISE'}
+                </span>
+                <h2 className="sec1-title">
+                  {serviceData.sec1Heading.split(' ').map((word, i) => (
+                    <React.Fragment key={i}>
+                      {i === 2 ? <span className="sec1-title-highlight">{word} </span> : word + ' '}
+                    </React.Fragment>
+                  ))}
+                </h2>
+              </div>
+              <div className="col-lg-7">
+                <p className="sec1-desc">{serviceData.sec1Desc}</p>
+              </div>
+            </div>
+          </div>
 
-              <div style={{ background: 'linear-gradient(180deg, #080820 0%, #050510 100%)', borderRadius: '12px', padding: '25px', border: '1px solid rgba(37,99,235,0.12)' }}>
-                <h4 style={{ color: '#ffffff', fontSize: '1.1rem', marginBottom: '15px' }}>Key Service Features:</h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  {config.features.map((feat, idx) => (
-                    <li key={idx} style={{ color: 'rgba(255,255,255,0.65)', marginBottom: '10px', fontSize: '0.95rem', display: 'flex', alignItems: 'center' }}>
-                      <i className="fas fa-check-circle" style={{ color: '#2563eb', marginRight: '12px', fontSize: '1rem' }}></i>
-                      {feat}
+          {/* Section 2: Dark Theme Interactive Showcase Tabs */}
+          {serviceData.tabs && serviceData.tabs.length > 0 && (
+            <div className="tabs-services-wrapper">
+              <div className="row">
+                {/* Left Sidebar: Tabs List */}
+                <div className="col-lg-3 col-md-4 mb-4 mb-md-0">
+                  <ul className="service-tabs-nav">
+                    {serviceData.tabs.map((tab) => (
+                      <li key={tab.id}>
+                        <button
+                          type="button"
+                          className={`service-tab-btn ${activeTabId === tab.id ? 'active' : ''}`}
+                          onClick={() => setActiveTabId(tab.id)}
+                        >
+                          <span>{tab.title}</span>
+                          <i className="fas fa-chevron-right active-indicator"></i>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Right Side: Tab Panel Content & Showcase */}
+                <div className="col-lg-9 col-md-8">
+                  {currentTab && (
+                    <div className="row">
+                      {/* Category Description & CTA */}
+                      <div className="col-lg-6 mb-4 mb-lg-0">
+                        <div className="tab-content-panel">
+                          <div>
+                            <h3
+                              style={{
+                                color: '#ffffff',
+                                fontSize: '1.5rem',
+                                fontWeight: 800,
+                                marginBottom: '15px',
+                                textTransform: 'uppercase',
+                                borderBottom: '1px solid rgba(37,99,235,0.2)',
+                                paddingBottom: '10px',
+                              }}
+                            >
+                              {currentTab.title}
+                            </h3>
+                            <p className="tab-detail-text">{currentTab.description}</p>
+                          </div>
+                          <div>
+                            <button
+                              type="button"
+                              className="btn-cta-starter"
+                              onClick={() => setModalOpen(true)}
+                            >
+                              Let’s Get Started <i className="fas fa-arrow-right ml-2"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Showcase Image / Grid */}
+                      <div className="col-lg-6">
+                        {currentTab.images && currentTab.images.length > 1 ? (
+                          <div className="showcase-grid-wrapper">
+                            {currentTab.images.map((imgUrl, idx) => (
+                              <div
+                                key={idx}
+                                className="showcase-item-card"
+                                onClick={() => setZoomedMedia(imgUrl)}
+                                style={{ cursor: 'pointer' }}
+                              >
+                                <img src={imgUrl} alt={`${currentTab.title} ${idx + 1}`} loading="lazy" />
+                                <div className="showcase-item-overlay">
+                                  <span className="showcase-zoom-badge">
+                                    <i className="fas fa-search-plus"></i> View Artwork
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : currentTab.images && currentTab.images.length === 1 ? (
+                          <div
+                            className="showcase-single-card"
+                            onClick={() => setZoomedMedia(currentTab.images[0])}
+                            style={{ cursor: 'pointer' }}
+                          >
+                            <img src={currentTab.images[0]} alt={currentTab.title} loading="lazy" />
+                            <div className="showcase-item-overlay">
+                              <span className="showcase-zoom-badge">
+                                <i className="fas fa-search-plus"></i> Enlarge Showcase
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div
+                            className="tab-content-panel text-center d-flex align-items-center justify-content-center"
+                            style={{ minHeight: '280px' }}
+                          >
+                            <div>
+                              <i className="fas fa-layer-group text-primary" style={{ fontSize: '3rem', marginBottom: '15px' }}></i>
+                              <h5 className="text-white">Custom {currentTab.title} Showcase</h5>
+                              <p className="text-muted small">Contact us to view full portfolio work</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* 2nd Showcase Section: Pure White Theme Portfolio with Animated Floating Graffiti & Particles */}
+      {portConfig && portConfig.tabs && portConfig.tabs.length > 0 && (
+        <section className="white-portfolio-sec">
+          {/* Animated Background Graffiti Watermark */}
+          <div className="graffiti-watermark-text">
+            {portConfig.graffitiText || 'CREATIVE DESIGN'}
+          </div>
+
+          {/* Animated Background Blur Shapes */}
+          <div className="floating-graffiti-shape shape-1" />
+          <div className="floating-graffiti-shape shape-2" />
+
+          {/* Animated Floating Tech Icons */}
+          <div className="floating-icon-accent icon-accent-1">
+            <i className="fas fa-compass" />
+          </div>
+          <div className="floating-icon-accent icon-accent-2">
+            <i className="fas fa-[#2563eb] fa-vector-square" />
+          </div>
+
+          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="white-portfolio-header">
+              <h6>{portConfig.subTitle || 'Have A Look At'}</h6>
+              <h2>
+                OUR <span className="themecolor">PORTFOLIO</span>
+              </h2>
+            </div>
+
+            <div className="row">
+              {/* Left Column: Filter Category Tabs */}
+              <div className="col-lg-3 col-md-4 mb-4 mb-md-0">
+                <ul className="white-tabs-nav">
+                  {portConfig.tabs.map((ptab) => (
+                    <li key={ptab.id}>
+                      <button
+                        type="button"
+                        className={`white-tab-item ${activePortTabId === ptab.id ? 'active' : ''}`}
+                        onClick={() => setActivePortTabId(ptab.id)}
+                      >
+                        <span className="tab-line" />
+                        {ptab.title}
+                      </button>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div style={{ marginTop: '30px' }}>
-                <button
-                  className="btn btn-outline-gradient mr-3"
-                  onClick={() => setModalOpen(true)}
-                  style={{ textTransform: 'uppercase' }}
-                >
-                  Get A Free Quote <i className="fas fa-arrow-right ml-2"></i>
-                </button>
-              </div>
-            </div>
-
-            <div className="col-lg-6">
-              <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(37,99,235,0.12)', boxShadow: '0 10px 30px rgba(0,0,0,0.06)' }}>
-                <img
-                  src={config.bannerImg}
-                  alt={config.title}
-                  style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }}
-                />
+              {/* Right Column: White Portfolio Grid Gallery */}
+              <div className="col-lg-9 col-md-8">
+                {currentPortTab && currentPortTab.images && currentPortTab.images.length > 0 ? (
+                  <div className="white-gallery-grid">
+                    {currentPortTab.images.map((mediaUrl, idx) => (
+                      <div
+                        key={idx}
+                        className="white-gallery-card"
+                        onClick={() => setZoomedMedia(mediaUrl)}
+                      >
+                        {mediaUrl.endsWith('.mp4') ? (
+                          <video src={mediaUrl} autoPlay loop muted playsInline />
+                        ) : (
+                          <img src={mediaUrl} alt={`${currentPortTab.title} ${idx + 1}`} loading="lazy" />
+                        )}
+                        <div className="white-gallery-overlay">
+                          <div className="white-zoom-icon">
+                            <i className="fas fa-search-plus" />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-5 text-muted">
+                    <i className="fas fa-images fa-3x mb-3 text-primary"></i>
+                    <h5>Selected Portfolio Gallery Coming Soon</h5>
+                  </div>
+                )}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Packages for this Service */}
-      <section style={{ padding: '80px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)' }}>
+      <section style={{ padding: '90px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)' }}>
         <div className="container">
           <div className="text-center headingmain" style={{ marginBottom: '50px' }}>
-            <h6 style={{ color: '#2563eb', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 600 }}>Value Investment</h6>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff' }}>
-              {config.title} <span className="themecolor" style={{ color: '#2563eb' }}>Packages</span>
+            <h6 style={{ color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700 }}>
+              Value Investment
+            </h6>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#ffffff', textTransform: 'uppercase' }}>
+              {serviceData.bannerTitle} <span className="themecolor" style={{ color: '#2563eb' }}>Packages</span>
             </h2>
           </div>
 
@@ -224,8 +316,30 @@ const ServiceDetailPage = ({ serviceKey }) => {
         </div>
       </section>
 
+      {/* CTA Banner */}
+      <CtaBanner onOpenModal={() => setModalOpen(true)} />
+
+      {/* Footer */}
       <Footer onOpenModal={() => setModalOpen(true)} />
+
+      {/* Popup Form Modal */}
       <PopupForm isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+
+      {/* Image / Video Zoom Modal */}
+      {zoomedMedia && (
+        <div className="image-zoom-modal-backdrop" onClick={() => setZoomedMedia(null)}>
+          <div className="image-zoom-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="image-zoom-close-btn" onClick={() => setZoomedMedia(null)}>
+              <i className="fas fa-times"></i>
+            </button>
+            {zoomedMedia.endsWith('.mp4') ? (
+              <video src={zoomedMedia} controls autoPlay loop style={{ width: '100%', maxHeight: '85vh' }} />
+            ) : (
+              <img src={zoomedMedia} alt="Showcase artwork zoomed" />
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 };
