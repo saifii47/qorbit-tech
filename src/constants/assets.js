@@ -1,6 +1,6 @@
 import logoImg from '../assets/images/qorbit-logo-transparent.png';
 import qWatermarkImg from '../assets/images/q-watermark.png';
-import heroBannerImg from '../assets/images/hero-banner.png';
+import heroBannerImg from '../assets/images/qorbit-hero-banner.jpg';
 
 const CDN = 'https://www.pinnacledesignagency.com/assets/images';
 
@@ -11,3 +11,4 @@ export const ASSETS = {
   heroBanner: heroBannerImg,
   bannerPeople: `${CDN}/banner_people.png`,
 };
+
