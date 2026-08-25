@@ -140,7 +140,7 @@ const Navbar = ({ onOpenModal }) => {
                   </nav>
 
                   <div className="calltopdv" onClick={onOpenModal} style={{ cursor: 'pointer' }}>
-                    <div className="ct-info-icon"><i className="fa fa-phone" /></div>
+                    <div className="ct-info-icon"><i className="fas fa-phone-alt" /></div>
                     <div className="ct-info-holder">
                       <div className="ct-info-label">Call us:</div>
                       <div className="ct-info-title">+ 1 (510) 476-9126</div>

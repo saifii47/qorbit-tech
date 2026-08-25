@@ -60,9 +60,8 @@ const Footer = ({ onOpenModal }) => (
             <div className="col-md-3">
               <h3><span>Contact Us</span></h3>
               <ul className="cntinfos">
-                <li><i className="fa fa-map"></i><p>123 E San Carlos St San Jose, CA 95112</p></li>
-                <li><i className="fa fa-phone"></i><a href="tel:+15104769126">+ 1 (510) 476-9126</a></li>
-                <li><i className="fa fa-envelope"></i><a href="mailto:info@qorbit.tech">info@qorbit.tech</a></li>
+                <li><i className="fas fa-phone-alt"></i><a href="tel:+15104769126">+ 1 (510) 476-9126</a></li>
+                <li><i className="fas fa-envelope"></i><a href="mailto:info@qorbittech.com">info@qorbittech.com</a></li>
               </ul>
               <ul className="socialicons">
                 <li><a href="https://www.facebook.com/qorbittech" target="_blank" rel="noreferrer" title="Facebook"><i className="fab fa-facebook-f"></i></a></li>

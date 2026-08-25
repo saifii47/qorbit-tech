@@ -6,7 +6,7 @@
   position: relative;
   overflow: hidden;
   color: #0f172a;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 .founders-section::before {
@@ -76,7 +76,7 @@
 }
 
 .founders-title-script {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Outfit', sans-serif;
   font-style: italic;
   font-weight: 600;
   text-transform: lowercase;

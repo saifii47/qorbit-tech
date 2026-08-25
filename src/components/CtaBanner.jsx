@@ -14,7 +14,7 @@ const CtaBanner = ({ onOpenModal }) => (
               <a href="tel:+15104769126">+ 1 (510) 476-9126</a>
             </p>
           </div>
-          <div className="icos"><i className="fa fa-phone"></i></div>
+          <div className="icos"><i className="fas fa-phone-alt"></i></div>
         </div>
         <div className="simplebtn_request">
           <a className="btn btn-black-cta" href="#" onClick={(e) => { e.preventDefault(); onOpenModal?.(); }}>
@@ -22,7 +22,7 @@ const CtaBanner = ({ onOpenModal }) => (
           </a>
         </div>
         <div className="callcta">
-          <div className="icos"><i className="fa fa-envelope"></i></div>
+          <div className="icos"><i className="fas fa-comments"></i></div>
           <div className="call-holder text-left">
             <p>
               Need help?

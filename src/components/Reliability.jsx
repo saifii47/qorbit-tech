@@ -91,7 +91,7 @@ const Reliability = () => {
       }} />
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="text-center headingmain" data-aos="fade-up" data-aos-duration="1500">
-          <h6 style={{ fontSize: '15px', color: '#2563eb', fontFamily: 'Poppins, sans-serif', marginBottom: '8px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          <h6 style={{ fontSize: '15px', color: '#2563eb', fontFamily: 'Outfit, sans-serif', marginBottom: '8px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
             Clients are happy for our work
           </h6>
           <h2 style={{ fontSize: '42px', color: '#0f172a', fontWeight: 900, textTransform: 'uppercase', lineHeight: '1.2' }}>

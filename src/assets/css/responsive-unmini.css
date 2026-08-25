@@ -22,7 +22,7 @@
 @media (max-width:1199px) {
 
     .main-header nav{ margin-right: 10px; }
-    .pricing_dv h3{font-size: 70px;  }
+    .pricing_dv h3{font-size: 38px; }
     .main-header nav li a{ padding: 0 0 0 10px; }
     .main-header nav ul li{ margin: 0 10px; }
     .sec_02 h2{ font-size: 40px; }
@@ -38,7 +38,7 @@
     .bannermain img{ max-width: 600px; }
     .bannermain:after{ font-size: 160px; }
     .portfolio_main{ overflow: hidden; }
-    .ctamm h2{ font-size: 45px; }
+    .ctamm h2{ font-size: 32px; }
     .ct-carousel-inner .item--title a{ font-size: 14px; }
     
 }

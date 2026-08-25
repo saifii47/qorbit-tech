@@ -332,7 +332,7 @@
   letter-spacing: 12px;
   pointer-events: none;
   user-select: none;
-  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+  font-family: 'Outfit', sans-serif;
   text-transform: uppercase;
   white-space: nowrap;
   animation: floatGraffiti 18s ease-in-out infinite alternate;
@@ -710,7 +710,7 @@ footer {
   /* Balance letter-spacing offset */
   line-height: 1;
   margin: 0;
-  font-family: 'Montserrat', 'Poppins', sans-serif;
+  font-family: 'Outfit', sans-serif;
   text-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
   user-select: none;
 }

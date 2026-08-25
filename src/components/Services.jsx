@@ -51,7 +51,7 @@ const Services = () => {
           }} />
           <span style={{
             color: 'rgba(255,255,255,0.45)', fontWeight: 600, textTransform: 'capitalize',
-            fontFamily: 'Poppins, sans-serif', fontSize: '14px', zIndex: 1,
+            fontFamily: 'Outfit, sans-serif', fontSize: '14px', zIndex: 1,
           }}>
             {activeTab} {item}
           </span>
@@ -91,7 +91,7 @@ const Services = () => {
                     ? 'linear-gradient(135deg, rgba(37,99,235,0.25), rgba(124,58,237,0.15))'
                     : 'rgba(13,20,50,0.4)',
                   color: activeTab === cat.id ? '#ffffff' : 'rgba(255,255,255,0.55)',
-                  fontFamily: 'Poppins, sans-serif', fontWeight: 600, fontSize: '14px',
+                  fontFamily: 'Outfit, sans-serif', fontWeight: 600, fontSize: '14px',
                   cursor: 'pointer', textAlign: 'left', transition: 'all 0.25s ease',
                   backdropFilter: 'blur(10px)',
                   boxShadow: activeTab === cat.id ? '0 4px 20px rgba(37,99,235,0.2)' : 'none',

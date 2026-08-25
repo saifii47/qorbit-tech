@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
 import PopupForm from '../components/PopupForm';
-import CtaBanner from '../components/CtaBanner';
+
 import PackageCard from '../components/shared/PackageCard';
 import { pricingTabs } from '../data/packages';
 import { servicesDataMap } from '../data/servicesData';
@@ -315,9 +315,6 @@ const ServiceDetailPage = ({ serviceKey }) => {
           </div>
         </div>
       </section>
-
-      {/* CTA Banner */}
-      <CtaBanner onOpenModal={() => setModalOpen(true)} />
 
       {/* Footer */}
       <Footer onOpenModal={() => setModalOpen(true)} />

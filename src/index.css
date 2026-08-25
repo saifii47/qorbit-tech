@@ -1,11 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import './theme.css';
 
-body {
+:root {
+  --font-primary: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
   background-color: #050510;
   color: rgba(255, 255, 255, 0.85);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, a, button, input, textarea, select, label, li, ul, ol, blockquote, dt, dd {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   Icon Fonts Protection (FontAwesome 5 & 6, Flaticon, Bootstrap Icons)
+   Ensures icons and their pseudo-elements NEVER get overridden by text fonts
+   ========================================================================== */
+.fa,
+.fas,
+.far,
+.fab,
+.fal,
+.fad,
+.fa-solid,
+.fa-regular,
+.fa-brands,
+[class^="fa-"],
+[class*=" fa-"],
+[class^="flaticon-"],
+[class*=" flaticon-"],
+.bi,
+[class^="bi-"],
+[class*=" bi-"],
+i.fa,
+i.fas,
+i.far,
+i.fab,
+i[class*="fa-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "Font Awesome 5 Brands", "FontAwesome", "bootstrap-icons", "Flaticon" !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+}
+
+.fab,
+.fa-brands,
+i.fab {
+  font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands", "FontAwesome" !important;
+  font-weight: 400 !important;
+}
+
+.fas,
+.fa-solid,
+.fa,
+i.fas,
+i.fa {
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome" !important;
+  font-weight: 900 !important;
+}
+
+.far,
+.fa-regular,
+i.far {
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome" !important;
+  font-weight: 400 !important;
+}
+
+.fa::before,
+.fas::before,
+.far::before,
+.fab::before,
+.fa-solid::before,
+.fa-regular::before,
+.fa-brands::before,
+[class^="fa-"]::before,
+[class*=" fa-"]::before,
+i[class*="fa-"]::before {
+  font-family: inherit !important;
 }
 
 ::selection {

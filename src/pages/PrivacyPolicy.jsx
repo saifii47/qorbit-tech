@@ -70,7 +70,7 @@ const PrivacyPolicy = () => {
 
             <h3 style={{ color: '#2563eb', fontSize: '1.3rem', marginTop: '30px', marginBottom: '15px', fontWeight: 700 }}>5. Contact Us</h3>
             <p>
-              If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at: <a href="mailto:info@qorbit.tech" style={{ color: '#2563eb', fontWeight: 600 }}>info@qorbit.tech</a> or call <a href="tel:+15104769126" style={{ color: '#2563eb', fontWeight: 600 }}>+1 (510) 476-9126</a>.
+              If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at: <a href="mailto:info@qorbittech.com" style={{ color: '#2563eb', fontWeight: 600 }}>info@qorbittech.com</a> or call <a href="tel:+15104769126" style={{ color: '#2563eb', fontWeight: 600 }}>+1 (510) 476-9126</a>.
             </p>
           </div>
         </div>

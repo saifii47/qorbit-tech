@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './BookOrbitShowcase.css';
 
@@ -17,10 +17,22 @@ const servicesData = [
   { id: 12, title: 'Digital Marketing & SEO', img: '/assets/images/coverflow/seo-marketing.jpg', link: '/seo' },
 ];
 
+const mobileServices = [
+  { id: 1, title: 'Branding & Logo Design', img: '/assets/images/coverflow/branding.jpg', link: '/logo-design', num: '01' },
+  { id: 2, title: 'UI/UX Design', img: '/assets/images/coverflow/ui-ux.jpg', link: '/services', num: '02' },
+  { id: 3, title: 'Website Design & Dev', img: '/assets/images/coverflow/web-design.jpg', link: '/web-design-development', num: '03' },
+  { id: 4, title: 'Mobile App Development', img: '/assets/images/coverflow/mobile-app.jpg', link: '/mobile-app', num: '04' },
+  { id: 5, title: 'E-Commerce Development', img: '/assets/images/coverflow/ecommerce.jpg', link: '/services', num: '05' },
+  { id: 6, title: 'Digital Marketing & SEO', img: '/assets/images/coverflow/seo-marketing.jpg', link: '/seo', num: '06' },
+];
+
 const BookOrbitShowcase = () => {
   const orbitRef = useRef(null);
   const ringRef = useRef(null);
+  const mobileTrackRef = useRef(null);
+  const [activeMobileIdx, setActiveMobileIdx] = useState(0);
 
+  // Desktop Orbit 3D physics loop (Untouched on Desktop)
   useEffect(() => {
     const orbit = orbitRef.current;
     if (!orbit) return;
@@ -173,6 +185,37 @@ const BookOrbitShowcase = () => {
     };
   }, []);
 
+  // Track finger scroll to update active indicator
+  const handleMobileScroll = (e) => {
+    const track = e.currentTarget;
+    const cardWidth = 270; // card width + gap
+    const scrollLeft = track.scrollLeft;
+    const newIdx = Math.round(scrollLeft / cardWidth);
+    if (newIdx >= 0 && newIdx < mobileServices.length && newIdx !== activeMobileIdx) {
+      setActiveMobileIdx(newIdx);
+    }
+  };
+
+  const scrollToSlide = (idx) => {
+    if (!mobileTrackRef.current) return;
+    const cardWidth = 270;
+    mobileTrackRef.current.scrollTo({
+      left: idx * cardWidth,
+      behavior: 'smooth',
+    });
+    setActiveMobileIdx(idx);
+  };
+
+  const nextMobileSlide = () => {
+    const nextIdx = (activeMobileIdx + 1) % mobileServices.length;
+    scrollToSlide(nextIdx);
+  };
+
+  const prevMobileSlide = () => {
+    const prevIdx = (activeMobileIdx - 1 + mobileServices.length) % mobileServices.length;
+    scrollToSlide(prevIdx);
+  };
+
   return (
     <section className="qorbit-orbit-section">
       {/* Ambient Background Grid & Floating Aurora Glows */}
@@ -199,8 +242,8 @@ const BookOrbitShowcase = () => {
         </div>
       </div>
 
-      {/* 3D Service Ring Showcase */}
-      <div className="showcase-section" id="showcase">
+      {/* Desktop 3D Orbit Showcase (UNTOUCHED on Desktop) */}
+      <div className="showcase-section desktop-3d-orbit-wrapper" id="showcase">
         <div className="container">
           <div className="showcase-shell" data-aos="fade-up">
             <div
@@ -212,11 +255,11 @@ const BookOrbitShowcase = () => {
             >
               <div className="orbit-floor"></div>
               <div className="book-ring" id="bookRing" ref={ringRef}>
-                {servicesData.map((item) => (
+                {servicesData.map((item, idx) => (
                   <Link
                     to={item.link}
                     className="orbit-book"
-                    key={item.id}
+                    key={`${item.id}-${idx}`}
                     title={`Explore ${item.title}`}
                   >
                     <div className="book-shell">
@@ -227,7 +270,7 @@ const BookOrbitShowcase = () => {
               </div>
             </div>
 
-            {/* Interaction Badges */}
+            {/* Interaction Badges (Desktop) */}
             <div className="orbit-caption">
               <span>
                 <i className="bi bi-cursor"></i> Hold and drag
@@ -236,7 +279,7 @@ const BookOrbitShowcase = () => {
                 <i className="bi bi-mouse"></i> Wheel to rotate
               </span>
               <span>
-                <i className="bi bi-phone"></i> Swipe on mobile
+                <i className="bi bi-phone"></i> Drag to explore
               </span>
             </div>
 
@@ -247,6 +290,85 @@ const BookOrbitShowcase = () => {
                 <i className="bi bi-arrow-right"></i>
               </Link>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile-Exclusive Pure 3D Coverflow Finger-Scrollable Showcase */}
+      <div className="mobile-showcase-slider-wrapper">
+        <div className="mobile-coverflow-track-container" ref={mobileTrackRef} onScroll={handleMobileScroll}>
+          {mobileServices.map((service, idx) => {
+            const isActive = idx === activeMobileIdx;
+            return (
+              <Link
+                to={service.link}
+                key={service.id}
+                className={`mobile-coverflow-card ${isActive ? 'is-active' : ''}`}
+                title={service.title}
+              >
+                <div className="mobile-coverflow-inner">
+                  <img src={service.img} alt={service.title} loading="lazy" />
+                  
+                  {/* Floating Top Number Badge */}
+                  <div className="mobile-card-num-badge">
+                    <span>{service.num}</span>
+                  </div>
+
+                  {/* Bottom Hover/Action Glow Pill */}
+                  <div className="mobile-card-explore-pill">
+                    <span>Explore Service</span>
+                    <i className="fas fa-arrow-right"></i>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Mobile Navigation Controls (Prev / Dots / Next) */}
+        <div className="mobile-showcase-bottom-bar">
+          <div className="mobile-slider-controls">
+            <button
+              type="button"
+              className="mobile-ctrl-btn"
+              onClick={prevMobileSlide}
+              aria-label="Previous Service"
+            >
+              <i className="fas fa-arrow-left"></i>
+            </button>
+
+            <div className="mobile-dots-indicator">
+              {mobileServices.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={`mobile-dot ${i === activeMobileIdx ? 'active' : ''}`}
+                  onClick={() => scrollToSlide(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="mobile-ctrl-btn"
+              onClick={nextMobileSlide}
+              aria-label="Next Service"
+            >
+              <i className="fas fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <div className="mobile-swipe-hint">
+            <i className="fas fa-fingerprint"></i> Drag & swipe with finger to explore
+          </div>
+
+          {/* View All Services Button */}
+          <div className="cta-btn-box mobile-cta-box">
+            <Link to="/services" className="btn-qorbit">
+              <span>View All Services</span>
+              <i className="fas fa-arrow-right"></i>
+            </Link>
           </div>
         </div>
       </div>

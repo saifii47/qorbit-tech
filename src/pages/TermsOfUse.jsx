@@ -65,7 +65,7 @@ const TermsOfUse = () => {
 
             <h3 style={{ color: '#2563eb', fontSize: '1.3rem', marginTop: '30px', marginBottom: '15px', fontWeight: 700 }}>5. Contact Information</h3>
             <p>
-              For legal inquiries or clarifications regarding these terms, please contact our administrative team at <a href="mailto:info@qorbit.tech" style={{ color: '#2563eb', fontWeight: 600 }}>info@qorbit.tech</a>.
+              For legal inquiries or clarifications regarding these terms, please contact our administrative team at <a href="mailto:info@qorbittech.com" style={{ color: '#2563eb', fontWeight: 600 }}>info@qorbittech.com</a>.
             </p>
           </div>
         </div>

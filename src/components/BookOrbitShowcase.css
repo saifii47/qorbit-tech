@@ -125,7 +125,7 @@
 }
 
 .intro-strip h2 {
-  font-family: "Poppins", "Inter", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 42px;
   font-weight: 800;
   line-height: 1.15;
@@ -347,73 +347,232 @@
   }
 }
 
+/* Mobile-Exclusive Clean Slider Showcase Styles */
+.mobile-showcase-slider-wrapper {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .qorbit-orbit-section {
-    padding: 60px 0 70px 0;
+
+  /* 1. Hide Colliding 3D Orbit on Mobile */
+  .desktop-3d-orbit-wrapper {
+    display: none !important;
   }
 
-  .book-orbit {
-    height: 400px;
-    perspective: 1200px;
+  /* 2. Show 3D Finger-Scrollable Coverflow on Mobile */
+  .mobile-showcase-slider-wrapper {
+    display: block !important;
+    padding: 10px 0 20px;
+    position: relative;
+    z-index: 10;
+    width: 100%;
     overflow: hidden;
   }
 
-  .orbit-book {
-    width: 170px;
-    height: 235px;
-    margin-left: -85px;
-    margin-top: -118px;
-  }
-
-  .orbit-caption {
-    gap: 10px;
-  }
-
-  .orbit-caption span {
-    font-size: 12px;
-    padding: 8px 14px;
+  .qorbit-orbit-section {
+    padding: 55px 0 55px 0;
+    background: #ffffff !important;
   }
 
   .intro-strip h2 {
-    font-size: clamp(1.5rem, 5vw, 1.8rem);
-    line-height: 1.25;
-    word-break: break-word;
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    line-height: 1.2;
+    color: #0f172a !important;
   }
 
   .intro-strip p {
-    font-size: 14px;
-    padding: 0 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .qorbit-orbit-section {
-    padding: 45px 0 50px 0;
+    font-size: 14.5px;
+    padding: 0 10px;
+    color: #475569 !important;
   }
 
-  .book-orbit {
-    height: 350px;
+  /* Smooth Finger-Touch Scroll Track */
+  .mobile-coverflow-track-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 18px;
+    padding: 20px 24px 30px;
+    scrollbar-width: none;
+    align-items: center;
+  }
+
+  .mobile-coverflow-track-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 3D Coverflow Card */
+  .mobile-coverflow-card {
+    flex: 0 0 260px;
+    height: 360px;
+    scroll-snap-align: center;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    border-radius: 20px;
     perspective: 1000px;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    user-select: none;
   }
 
-  .orbit-book {
-    width: 150px;
-    height: 210px;
-    margin-left: -75px;
-    margin-top: -105px;
+  .mobile-coverflow-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #050510;
+    border: 1.5px solid rgba(37, 99, 235, 0.4);
+    box-shadow: 0 16px 40px rgba(30, 64, 175, 0.6), 0 4px 20px rgba(109, 40, 217, 0.5);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .book-shell::before {
-    left: -14px;
-    width: 16px;
+  .mobile-coverflow-card.is-active .mobile-coverflow-inner {
+    border-color: rgba(59, 130, 246, 0.95);
+    box-shadow: 0 20px 50px rgba(30, 64, 175, 0.75), 0 0 35px rgba(109, 40, 217, 0.65);
+    transform: scale(1.03);
   }
 
-  .intro-strip h2 {
-    font-size: 1.5rem;
+  .mobile-coverflow-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 19px;
   }
 
-  .orbit-caption span {
-    font-size: 11px;
-    padding: 6px 12px;
+  /* Floating Number Badge */
+  .mobile-card-num-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(13, 20, 50, 0.85);
+    border: 1px solid rgba(37, 99, 235, 0.6);
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    padding: 5px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+
+  /* Bottom Explore Button Pill */
+  .mobile-card-explore-pill {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(124, 58, 237, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    padding: 10px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    z-index: 2;
+    transition: all 0.25s ease;
+  }
+
+  /* Bottom Navigation Controls */
+  .mobile-showcase-bottom-bar {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+
+  .mobile-ctrl-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1.5px solid rgba(37, 99, 235, 0.3);
+    color: #2563eb;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
+    transition: all 0.2s ease;
+  }
+
+  .mobile-ctrl-btn:active {
+    transform: scale(0.92);
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #ffffff;
+    border-color: transparent;
+  }
+
+  .mobile-dots-indicator {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .mobile-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.18);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-dot.active {
+    width: 24px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+  }
+
+  .mobile-swipe-hint {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #64748b;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mobile-swipe-hint i {
+    color: #3b82f6;
+  }
+
+  .mobile-cta-box {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .mobile-cta-box .btn-qorbit {
+    width: 100%;
+    justify-content: center;
   }
 }

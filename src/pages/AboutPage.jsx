@@ -95,7 +95,7 @@ const AboutPage = () => {
                   }}>
                     {step.num}
                   </div>
-                  <h4 style={{ fontSize: '1.2rem', color: '#ffffff', marginBottom: '12px', fontFamily: 'Poppins,sans-serif', fontWeight: 600 }}>{step.title}</h4>
+                  <h4 style={{ fontSize: '1.2rem', color: '#ffffff', marginBottom: '12px', fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>{step.title}</h4>
                   <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.95rem', lineHeight: '1.7' }}>{step.desc}</p>
                 </div>
               </div>

@@ -334,7 +334,8 @@ const Hero = ({ onOpenModal }) => {
           zIndex: 1,
           fontSize: 'clamp(120px, 16vw, 240px)',
           lineHeight: 1,
-          fontFamily: 'Bebas Neue, sans-serif',
+          fontFamily: 'Outfit, sans-serif',
+          fontWeight: 900,
           color: 'transparent',
           WebkitTextStroke: '1px rgba(37, 99, 235, 0.08)',
           whiteSpace: 'nowrap',
@@ -352,9 +353,10 @@ const Hero = ({ onOpenModal }) => {
         <div className="row align-items-center" style={{ minHeight: '620px' }}>
           
           {/* Left Column: Headline, Description, CTAs, Micro-stats */}
-          <div className="col-lg-7 col-md-12 text-start mb-5 mb-lg-0">
+          <div className="col-lg-7 col-md-12 text-start mb-5 mb-lg-0 hero-content-col">
             {/* Live Interactive Innovation Badge */}
             <div
+              className="hero-badge-wrap"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -396,8 +398,9 @@ const Hero = ({ onOpenModal }) => {
 
             {/* Main Headline */}
             <h1
+              className="hero-main-title"
               style={{
-                fontSize: 'clamp(36px, 4.4vw, 56px)',
+                fontSize: 'clamp(32px, 4.4vw, 56px)',
                 lineHeight: '1.14',
                 fontWeight: 900,
                 color: '#ffffff',
@@ -427,6 +430,7 @@ const Hero = ({ onOpenModal }) => {
 
             {/* Subtitle */}
             <p
+              className="hero-subtext"
               style={{
                 fontSize: '16.5px',
                 fontWeight: 400,
@@ -465,9 +469,10 @@ const Hero = ({ onOpenModal }) => {
                   color: '#ffffff',
                   padding: '15px 34px',
                   borderRadius: '12px',
-                  fontFamily: 'Bebas Neue, sans-serif',
-                  fontSize: '20px',
-                  letterSpacing: '0.08em',
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '16px',
+                  letterSpacing: '0.04em',
                   textDecoration: 'none',
                   boxShadow: '0 6px 30px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255,255,255,0.3)',
                   border: 'none',
@@ -493,9 +498,10 @@ const Hero = ({ onOpenModal }) => {
                   color: '#ffffff',
                   padding: '15px 32px',
                   borderRadius: '12px',
-                  fontFamily: 'Bebas Neue, sans-serif',
-                  fontSize: '20px',
-                  letterSpacing: '0.08em',
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 600,
+                  fontSize: '16px',
+                  letterSpacing: '0.04em',
                   textDecoration: 'none',
                   backdropFilter: 'blur(12px)',
                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
@@ -509,6 +515,7 @@ const Hero = ({ onOpenModal }) => {
 
             {/* Micro-Stats Counter Row */}
             <div
+              className="hero-stats-row"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, auto)',
@@ -535,12 +542,12 @@ const Hero = ({ onOpenModal }) => {
                   <div
                     style={{
                       fontSize: 'clamp(26px, 3vw, 32px)',
-                      fontFamily: 'Bebas Neue, sans-serif',
+                      fontFamily: 'Outfit, sans-serif',
                       background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
-                      fontWeight: 700,
+                      fontWeight: 800,
                       lineHeight: 1,
                       letterSpacing: '0.04em',
                       display: 'flex',
@@ -599,11 +606,39 @@ const Hero = ({ onOpenModal }) => {
             padding-top: 110px !important;
             padding-bottom: 60px !important;
           }
+          .hero-content-col {
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            margin-bottom: 30px !important;
+          }
+          .hero-badge-wrap {
+            margin-inline: auto !important;
+          }
+          .hero-main-title {
+            text-align: center !important;
+          }
+          .hero-subtext {
+            text-align: center !important;
+            margin-inline: auto !important;
+          }
           .hero-buttons-wrapper {
-            justify-content: flex-start !important;
+            justify-content: center !important;
+            width: 100% !important;
+          }
+          .hero-stats-row {
+            margin-inline: auto !important;
+            justify-content: center !important;
           }
           .stat-card {
-            text-align: left;
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          .stat-card > div {
+            justify-content: center !important;
           }
         }
       `}</style>

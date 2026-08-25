@@ -6,7 +6,7 @@ const inputStyle = {
   background: 'rgba(255,255,255,0.06)',
   border: '1px solid rgba(255,255,255,0.12)',
   borderRadius: '8px', color: '#ffffff',
-  fontSize: '14px', fontFamily: 'Poppins, sans-serif',
+  fontSize: '14px', fontFamily: 'Outfit, sans-serif',
   outline: 'none', transition: 'border-color 0.3s ease',
 };
 
@@ -52,6 +52,7 @@ const PopupForm = ({ isOpen, onClose }) => {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '20px',
+        fontFamily: 'Outfit, sans-serif',
       }}
       onClick={onClose}
     >
@@ -66,6 +67,7 @@ const PopupForm = ({ isOpen, onClose }) => {
           backdropFilter: 'blur(24px)',
           boxShadow: '0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(37,99,235,0.1)',
           animation: 'popupIn 0.3s cubic-bezier(0.34,1.56,0.64,1)',
+          fontFamily: 'Outfit, sans-serif',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -108,10 +110,10 @@ const PopupForm = ({ isOpen, onClose }) => {
           }}>
             <i className="fas fa-rocket" style={{ color: '#3b82f6', fontSize: '22px' }} />
           </div>
-          <h2 style={{ color: '#ffffff', fontSize: '24px', fontFamily: 'Poppins,sans-serif', fontWeight: 700, marginBottom: '8px' }}>
+          <h2 style={{ color: '#ffffff', fontSize: '24px', fontFamily: 'Outfit, sans-serif', fontWeight: 800, marginBottom: '8px' }}>
             Get an Amazing Offer
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '14px', lineHeight: 1.6 }}>
+          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '14px', lineHeight: 1.6, fontFamily: 'Outfit, sans-serif' }}>
             Fill out the form and an expert will reach out shortly!
           </p>
         </div>
@@ -174,7 +176,7 @@ const PopupForm = ({ isOpen, onClose }) => {
               background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
               border: 'none', borderRadius: '10px',
               color: '#ffffff', fontSize: '16px',
-              fontFamily: 'Bebas Neue, sans-serif', letterSpacing: '0.1em',
+              fontFamily: 'Outfit, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
               cursor: 'pointer',
               boxShadow: '0 4px 20px rgba(37,99,235,0.4)',
               transition: 'all 0.3s ease',

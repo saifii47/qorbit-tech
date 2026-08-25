@@ -9,7 +9,7 @@ const Contact = () => {
     Swal.fire({
       icon: 'success',
       title: 'Thank You!',
-      text: 'Your message has been sent. We will get back to you shortly.',
+      text: 'Your message has been sent to info@qorbittech.com. We will get back to you shortly.',
       confirmButtonColor: '#2563eb',
     });
     setForm({ name: '', phone: '', email: '' });
@@ -35,16 +35,15 @@ const Contact = () => {
         <div className="row" data-aos="fade-up" data-aos-duration="1500">
           <div className="col-md-6 col-lg-4">
             <div className="hdstyle_01" style={{ marginBottom: '35px' }}>
-              <h6 style={{ color: '#2563eb', fontFamily: 'Poppins,sans-serif', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>Contact Us</h6>
-              <h3 style={{ color: '#ffffff', fontSize: '40px' }}>
+              <h6 style={{ color: '#2563eb', fontFamily: 'Outfit, sans-serif', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>Contact Us</h6>
+              <h3 style={{ color: '#ffffff', fontSize: '40px', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>
                 Let&apos;s Work <span style={{ color: '#2563eb' }}>Together!</span>
               </h3>
             </div>
             <div className="contactlist">
               {[
-                { icon: 'fas fa-map-marker-alt', label: 'Office Address:', text: '123 E San Carlos St San Jose, CA 95112', href: null },
                 { icon: 'fas fa-phone-alt', label: 'Phone number:', text: '+ 1 (510) 476-9126', href: 'tel:+15104769126' },
-                { icon: 'fas fa-envelope', label: 'Mail Address:', text: 'info@qorbit.tech', href: 'mailto:info@qorbit.tech' },
+                { icon: 'fas fa-envelope', label: 'Mail Address:', text: 'info@qorbittech.com', href: 'mailto:info@qorbittech.com' },
               ].map((item) => (
                 <div key={item.label} className="listing_info" style={{ marginBottom: '28px', display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
                   <div style={{
@@ -58,10 +57,10 @@ const Contact = () => {
                     <i className={item.icon} style={{ color: '#ffffff', fontSize: '22px' }} />
                   </div>
                   <div>
-                    <h5 style={{ color: '#ffffff', fontSize: '20px', marginBottom: '4px' }}>{item.label}</h5>
+                    <h5 style={{ color: '#ffffff', fontSize: '20px', marginBottom: '4px', fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>{item.label}</h5>
                     {item.href
-                      ? <a href={item.href} style={{ color: 'rgba(255,255,255,0.6)', fontSize: '15px' }}>{item.text}</a>
-                      : <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '15px' }}>{item.text}</p>
+                      ? <a href={item.href} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '15px', fontFamily: 'Outfit, sans-serif' }}>{item.text}</a>
+                      : <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '15px', fontFamily: 'Outfit, sans-serif' }}>{item.text}</p>
                     }
                   </div>
                 </div>
@@ -81,8 +80,8 @@ const Contact = () => {
               boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
             }}>
               <div className="ct-contact-meta" style={{ textAlign: 'center', marginBottom: '28px' }}>
-                <h4 style={{ color: '#ffffff', fontSize: '28px', marginBottom: '8px' }}>Contact us</h4>
-                <div style={{ color: 'rgba(255,255,255,0.55)', fontSize: '15px', lineHeight: 1.6 }}>
+                <h4 style={{ color: '#ffffff', fontSize: '28px', marginBottom: '8px', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>Contact us</h4>
+                <div style={{ color: 'rgba(255,255,255,0.65)', fontSize: '15px', lineHeight: 1.6, fontFamily: 'Outfit, sans-serif' }}>
                   We work with ambitious leaders who want to define the future, not hide from it.
                 </div>
               </div>
@@ -107,7 +106,7 @@ const Contact = () => {
                               border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px',
                               color: '#ffffff', fontSize: '15px', padding: '0 16px',
                               outline: 'none', transition: 'border-color 0.3s',
-                              fontFamily: 'Poppins,sans-serif',
+                              fontFamily: 'Outfit, sans-serif',
                             }}
                             onFocus={(e) => e.target.style.borderColor = 'rgba(56,189,248,0.6)'}
                             onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
@@ -122,8 +121,8 @@ const Contact = () => {
                           width: '100%', height: '52px',
                           background: 'linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8)',
                           border: 'none', borderRadius: '8px', color: '#ffffff',
-                          fontSize: '16px', fontFamily: 'Bebas Neue,sans-serif',
-                          letterSpacing: '0.08em', cursor: 'pointer',
+                          fontSize: '16px', fontFamily: 'Outfit, sans-serif', fontWeight: 700,
+                          letterSpacing: '0.04em', cursor: 'pointer',
                           boxShadow: '0 4px 20px rgba(37,99,235,0.45)',
                           transition: 'all 0.3s ease',
                         }}

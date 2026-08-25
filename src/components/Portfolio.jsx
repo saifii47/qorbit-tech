@@ -77,7 +77,7 @@ const Portfolio = () => {
           top: '25px',
           left: '50%',
           transform: 'translateX(-50%)',
-          fontFamily: 'Bebas Neue, sans-serif',
+          fontFamily: 'Outfit, sans-serif',
           fontSize: 'clamp(90px, 16vw, 200px)',
           fontWeight: 900,
           letterSpacing: '10px',
@@ -108,9 +108,20 @@ const Portfolio = () => {
                     key={tab.target}
                     data-targetit={tab.target}
                     className={active === tab.target ? 'active' : ''}
-                    onClick={() => setActive(tab.target)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActive(tab.target);
+                    }}
                   >
-                    <a href="#" onClick={(e) => e.preventDefault()} title="">
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setActive(tab.target);
+                      }}
+                      title={tab.label}
+                    >
                       {tab.label}
                     </a>
                   </li>
@@ -122,6 +133,7 @@ const Portfolio = () => {
                 <div
                   key={boxId}
                   className={`${boxId}${active === boxId ? ' showfirst' : ''} porfolio-dv`}
+                  style={{ display: active === boxId ? 'block' : 'none' }}
                 >
                   {items.map((item, i) => (
                     <div
@@ -134,7 +146,7 @@ const Portfolio = () => {
                       {item.type === 'img' ? (
                         <img src={item.src} alt={item.title || 'Portfolio item'} loading="lazy" />
                       ) : (
-                        <video width="360" height={item.height || 213} controls className="videoplay">
+                        <video width="360" height={item.height || 213} controls playsInline className="videoplay">
                           <source src={item.src} type="video/mp4" />
                         </video>
                       )}
@@ -220,7 +232,7 @@ const Portfolio = () => {
                 <source src={lightboxItem.src} type="video/mp4" />
               </video>
             )}
-            <div style={{ padding: '15px 20px', background: 'rgba(37,99,235,0.1)', color: '#ffffff', borderTop: '1px solid rgba(37,99,235,0.2)', textAlign: 'center', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
+            <div style={{ padding: '15px 20px', background: 'rgba(37,99,235,0.1)', color: '#ffffff', borderTop: '1px solid rgba(37,99,235,0.2)', textAlign: 'center', fontWeight: 600, fontFamily: 'Outfit, sans-serif' }}>
               {lightboxItem.title}
             </div>
           </div>
