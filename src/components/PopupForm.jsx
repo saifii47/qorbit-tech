@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import { sendWeb3FormsSubmission } from '../config/web3forms';
 
 const inputStyle = {
   width: '100%', height: '44px', padding: '0 14px',
@@ -11,7 +12,8 @@ const inputStyle = {
 };
 
 const PopupForm = ({ isOpen, onClose }) => {
-  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', phone: '', message: '', botcheck: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
@@ -27,18 +29,60 @@ const PopupForm = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onClose();
-    Swal.fire({
-      icon: 'success',
-      title: 'Thank You!',
-      text: 'An expert will contact you shortly.',
-      confirmButtonColor: '#2563eb',
-      background: '#0d1432',
-      color: '#ffffff',
-    });
-    setForm({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    const fullName = `${form.firstName} ${form.lastName}`.trim();
+
+    try {
+      const res = await sendWeb3FormsSubmission({
+        name: fullName || 'Website Visitor',
+        first_name: form.firstName,
+        last_name: form.lastName,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        subject: `New Offer / Quote Request from ${fullName || form.email} - Qorbit Tech`,
+        from_name: 'Qorbit Tech Popup Quote Lead',
+        botcheck: form.botcheck,
+      });
+
+      if (res.success) {
+        onClose();
+        Swal.fire({
+          icon: 'success',
+          title: 'Thank You!',
+          text: 'Your request has been delivered directly to info@qorbittech.com. An expert will contact you shortly.',
+          confirmButtonColor: '#2563eb',
+          background: '#0d1432',
+          color: '#ffffff',
+        });
+        setForm({ firstName: '', lastName: '', email: '', phone: '', message: '', botcheck: '' });
+      } else {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Submission Notice',
+          text: res.message || 'There was an issue sending your message. Please try again or email us at info@qorbittech.com.',
+          confirmButtonColor: '#2563eb',
+          background: '#0d1432',
+          color: '#ffffff',
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Something went wrong while connecting to the mail service. Please contact info@qorbittech.com.',
+        confirmButtonColor: '#2563eb',
+        background: '#0d1432',
+        color: '#ffffff',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -120,6 +164,17 @@ const PopupForm = ({ isOpen, onClose }) => {
 
         {/* Form */}
         <form onSubmit={handleSubmit}>
+          {/* Honeypot field for bot protection */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            checked={form.botcheck === true}
+            onChange={(e) => setForm({ ...form, botcheck: e.target.checked ? 'true' : '' })}
+            style={{ display: 'none' }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
             <input
               type="text" placeholder="First Name" required
@@ -171,20 +226,43 @@ const PopupForm = ({ isOpen, onClose }) => {
           />
           <button
             type="submit"
+            disabled={isSubmitting}
             style={{
               width: '100%', height: '52px',
-              background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+              background: isSubmitting
+                ? 'rgba(37,99,235,0.5)'
+                : 'linear-gradient(135deg, #2563eb, #7c3aed)',
               border: 'none', borderRadius: '10px',
               color: '#ffffff', fontSize: '16px',
               fontFamily: 'Outfit, sans-serif', fontWeight: 700, letterSpacing: '0.04em',
-              cursor: 'pointer',
+              cursor: isSubmitting ? 'not-allowed' : 'pointer',
               boxShadow: '0 4px 20px rgba(37,99,235,0.4)',
               transition: 'all 0.3s ease',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px'
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(37,99,235,0.6)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(37,99,235,0.4)'; }}
+            onMouseEnter={(e) => {
+              if (!isSubmitting) {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 30px rgba(37,99,235,0.6)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isSubmitting) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(37,99,235,0.4)';
+              }
+            }}
           >
-            Get In Touch Now →
+            {isSubmitting ? (
+              <>
+                <i className="fas fa-spinner fa-spin" style={{ fontSize: '18px' }} />
+                <span>Sending Request...</span>
+              </>
+            ) : (
+              <>
+                <span>Get In Touch Now →</span>
+              </>
+            )}
           </button>
         </form>
 

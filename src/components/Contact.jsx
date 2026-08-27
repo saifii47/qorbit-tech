@@ -1,18 +1,59 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { sendWeb3FormsSubmission } from '../config/web3forms';
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', phone: '', email: '' });
+  const [form, setForm] = useState({ name: '', phone: '', email: '', botcheck: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    Swal.fire({
-      icon: 'success',
-      title: 'Thank You!',
-      text: 'Your message has been sent to info@qorbittech.com. We will get back to you shortly.',
-      confirmButtonColor: '#2563eb',
-    });
-    setForm({ name: '', phone: '', email: '' });
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const res = await sendWeb3FormsSubmission({
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        subject: `New Contact Inquiry from ${form.name} - Qorbit Tech`,
+        from_name: 'Qorbit Tech Website Lead',
+        botcheck: form.botcheck,
+      });
+
+      if (res.success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Thank You!',
+          text: 'Your message has been sent directly to info@qorbittech.com. We will get back to you shortly.',
+          confirmButtonColor: '#2563eb',
+          background: '#0d1432',
+          color: '#ffffff',
+        });
+        setForm({ name: '', phone: '', email: '', botcheck: '' });
+      } else {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Submission Notice',
+          text: res.message || 'There was an issue sending your message. Please try again or email us directly at info@qorbittech.com.',
+          confirmButtonColor: '#2563eb',
+          background: '#0d1432',
+          color: '#ffffff',
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Something went wrong while connecting to the mail service. Please contact info@qorbittech.com.',
+        confirmButtonColor: '#2563eb',
+        background: '#0d1432',
+        color: '#ffffff',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -87,11 +128,22 @@ const Contact = () => {
               </div>
               <div className="ct-contact-form-mm">
                 <form className="leadForm" onSubmit={handleSubmit}>
+                  {/* Honeypot field for bot protection */}
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    checked={form.botcheck === true}
+                    onChange={(e) => setForm({ ...form, botcheck: e.target.checked ? 'true' : '' })}
+                    style={{ display: 'none' }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
                   <div className="row">
                     <div className="col-md-12">
                       {[{ label: 'Name *', type: 'text', name: 'name', placeholder: 'Write Name ...' },
-                        { label: 'Mobile number *', type: 'text', name: 'phone', placeholder: '+1 (___) __ ____' },
-                        { label: 'Email address *', type: 'email', name: 'email', placeholder: 'email@gmail.com' },
+                      { label: 'Mobile number *', type: 'text', name: 'phone', placeholder: '+1 (___) __ ____' },
+                      { label: 'Email address *', type: 'email', name: 'email', placeholder: 'email@gmail.com' },
                       ].map((field) => (
                         <div key={field.name} style={{ marginBottom: '14px', position: 'relative' }}>
                           <input
@@ -117,19 +169,42 @@ const Contact = () => {
                     <div className="col-md-12" style={{ marginTop: '8px' }}>
                       <button
                         type="submit"
+                        disabled={isSubmitting}
                         style={{
                           width: '100%', height: '52px',
-                          background: 'linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8)',
+                          background: isSubmitting
+                            ? 'rgba(37,99,235,0.5)'
+                            : 'linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8)',
                           border: 'none', borderRadius: '8px', color: '#ffffff',
                           fontSize: '16px', fontFamily: 'Outfit, sans-serif', fontWeight: 700,
-                          letterSpacing: '0.04em', cursor: 'pointer',
+                          letterSpacing: '0.04em', cursor: isSubmitting ? 'not-allowed' : 'pointer',
                           boxShadow: '0 4px 20px rgba(37,99,235,0.45)',
                           transition: 'all 0.3s ease',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px'
                         }}
-                        onMouseEnter={(e) => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 8px 30px rgba(56,189,248,0.6)'; }}
-                        onMouseLeave={(e) => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 4px 20px rgba(37,99,235,0.45)'; }}
+                        onMouseEnter={(e) => {
+                          if (!isSubmitting) {
+                            e.currentTarget.style.transform = 'translateY(-2px)';
+                            e.currentTarget.style.boxShadow = '0 8px 30px rgba(56,189,248,0.6)';
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isSubmitting) {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = '0 4px 20px rgba(37,99,235,0.45)';
+                          }
+                        }}
                       >
-                        Let&apos;s Get to Work →
+                        {isSubmitting ? (
+                          <>
+                            <i className="fas fa-spinner fa-spin" style={{ fontSize: '18px' }} />
+                            <span>Sending Message...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Let&apos;s Get to Work →</span>
+                          </>
+                        )}
                       </button>
                     </div>
                   </div>
