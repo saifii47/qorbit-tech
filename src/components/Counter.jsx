@@ -7,28 +7,35 @@ const StatItem = ({ end, suffix, label, dark, icon }) => {
   const started = useRef(false);
 
   useEffect(() => {
+    let rafId;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
           const target = end;
           const startTime = performance.now();
-          const duration = 2000;
+          const duration = 1500;
 
           const step = (now) => {
             const progress = Math.min((now - startTime) / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
             setCount(Math.floor(eased * target));
-            if (progress < 1) requestAnimationFrame(step);
-            else setCount(target);
+            if (progress < 1) {
+              rafId = requestAnimationFrame(step);
+            } else {
+              setCount(target);
+            }
           };
-          requestAnimationFrame(step);
+          rafId = requestAnimationFrame(step);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
     if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [end]);
 
   return (

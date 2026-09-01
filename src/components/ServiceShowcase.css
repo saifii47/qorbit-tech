@@ -804,6 +804,17 @@ footer {
 
   .graffiti-watermark-text {
     font-size: 7rem;
+    animation: none !important;
+  }
+
+  .floating-graffiti-shape,
+  .shape-1,
+  .shape-2,
+  .icon-accent-1,
+  .icon-accent-2 {
+    animation: none !important;
+    filter: blur(15px) !important;
+    opacity: 0.1 !important;
   }
 
   .footer-curved-arch-box {
