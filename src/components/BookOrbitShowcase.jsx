@@ -185,15 +185,23 @@ const BookOrbitShowcase = () => {
     };
   }, []);
 
-  // Track finger scroll to update active indicator
+  // Track finger scroll to update active indicator (RAF-throttled to avoid scroll stutter)
+  const scrollTicking = useRef(false);
   const handleMobileScroll = (e) => {
+    if (scrollTicking.current) return;
+    scrollTicking.current = true;
     const track = e.currentTarget;
-    const cardWidth = 270; // card width + gap
-    const scrollLeft = track.scrollLeft;
-    const newIdx = Math.round(scrollLeft / cardWidth);
-    if (newIdx >= 0 && newIdx < mobileServices.length && newIdx !== activeMobileIdx) {
-      setActiveMobileIdx(newIdx);
-    }
+    requestAnimationFrame(() => {
+      if (track) {
+        const cardWidth = 270;
+        const scrollLeft = track.scrollLeft;
+        const newIdx = Math.round(scrollLeft / cardWidth);
+        if (newIdx >= 0 && newIdx < mobileServices.length && newIdx !== activeMobileIdx) {
+          setActiveMobileIdx(newIdx);
+        }
+      }
+      scrollTicking.current = false;
+    });
   };
 
   const scrollToSlide = (idx) => {

@@ -26,12 +26,12 @@ const desktopSettings = {
 const mobileSettings = {
   dots: true,
   infinite: true,
-  speed: 500,
+  speed: 400,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: true,
-  autoplay: true,
-  autoplaySpeed: 4500,
+  autoplay: false,
+  touchThreshold: 10,
   pauseOnHover: true,
 };
 

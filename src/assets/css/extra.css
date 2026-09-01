@@ -1321,3 +1321,90 @@ header.fixed.sticky {
     width: 100% !important;
   }
 }
+
+/* ============================================================
+   Mobile Ultra-Smooth 60FPS Performance (<=768px screens)
+   Desktop view remains 100% untouched and intact
+   ============================================================ */
+@media (max-width: 768px) {
+  html, body {
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 1. Eliminate heavy mask-image re-rasterization during mobile scrolling */
+  .orbit-tech-grid,
+  .counter-tech-grid,
+  .testimonials-tech-grid,
+  .founders-section::before,
+  .portfolio_main::before {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    opacity: 0.35 !important;
+  }
+
+  /* 2. Stop heavy infinite blur animations on mobile GPU */
+  .orbit-glow-1,
+  .orbit-glow-2,
+  .orbit-bg-ring,
+  .orbit-bg-ring-2,
+  .testimonials-glow-1,
+  .testimonials-glow-2,
+  .counter-glow-1,
+  .counter-glow-2,
+  .founders-section::after,
+  .portfolio_main::after,
+  .founder-avatar-ring {
+    animation: none !important;
+    transform: none !important;
+    filter: blur(20px) !important;
+    opacity: 0.45 !important;
+  }
+
+  /* 3. Remove expensive backdrop-filters during mobile scrolling */
+  header.fixed.sticky,
+  .itemscount,
+  .hero-badge-wrap,
+  .hero-secondary-btn,
+  .mobile-card-num-badge,
+  .mobile-card-explore-pill,
+  .dropdown-menu,
+  .orbit-caption span {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  header.fixed.sticky {
+    background: rgba(5, 5, 16, 0.96) !important;
+  }
+
+  .itemscount {
+    background: rgba(13, 20, 50, 0.9) !important;
+    padding: 35px 20px !important;
+    border-radius: 18px !important;
+  }
+
+  .counter-slider-wrapper {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    padding: 0 10px !important;
+  }
+
+  .stat-slide-item {
+    padding: 10px 6px !important;
+    outline: none !important;
+  }
+
+  /* 4. Touch acceleration */
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .slick-slider,
+  .slick-list,
+  .slick-track {
+    touch-action: pan-y !important;
+  }
+}

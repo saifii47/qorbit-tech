@@ -278,8 +278,9 @@ const Hero = ({ onOpenModal }) => {
         />
       </div>
 
-      {/* 2. Dynamic Cursor Spotlight Light Beam */}
+      {/* 2. Dynamic Cursor Spotlight Light Beam (Desktop only) */}
       <div
+        className="d-none d-md-block"
         style={{
           position: 'absolute',
           top: 0,
@@ -296,8 +297,9 @@ const Hero = ({ onOpenModal }) => {
         }}
       />
 
-      {/* 3. Cybernetic Ambient Grid */}
+      {/* 3. Cybernetic Ambient Grid (Desktop only) */}
       <div
+        className="d-none d-md-block"
         style={{
           position: 'absolute',
           inset: 0,

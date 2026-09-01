@@ -129,31 +129,28 @@ const Portfolio = () => {
               </ul>
             </div>
             <div className="col-md-8">
-              {Object.entries(boxes).map(([boxId, items]) => (
-                <div
-                  key={boxId}
-                  className={`${boxId}${active === boxId ? ' showfirst' : ''} porfolio-dv`}
-                  style={{ display: active === boxId ? 'block' : 'none' }}
-                >
-                  {items.map((item, i) => (
-                    <div
-                      className="items"
-                      key={i}
-                      data-cursor-label="PREVIEW"
-                      onClick={() => setLightboxItem(item)}
-                      style={{ cursor: 'pointer', position: 'relative' }}
-                    >
-                      {item.type === 'img' ? (
-                        <img src={item.src} alt={item.title || 'Portfolio item'} loading="lazy" />
-                      ) : (
-                        <video width="360" height={item.height || 213} controls playsInline className="videoplay">
-                          <source src={item.src} type="video/mp4" />
-                        </video>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
+              <div
+                className={`${active} showfirst porfolio-dv`}
+                style={{ display: 'block' }}
+              >
+                {(boxes[active] || []).map((item, i) => (
+                  <div
+                    className="items"
+                    key={`${active}-${i}`}
+                    data-cursor-label="PREVIEW"
+                    onClick={() => setLightboxItem(item)}
+                    style={{ cursor: 'pointer', position: 'relative' }}
+                  >
+                    {item.type === 'img' ? (
+                      <img src={item.src} alt={item.title || 'Portfolio item'} loading="lazy" decoding="async" />
+                    ) : (
+                      <video width="360" height={item.height || 213} controls playsInline preload="none" className="videoplay">
+                        <source src={item.src} type="video/mp4" />
+                      </video>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
