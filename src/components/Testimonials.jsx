@@ -65,7 +65,7 @@ const Testimonials = () => {
               <div key={i} className="testimonial-slide-wrapper">
                 <div className="item--inner">
                   <div className="item--image">
-                    <img src={t.img} alt={t.name} />
+                    <img src={t.img} alt={t.name} loading="lazy" decoding="async" />
                     <i className="item--icon fa fa-quote-right"></i>
                   </div>
                   <div className="item--star">

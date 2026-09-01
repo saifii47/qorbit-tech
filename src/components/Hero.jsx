@@ -250,6 +250,8 @@ const Hero = ({ onOpenModal }) => {
         <img
           src={heroBannerImg}
           alt="QOrbit Tech Visionary Digital Architect Background"
+          fetchPriority="high"
+          decoding="async"
           style={{
             position: 'absolute',
             top: 0,
@@ -351,7 +353,7 @@ const Hero = ({ onOpenModal }) => {
       {/* 6. Main Container Content */}
       <div className="container" style={{ position: 'relative', zIndex: 4 }}>
         <div className="row align-items-center" style={{ minHeight: '620px' }}>
-          
+
           {/* Left Column: Headline, Description, CTAs, Micro-stats */}
           <div className="col-lg-7 col-md-12 text-start mb-5 mb-lg-0 hero-content-col">
             {/* Live Interactive Innovation Badge */}

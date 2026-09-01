@@ -79,6 +79,8 @@ const MeetTheFounders = ({ onOpenModal }) => {
                       src={founder.image} 
                       alt={`Founder ${founder.name}`} 
                       className={`founder-avatar-img ${founder.imgClass}`} 
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>

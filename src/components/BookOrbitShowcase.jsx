@@ -308,7 +308,7 @@ const BookOrbitShowcase = () => {
               >
                 <div className="mobile-coverflow-inner">
                   <img src={service.img} alt={service.title} loading="lazy" />
-                  
+
                   {/* Floating Top Number Badge */}
                   <div className="mobile-card-num-badge">
                     <span>{service.num}</span>

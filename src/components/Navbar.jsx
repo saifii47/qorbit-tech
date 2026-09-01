@@ -21,8 +21,17 @@ const Navbar = ({ onOpenModal }) => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setSticky(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setSticky(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

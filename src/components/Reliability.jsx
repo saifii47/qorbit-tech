@@ -105,7 +105,7 @@ const Reliability = () => {
           {items.map((item, i) => (
             <div key={i} className="grid-item-inner">
               <div className="item--featured">
-                <img src={item.image} alt={item.tag} loading="lazy" />
+                <img src={item.image} alt={item.tag} loading="lazy" decoding="async" />
               </div>
               <div className="item--shape item--shape3"><Shape3 /></div>
               <div className="item--shape item--shape4"><Shape4 /></div>

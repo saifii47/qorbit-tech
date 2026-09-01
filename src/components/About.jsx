@@ -111,6 +111,8 @@ const About = ({ onOpenModal }) => {
                   src={`${ASSETS.cdn}/light-bulb-1.png`}
                   className="img-main attachment-full"
                   alt="Light bulb off"
+                  loading="lazy"
+                  decoding="async"
                   style={{ opacity: isLit ? 0 : undefined }}
                 />
                 <img
@@ -119,6 +121,8 @@ const About = ({ onOpenModal }) => {
                   src={`${ASSETS.cdn}/light-bulb-2.png`}
                   className="img-hover attachment-full"
                   alt="Light bulb on"
+                  loading="lazy"
+                  decoding="async"
                   style={{ opacity: isLit ? 1 : undefined }}
                 />
               </div>
