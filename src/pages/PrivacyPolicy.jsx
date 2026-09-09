@@ -14,27 +14,70 @@ const PrivacyPolicy = () => {
 
       {/* Inner Banner */}
       <section
-        className="inner-banner"
+        className="inner-banner inner_bann"
         style={{
-          background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
-          padding: '160px 0 80px',
+          background: 'radial-gradient(ellipse at 50% 20%, #0d1b3e 0%, #080820 60%, #03030c 100%)',
+          padding: '170px 0 90px',
           color: '#ffffff',
-          borderBottom: '1px solid #e2e8f0',
+          borderBottom: '1px solid rgba(37,99,235,0.2)',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        <div className="container text-center">
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px', color: '#ffffff' }}>
-            Privacy <span className="themecolor" style={{ color: '#2563eb' }}>Policy</span>
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: 'radial-gradient(rgba(37,99,235,0.15) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+            opacity: 0.5,
+            pointerEvents: 'none',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            top: '30%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '600px',
+            height: '300px',
+            background: 'radial-gradient(circle, rgba(37,99,235,0.25) 0%, transparent 70%)',
+            filter: 'blur(50px)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
+          <h1
+            style={{
+              fontSize: '3.2rem',
+              fontWeight: 800,
+              textTransform: 'uppercase',
+              marginBottom: '15px',
+              color: '#ffffff',
+              letterSpacing: '1px',
+              textShadow: '0 4px 25px rgba(0,0,0,0.8)',
+            }}
+          >
+            Privacy <span className="themecolor" style={{ color: '#3b82f6', textShadow: 'none' }}>Policy</span>
           </h1>
-          <div style={{ fontSize: '0.95rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#2563eb', fontWeight: 600 }}>
-            Home &nbsp;/&nbsp; Legal &nbsp;/&nbsp; <span style={{ color: '#ffffff' }}>Privacy Policy</span>
+          <div
+            style={{
+              fontSize: '0.95rem',
+              letterSpacing: '1px',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.7)',
+              fontWeight: 600,
+            }}
+          >
+            Home &nbsp;/&nbsp; Legal &nbsp;/&nbsp; <span style={{ color: '#3b82f6' }}>Privacy Policy</span>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: '80px 0', background: 'linear-gradient(180deg, #080820 0%, #050510 100%)', color: 'rgba(255,255,255,0.6)', lineHeight: '1.8' }}>
+      <section style={{ padding: '80px 0', background: 'linear-gradient(180deg, #080820 0%, #03030c 100%)', color: 'rgba(255,255,255,0.75)', lineHeight: '1.8' }}>
         <div className="container" style={{ maxWidth: '900px' }}>
-          <div style={{ background: 'rgba(13,20,50,0.6)', padding: '40px', borderRadius: '12px', border: '1px solid rgba(37,99,235,0.12)', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
+          <div style={{ background: 'rgba(13,20,50,0.7)', padding: '45px', borderRadius: '16px', border: '1px solid rgba(37,99,235,0.2)', boxShadow: '0 10px 35px rgba(0,0,0,0.4)', backdropFilter: 'blur(10px)' }}>
             <h2 style={{ color: '#ffffff', fontSize: '1.8rem', marginBottom: '20px' }}>Qorbit Tech Privacy Policy</h2>
             <p style={{ marginBottom: '20px' }}>
               Effective Date: January 1, {new Date().getFullYear()}

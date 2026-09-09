@@ -32,7 +32,9 @@ function App() {
         <Route path="/nft-services" element={<ServiceDetailPage serviceKey="nft-services" />} />
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/order/privacy" element={<PrivacyPolicy />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/order/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

@@ -63,11 +63,6 @@ const Footer = ({ onOpenModal }) => (
                 <li><i className="fas fa-phone-alt"></i><a href="tel:+15104769126">+ 1 (510) 476-9126</a></li>
                 <li><i className="fas fa-envelope"></i><a href="mailto:info@qorbittech.com">info@qorbittech.com</a></li>
               </ul>
-              <ul className="socialicons">
-                <li><a href="https://www.facebook.com/qorbittech" target="_blank" rel="noreferrer" title="Facebook"><i className="fab fa-facebook-f"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/qorbittech" target="_blank" rel="noreferrer" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a></li>
-                <li><a href="https://www.trustpilot.com/review/qorbit.tech" target="_blank" rel="noreferrer" title="Trustpilot"><i className="fab fa-x-twitter"></i></a></li>
-              </ul>
             </div>
           </div>
         </div>
