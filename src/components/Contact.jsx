@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Swal from 'sweetalert2';
 import { sendWeb3FormsSubmission } from '../config/web3forms';
+import ReCaptchaModal from './ReCaptchaModal';
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', botcheck: '' });
+  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '', botcheck: '' });
+  const [showCaptcha, setShowCaptcha] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef(null);
 
-  const handleSubmit = async (e) => {
+  // Triggered when user clicks "Let's Get to Work →"
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     if (isSubmitting) return;
 
+    if (!formRef.current?.checkValidity()) {
+      formRef.current?.reportValidity();
+      return;
+    }
+
+    // Open reCAPTCHA modal for verification
+    setShowCaptcha(true);
+  };
+
+  // Triggered when reCAPTCHA is verified in modal
+  const handleCaptchaVerify = async (token) => {
+    setShowCaptcha(false);
     setIsSubmitting(true);
 
     try {
@@ -17,6 +33,8 @@ const Contact = () => {
         name: form.name,
         phone: form.phone,
         email: form.email,
+        message: form.message,
+        recaptcha_token: token,
         subject: `New Contact Inquiry from ${form.name} - Qorbit Tech`,
         from_name: 'Qorbit Tech Website Lead',
         botcheck: form.botcheck,
@@ -31,7 +49,7 @@ const Contact = () => {
           background: '#0d1432',
           color: '#ffffff',
         });
-        setForm({ name: '', phone: '', email: '', botcheck: '' });
+        setForm({ name: '', phone: '', email: '', message: '', botcheck: '' });
       } else {
         Swal.fire({
           icon: 'warning',
@@ -127,7 +145,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="ct-contact-form-mm">
-                <form className="leadForm" onSubmit={handleSubmit}>
+                <form ref={formRef} className="leadForm" onSubmit={handleFormSubmit}>
                   {/* Honeypot field for bot protection */}
                   <input
                     type="checkbox"
@@ -165,6 +183,27 @@ const Contact = () => {
                           />
                         </div>
                       ))}
+
+                      {/* Message Textarea */}
+                      <div style={{ marginBottom: '14px', position: 'relative' }}>
+                        <textarea
+                          name="message"
+                          placeholder="Your Message *"
+                          required
+                          rows={4}
+                          value={form.message}
+                          onChange={(e) => setForm({ ...form, message: e.target.value })}
+                          style={{
+                            width: '100%', minHeight: '110px', background: 'rgba(255,255,255,0.05)',
+                            border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px',
+                            color: '#ffffff', fontSize: '15px', padding: '14px 16px',
+                            outline: 'none', transition: 'border-color 0.3s',
+                            fontFamily: 'Outfit, sans-serif', resize: 'vertical',
+                          }}
+                          onFocus={(e) => e.target.style.borderColor = 'rgba(56,189,248,0.6)'}
+                          onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
+                        />
+                      </div>
                     </div>
                     <div className="col-md-12" style={{ marginTop: '8px' }}>
                       <button
@@ -214,6 +253,15 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Security Verification Modal */}
+      <ReCaptchaModal
+        isOpen={showCaptcha}
+        onClose={() => setShowCaptcha(false)}
+        onVerify={handleCaptchaVerify}
+        title="Security Verification"
+        subtitle="Please check the box below to verify you are human before sending your message."
+      />
     </section>
   );
 };

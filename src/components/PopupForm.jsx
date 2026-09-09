@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Swal from 'sweetalert2';
 import { sendWeb3FormsSubmission } from '../config/web3forms';
+import ReCaptchaModal from './ReCaptchaModal';
 
 const inputStyle = {
   width: '100%', height: '44px', padding: '0 14px',
@@ -13,10 +14,12 @@ const inputStyle = {
 
 const PopupForm = ({ isOpen, onClose }) => {
   const [form, setForm] = useState({ firstName: '', lastName: '', email: '', phone: '', message: '', botcheck: '' });
+  const [showCaptcha, setShowCaptcha] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef(null);
 
   useEffect(() => {
-    const handleKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
+    const handleKeyDown = (e) => { if (e.key === 'Escape') handleClose(); };
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
@@ -27,12 +30,28 @@ const PopupForm = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
+  const handleClose = () => {
+    setShowCaptcha(false);
+    onClose();
+  };
+
   if (!isOpen) return null;
 
-  const handleSubmit = async (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     if (isSubmitting) return;
 
+    if (!formRef.current?.checkValidity()) {
+      formRef.current?.reportValidity();
+      return;
+    }
+
+    // Open reCAPTCHA modal for verification
+    setShowCaptcha(true);
+  };
+
+  const handleCaptchaVerify = async (token) => {
+    setShowCaptcha(false);
     setIsSubmitting(true);
 
     const fullName = `${form.firstName} ${form.lastName}`.trim();
@@ -45,13 +64,14 @@ const PopupForm = ({ isOpen, onClose }) => {
         email: form.email,
         phone: form.phone,
         message: form.message,
+        recaptcha_token: token,
         subject: `New Offer / Quote Request from ${fullName || form.email} - Qorbit Tech`,
         from_name: 'Qorbit Tech Popup Quote Lead',
         botcheck: form.botcheck,
       });
 
       if (res.success) {
-        onClose();
+        handleClose();
         Swal.fire({
           icon: 'success',
           title: 'Thank You!',
@@ -98,7 +118,7 @@ const PopupForm = ({ isOpen, onClose }) => {
         padding: '20px',
         fontFamily: 'Outfit, sans-serif',
       }}
-      onClick={onClose}
+      onClick={handleClose}
     >
       <div
         style={{
@@ -117,7 +137,7 @@ const PopupForm = ({ isOpen, onClose }) => {
       >
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={handleClose}
           style={{
             position: 'absolute', top: '16px', right: '16px',
             width: '36px', height: '36px',
@@ -163,7 +183,7 @@ const PopupForm = ({ isOpen, onClose }) => {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit}>
+        <form ref={formRef} onSubmit={handleFormSubmit}>
           {/* Honeypot field for bot protection */}
           <input
             type="checkbox"
@@ -212,13 +232,13 @@ const PopupForm = ({ isOpen, onClose }) => {
             />
           </div>
           <textarea
-            placeholder="Tell us about your project..."
+            placeholder="Tell us about your project / Message..."
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             rows={3}
             style={{
               ...inputStyle, height: 'auto', padding: '12px 14px',
-              resize: 'none', width: '100%', marginBottom: '16px',
+              resize: 'none', width: '100%', marginBottom: '18px',
               display: 'block',
             }}
             onFocus={(e) => e.target.style.borderColor = 'rgba(37,99,235,0.6)'}
@@ -265,6 +285,15 @@ const PopupForm = ({ isOpen, onClose }) => {
             )}
           </button>
         </form>
+
+        {/* Security Verification Modal */}
+        <ReCaptchaModal
+          isOpen={showCaptcha}
+          onClose={() => setShowCaptcha(false)}
+          onVerify={handleCaptchaVerify}
+          title="Security Verification"
+          subtitle="Please verify you are human before sending your request."
+        />
 
         <style>{`
           @keyframes popupIn {

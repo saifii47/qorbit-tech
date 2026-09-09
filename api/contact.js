@@ -19,11 +19,32 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, first_name, last_name, email, phone, message, subject, botcheck } = req.body || {};
+    const { name, first_name, last_name, email, phone, message, subject, botcheck, recaptcha_token } = req.body || {};
 
     // Spam honeypot
     if (botcheck) {
       return res.status(200).json({ success: true, message: 'Message sent!' });
+    }
+
+    // Optional reCAPTCHA verification if custom secret key is provided
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (recaptchaSecret && recaptchaSecret !== '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe') {
+      if (!recaptcha_token) {
+        return res.status(400).json({ success: false, message: 'reCAPTCHA verification token missing.' });
+      }
+      try {
+        const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: `secret=${encodeURIComponent(recaptchaSecret)}&response=${encodeURIComponent(recaptcha_token)}`,
+        });
+        const verifyData = await verifyRes.json();
+        if (!verifyData.success) {
+          return res.status(400).json({ success: false, message: 'reCAPTCHA verification failed. Please try again.' });
+        }
+      } catch (err) {
+        console.warn('reCAPTCHA siteverify error:', err);
+      }
     }
 
     const senderName = (name || `${first_name || ''} ${last_name || ''}`).trim() || 'Website Visitor';
